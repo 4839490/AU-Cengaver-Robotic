@@ -1,0 +1,144 @@
+"""
+Ackermann Kinematik Model
+========================
+İç ve dış tekerlek açılarını bağımsız olarak hesaplar.
+Slip olmadan geometrik olarak doğru dönüş sağlar.
+"""
+
+import math
+from dataclasses import dataclass
+
+
+@dataclass
+class AckermannParams:
+    """BEE1 araç geometri parametreleri."""
+    wheelbase: float = 2.40      # L: ön-arka dingil arası mesafe (metre) — Tragger T-Car: 2400mm
+    track_width: float = 1.03    # W: ön iz genişliği (metre) — Tragger T-Car: 1030mm
+    max_steer_angle: float = 0.567  # maks direksiyon açısı (radyan, ~30 derece) — arazide ölç!
+    min_turn_radius: float = 2.0   # minimum dönüş yarıçapı (metre) — wheelbase büyüdü, güncellendi
+
+
+@dataclass
+class AckermannOutput:
+    """Hesaplanan tekerlek açıları."""
+    delta_inner: float   # iç tekerlek açısı (radyan)
+    delta_outer: float   # dış tekerlek açısı (radyan)
+    turn_radius: float   # anlık dönüş yarıçapı (metre)
+    is_turning_left: bool
+
+
+class AckermannKinematic:
+    """
+    Ackermann kinematik modeli.
+
+    Kullanım:
+        model = AckermannKinematic()
+        output = model.compute(delta=0.3)  # 0.3 rad direksiyon komutu
+        print(output.delta_inner, output.delta_outer)
+    """
+
+    def __init__(self, params: AckermannParams = None):
+        self.params = params or AckermannParams()
+
+    def compute(self, delta: float) -> AckermannOutput:
+        """
+        Ortalama direksiyon açısından iç/dış tekerlek açılarını hesapla.
+
+        Args:
+            delta: İstenen direksiyon açısı (radyan).
+                   Pozitif = sola dönüş, Negatif = sağa dönüş.
+
+        Returns:
+            AckermannOutput: iç tekerlek, dış tekerlek açıları ve dönüş yarıçapı.
+        """
+        p = self.params
+
+        # Açıyı sınırla
+        delta = max(-p.max_steer_angle, min(p.max_steer_angle, delta))
+
+        # Düz gidiş — sıfıra bölünmeden kaçın
+        if abs(delta) < 1e-6:
+            return AckermannOutput(
+                delta_inner=0.0,
+                delta_outer=0.0,
+                turn_radius=float('inf'),
+                is_turning_left=True
+            )
+
+        is_left = delta > 0
+        abs_delta = abs(delta)
+
+        # Dönüş yarıçapını hesapla: R = L / tan(δ)
+        turn_radius = p.wheelbase / math.tan(abs_delta)
+        turn_radius = max(turn_radius, p.min_turn_radius)  # minimum yarıçap kısıtı
+
+        # İç tekerlek (daha küçük yay): R - W/2
+        # Dış tekerlek (daha büyük yay): R + W/2
+        r_inner = turn_radius - p.track_width / 2.0
+        r_outer = turn_radius + p.track_width / 2.0
+
+        # Açıları geri hesapla: δ = arctan(L / R)
+        delta_inner = math.atan2(p.wheelbase, r_inner)
+        delta_outer = math.atan2(p.wheelbase, r_outer)
+
+        # Yön işaretini uygula
+        sign = 1.0 if is_left else -1.0
+
+        return AckermannOutput(
+            delta_inner=sign * delta_inner,
+            delta_outer=sign * delta_outer,
+            turn_radius=turn_radius,
+            is_turning_left=is_left
+        )
+
+    def delta_to_can_bytes(self, delta: float, offset: int = 0x80) -> tuple[int, int]:
+        """
+        Direksiyon açısını CAN-Bus byte değerlerine dönüştür.
+
+        Args:
+            delta: Direksiyon açısı (radyan)
+            offset: Merkez offset (varsayılan 0x80 = 128)
+
+        Returns:
+            (inner_byte, outer_byte): 0x00–0xFF arasında byte değerleri
+        """
+        output = self.compute(delta)
+        p = self.params
+
+        def angle_to_byte(angle: float) -> int:
+            # Normalize: [-max_angle, +max_angle] → [0x00, 0xFF]
+            normalized = angle / p.max_steer_angle  # [-1.0, +1.0]
+            raw = int(offset + normalized * (0xFF - offset))
+            return max(0x00, min(0xFF, raw))
+
+        inner_byte = angle_to_byte(output.delta_inner)
+        outer_byte = angle_to_byte(output.delta_outer)
+
+        return inner_byte, outer_byte
+
+
+# ─── Test ───────────────────────────────────────────────────────────────────
+if __name__ == "__main__":
+    model = AckermannKinematic()
+
+    print("=" * 55)
+    print(f"{'Açı (°)':>10} {'R (m)':>8} {'İç (°)':>8} {'Dış (°)':>8}")
+    print("-" * 55)
+
+    for deg in [-25, -15, -5, 0, 5, 15, 25]:
+        rad = math.radians(deg)
+        out = model.compute(rad)
+        if math.isinf(out.turn_radius):
+            r_str = "    ∞"
+        else:
+            r_str = f"{out.turn_radius:8.2f}"
+        print(f"{deg:>10} {r_str} "
+              f"{math.degrees(out.delta_inner):>8.2f} "
+              f"{math.degrees(out.delta_outer):>8.2f}")
+
+    print()
+    print("CAN byte örnekleri:")
+    for deg in [-20, 0, 20]:
+        rad = math.radians(deg)
+        inner, outer = model.delta_to_can_bytes(rad)
+        print(f"  δ={deg:>4}° → inner=0x{inner:02X}, outer=0x{outer:02X}")
