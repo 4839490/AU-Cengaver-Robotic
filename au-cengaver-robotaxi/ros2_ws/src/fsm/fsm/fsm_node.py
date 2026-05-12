@@ -270,6 +270,9 @@ class FSMNode(Node):
     def cb_planner_durum(self, msg):
         if msg.status == PlanningStatus.EMERGENCY:
             self.get_logger().error("Planner EMERGENCY!")
+            # Önce modu değiştir — controller STOP_APPROACH'ı görür ve frenlemeye geçer
+            self.mode_mgr.mod_degistir(AutonomyMode.STOP_APPROACH, "PLANNER_EMERGENCY")
+            # Sonra event gönder — planner da haberdar olsun
             self.event_hdlr.emergency_stop("PLANNER_EMERGENCY")
 
 
