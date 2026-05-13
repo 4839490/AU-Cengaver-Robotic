@@ -6,35 +6,35 @@
 
 #IncludeRegexTransform: 
 
-/opt/ros/foxy/include/rosidl_runtime_c/visibility_control.h
-
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/_autonomy_mode_s.c
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/_autonomy_mode_s.c
 Python.h
 -
 stdbool.h
 -
 numpy/ndarrayobject.h
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/numpy/ndarrayobject.h
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/numpy/ndarrayobject.h
 rosidl_runtime_c/visibility_control.h
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/rosidl_runtime_c/visibility_control.h
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/rosidl_runtime_c/visibility_control.h
 common_msgs/msg/detail/autonomy_mode__struct.h
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/common_msgs/msg/detail/autonomy_mode__struct.h
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/common_msgs/msg/detail/autonomy_mode__struct.h
 common_msgs/msg/detail/autonomy_mode__functions.h
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/common_msgs/msg/detail/autonomy_mode__functions.h
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/common_msgs/msg/detail/autonomy_mode__functions.h
 
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/_stop_reason_s.c
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/_stop_reason_s.c
 Python.h
 -
 stdbool.h
 -
 numpy/ndarrayobject.h
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/numpy/ndarrayobject.h
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/numpy/ndarrayobject.h
 rosidl_runtime_c/visibility_control.h
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/rosidl_runtime_c/visibility_control.h
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/rosidl_runtime_c/visibility_control.h
 common_msgs/msg/detail/stop_reason__struct.h
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/common_msgs/msg/detail/stop_reason__struct.h
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/common_msgs/msg/detail/stop_reason__struct.h
 common_msgs/msg/detail/stop_reason__functions.h
-/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/common_msgs/msg/detail/stop_reason__functions.h
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs/msg/common_msgs/msg/detail/stop_reason__functions.h
+
+/opt/ros/foxy/include/rosidl_runtime_c/visibility_control.h
 
 /usr/include/python3.8/Python.h
 patchlevel.h

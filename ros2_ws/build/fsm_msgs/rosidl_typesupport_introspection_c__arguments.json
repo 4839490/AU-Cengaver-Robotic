@@ -1,11 +1,11 @@
 {
   "package_name": "fsm_msgs",
-  "output_dir": "/ros2_ws/build/fsm_msgs/rosidl_typesupport_introspection_c/fsm_msgs",
+  "output_dir": "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/fsm_msgs/rosidl_typesupport_introspection_c/fsm_msgs",
   "template_dir": "/opt/ros/foxy/share/rosidl_typesupport_introspection_c/resource",
   "idl_tuples": [
-    "/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs:msg/CurrentMode.idl",
-    "/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs:msg/MissionState.idl",
-    "/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs:msg/FSMEvent.idl"
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs:msg/CurrentMode.idl",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs:msg/MissionState.idl",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs:msg/FSMEvent.idl"
   ],
   "ros_interface_dependencies": [
     "std_msgs:/opt/ros/foxy/share/std_msgs/msg/Bool.idl",
@@ -50,9 +50,9 @@
     "/opt/ros/foxy/share/rosidl_typesupport_introspection_c/resource/msg__type_support.c.em",
     "/opt/ros/foxy/share/rosidl_typesupport_introspection_c/resource/srv__rosidl_typesupport_introspection_c.h.em",
     "/opt/ros/foxy/share/rosidl_typesupport_introspection_c/resource/srv__type_support.c.em",
-    "/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs/msg/CurrentMode.idl",
-    "/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs/msg/MissionState.idl",
-    "/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs/msg/FSMEvent.idl",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs/msg/CurrentMode.idl",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs/msg/MissionState.idl",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/fsm_msgs/rosidl_adapter/fsm_msgs/msg/FSMEvent.idl",
     "/opt/ros/foxy/share/std_msgs/msg/Bool.idl",
     "/opt/ros/foxy/share/std_msgs/msg/Byte.idl",
     "/opt/ros/foxy/share/std_msgs/msg/ByteMultiArray.idl",

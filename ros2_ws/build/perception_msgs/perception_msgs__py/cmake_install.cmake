@@ -1,8 +1,8 @@
-# Install script for directory: /ros2_ws/build/perception_msgs/perception_msgs__py
+# Install script for directory: /home/usame/AU-Cengaver-Robotic/ros2_ws/build/perception_msgs/perception_msgs__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/ros2_ws/install/perception_msgs")
+  set(CMAKE_INSTALL_PREFIX "/home/usame/AU-Cengaver-Robotic/ros2_ws/install/perception_msgs")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

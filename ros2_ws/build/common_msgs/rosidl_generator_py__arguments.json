@@ -1,10 +1,10 @@
 {
   "package_name": "common_msgs",
-  "output_dir": "/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs",
+  "output_dir": "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py/common_msgs",
   "template_dir": "/opt/ros/foxy/share/rosidl_generator_py/cmake/../resource",
   "idl_tuples": [
-    "/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/AutonomyMode.idl",
-    "/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/StopReason.idl"
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/AutonomyMode.idl",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/StopReason.idl"
   ],
   "target_dependencies": [
     "/opt/ros/foxy/share/rosidl_generator_py/cmake/../../../lib/rosidl_generator_py/rosidl_generator_py",
@@ -20,7 +20,7 @@
     "/opt/ros/foxy/share/rosidl_generator_py/cmake/../resource/_msg.py.em",
     "/opt/ros/foxy/share/rosidl_generator_py/cmake/../resource/_srv_pkg_typesupport_entry_point.c.em",
     "/opt/ros/foxy/share/rosidl_generator_py/cmake/../resource/_srv.py.em",
-    "/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs/msg/AutonomyMode.idl",
-    "/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs/msg/StopReason.idl"
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs/msg/AutonomyMode.idl",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs/msg/StopReason.idl"
   ]
 }

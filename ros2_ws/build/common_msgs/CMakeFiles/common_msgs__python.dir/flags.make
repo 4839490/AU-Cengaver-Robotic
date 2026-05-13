@@ -6,5 +6,5 @@ C_FLAGS = -fPIC   -Wall -Wextra
 
 C_DEFINES = -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\"common_msgs\" -Dcommon_msgs__python_EXPORTS
 
-C_INCLUDES = -I/ros2_ws/build/common_msgs/rosidl_generator_c -I/ros2_ws/build/common_msgs/rosidl_generator_py -I/usr/include/python3.8 -I/ros2_ws/build/common_msgs/rosidl_typesupport_c -isystem /opt/ros/foxy/include 
+C_INCLUDES = -I/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_c -I/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_generator_py -I/usr/include/python3.8 -I/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_typesupport_c -isystem /opt/ros/foxy/include 
 

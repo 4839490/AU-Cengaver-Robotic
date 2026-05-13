@@ -1,8 +1,8 @@
 {
   "package_name": "fsm_msgs",
   "non_idl_tuples": [
-    "/ros2_ws/src/fsm_msgs:msg/CurrentMode.msg",
-    "/ros2_ws/src/fsm_msgs:msg/MissionState.msg",
-    "/ros2_ws/src/fsm_msgs:msg/FSMEvent.msg"
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/fsm_msgs:msg/CurrentMode.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/fsm_msgs:msg/MissionState.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/fsm_msgs:msg/FSMEvent.msg"
   ]
 }

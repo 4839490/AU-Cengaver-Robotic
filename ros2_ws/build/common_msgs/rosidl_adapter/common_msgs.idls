@@ -1,2 +1,2 @@
-/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/AutonomyMode.idl
-/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/StopReason.idl
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/AutonomyMode.idl
+/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/StopReason.idl

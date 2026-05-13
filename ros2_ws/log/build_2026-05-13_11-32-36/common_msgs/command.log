@@ -1,1 +1,0 @@
-Invoking command in '/ros2_ws/build/common_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /ros2_ws/src/common_msgs -DCMAKE_INSTALL_PREFIX=/ros2_ws/install/common_msgs

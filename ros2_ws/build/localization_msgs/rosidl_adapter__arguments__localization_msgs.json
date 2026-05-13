@@ -1,11 +1,11 @@
 {
   "package_name": "localization_msgs",
   "non_idl_tuples": [
-    "/ros2_ws/src/localization_msgs:msg/LocalizationPose.msg",
-    "/ros2_ws/src/localization_msgs:msg/LocalizationOdometry.msg",
-    "/ros2_ws/src/localization_msgs:msg/LocalizationStatus.msg",
-    "/ros2_ws/src/localization_msgs:msg/LocalizationDiagnostics.msg",
-    "/ros2_ws/src/localization_msgs:msg/MapOrigin.msg",
-    "/ros2_ws/src/localization_msgs:msg/RawGps.msg"
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/localization_msgs:msg/LocalizationPose.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/localization_msgs:msg/LocalizationOdometry.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/localization_msgs:msg/LocalizationStatus.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/localization_msgs:msg/LocalizationDiagnostics.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/localization_msgs:msg/MapOrigin.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/localization_msgs:msg/RawGps.msg"
   ]
 }

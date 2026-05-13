@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>fake_publishers</name>
+  <version>0.0.1</version>
+  <description>AU Cengaver — Test fake publishers</description>
+  <maintainer email="cengaver@example.com">AU Cengaver</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>common_msgs</depend>
+  <depend>planning_msgs</depend>
+  <depend>localization_msgs</depend>
+  <depend>perception_msgs</depend>
+  <depend>fsm_msgs</depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

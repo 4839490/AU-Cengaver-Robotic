@@ -1,14 +1,14 @@
 {
   "package_name": "planning_msgs",
   "non_idl_tuples": [
-    "/ros2_ws/src/planning_msgs:msg/TrajectoryPoint.msg",
-    "/ros2_ws/src/planning_msgs:msg/Trajectory.msg",
-    "/ros2_ws/src/planning_msgs:msg/TargetSpeed.msg",
-    "/ros2_ws/src/planning_msgs:msg/PlanningStatus.msg",
-    "/ros2_ws/src/planning_msgs:msg/ActiveRouteContext.msg",
-    "/ros2_ws/src/planning_msgs:msg/GoalReached.msg",
-    "/ros2_ws/src/planning_msgs:msg/ParkComplete.msg",
-    "/ros2_ws/src/planning_msgs:msg/ControllerFeedback.msg",
-    "/ros2_ws/src/planning_msgs:msg/FSMRequest.msg"
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs:msg/TrajectoryPoint.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs:msg/Trajectory.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs:msg/TargetSpeed.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs:msg/PlanningStatus.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs:msg/ActiveRouteContext.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs:msg/GoalReached.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs:msg/ParkComplete.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs:msg/ControllerFeedback.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs:msg/FSMRequest.msg"
   ]
 }

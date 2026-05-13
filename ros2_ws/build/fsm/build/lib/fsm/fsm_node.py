@@ -298,7 +298,7 @@ class FSMNode(Node):
         # Watchdog'u besle
         self.watchdog.planner.besle(self.get_clock())
 
-        if msg.status == PlanningStatus.EMERGENCY:
+        if msg.status == PlanningStatus.STATUS_EMERGENCY:
             self.get_logger().error("Planner EMERGENCY!")
             # Önce modu değiştir — controller STOP_APPROACH'ı görür
             self.mode_mgr.transition_to(AutonomyMode.STOP_APPROACH, "PLANNER_EMERGENCY")

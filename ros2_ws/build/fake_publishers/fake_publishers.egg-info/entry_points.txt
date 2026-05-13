@@ -1,0 +1,7 @@
+[console_scripts]
+fake_controller_feedback = fake_publishers.fake_controller_feedback:main
+fake_localization = fake_publishers.fake_localization:main
+fake_perception = fake_publishers.fake_perception:main
+lane_follower = fake_publishers.lane_follower:main
+trajectory_to_cmdvel = fake_publishers.trajectory_to_cmdvel:main
+

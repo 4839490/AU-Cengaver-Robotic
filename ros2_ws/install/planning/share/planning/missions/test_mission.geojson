@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"id": 1, "type": "LANE_FOLLOW"},
+      "geometry": {"type": "Point", "coordinates": [29.508726, 40.789949]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": 2, "type": "LANE_FOLLOW"},
+      "geometry": {"type": "Point", "coordinates": [29.508826, 40.789949]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id": 3, "type": "MISSION_COMPLETE"},
+      "geometry": {"type": "Point", "coordinates": [29.508926, 40.789949]}
+    }
+  ]
+}

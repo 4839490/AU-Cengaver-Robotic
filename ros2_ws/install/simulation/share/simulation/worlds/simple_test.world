@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="simple_test">
+    <light name="sun" type="directional">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <physics name="default_physics" default="0" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision"><geometry><plane><normal>0 0 1</normal></plane></geometry></collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>200 200</size></plane></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="road_main">
+      <static>true</static>
+      <pose>50 0 0.01 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>100 6 0.01</size></box></geometry>
+          <material><ambient>0.12 0.12 0.12 1</ambient><diffuse>0.12 0.12 0.12 1</diffuse></material>
+        </visual>
+        <collision name="col"><geometry><box><size>100 6 0.01</size></box></geometry></collision>
+      </link>
+    </model>
+    <model name="s1"><static>true</static><pose>10 0 0.02 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>3 0.2 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="s2"><static>true</static><pose>20 0 0.02 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>3 0.2 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="s3"><static>true</static><pose>30 0 0.02 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>3 0.2 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="s4"><static>true</static><pose>40 0 0.02 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>3 0.2 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="s5"><static>true</static><pose>60 0 0.02 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>3 0.2 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="s6"><static>true</static><pose>70 0 0.02 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>3 0.2 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="s7"><static>true</static><pose>80 0 0.02 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>3 0.2 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="s8"><static>true</static><pose>90 0 0.02 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>3 0.2 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="yaya1"><static>true</static><pose>50 -1.5 0.02 0 0 1.5707</pose><link name="l"><visual name="v"><geometry><box><size>1 0.4 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="yaya2"><static>true</static><pose>50 -0.5 0.02 0 0 1.5707</pose><link name="l"><visual name="v"><geometry><box><size>1 0.4 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="yaya3"><static>true</static><pose>50 0.5 0.02 0 0 1.5707</pose><link name="l"><visual name="v"><geometry><box><size>1 0.4 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="yaya4"><static>true</static><pose>50 1.5 0.02 0 0 1.5707</pose><link name="l"><visual name="v"><geometry><box><size>1 0.4 0.01</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link></model>
+    <model name="trafik_direk">
+      <static>true</static><pose>45 -4 1.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual"><geometry><cylinder><radius>0.05</radius><length>3</length></cylinder></geometry><material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.3 0.3 0.3 1</diffuse></material></visual>
+        <collision name="col"><geometry><cylinder><radius>0.05</radius><length>3</length></cylinder></geometry></collision>
+      </link>
+    </model>
+    <model name="trafik_kutu">
+      <static>true</static><pose>45 -4 3.3 0 0 0</pose>
+      <link name="link"><visual name="visual"><geometry><box><size>0.3 0.3 0.6</size></box></geometry><material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material></visual></link>
+    </model>
+    <model name="trafik_kirmizi">
+      <static>true</static><pose>45 -4 3.5 0 0 0</pose>
+      <link name="link"><visual name="visual"><geometry><sphere><radius>0.1</radius></sphere></geometry><material><ambient>1 0 0 1</ambient><diffuse>1 0 0 1</diffuse></material></visual></link>
+    </model>
+    <model name="trafik_yesil">
+      <static>true</static><pose>45 -4 3.1 0 0 0</pose>
+      <link name="link"><visual name="visual"><geometry><sphere><radius>0.1</radius></sphere></geometry><material><ambient>0.1 0.3 0.1 1</ambient><diffuse>0.1 0.3 0.1 1</diffuse></material></visual></link>
+    </model>
+    <model name="dur_direk">
+      <static>true</static><pose>43 -4 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual"><geometry><cylinder><radius>0.04</radius><length>2</length></cylinder></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material></visual>
+        <collision name="col"><geometry><cylinder><radius>0.04</radius><length>2</length></cylinder></geometry></collision>
+      </link>
+    </model>
+    <model name="dur_tabela">
+      <static>true</static><pose>43 -4 2.3 0 0 0</pose>
+      <link name="link"><visual name="visual"><geometry><box><size>0.5 0.05 0.5</size></box></geometry><material><ambient>0.9 0.1 0.1 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material></visual></link>
+    </model>
+    <model name="alma_platform">
+      <static>true</static><pose>80 5 0.1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual"><geometry><box><size>4 2 0.2</size></box></geometry><material><ambient>0.2 0.5 0.8 1</ambient><diffuse>0.2 0.5 0.8 1</diffuse></material></visual>
+        <collision name="col"><geometry><box><size>4 2 0.2</size></box></geometry></collision>
+      </link>
+    </model>
+    <model name="alma_levha_direk">
+      <static>true</static><pose>80 4 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual"><geometry><cylinder><radius>0.04</radius><length>2</length></cylinder></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="alma_levha">
+      <static>true</static><pose>80 4 2.3 0 0 0</pose>
+      <link name="link"><visual name="visual"><geometry><box><size>0.5 0.05 0.5</size></box></geometry><material><ambient>0.1 0.7 0.1 1</ambient><diffuse>0.1 0.7 0.1 1</diffuse></material></visual></link>
+    </model>
+    <model name="hiz_direk">
+      <static>true</static><pose>10 -4 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual"><geometry><cylinder><radius>0.04</radius><length>2</length></cylinder></geometry><material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="hiz_tabela">
+      <static>true</static><pose>10 -4 2.3 0 0 0</pose>
+      <link name="link"><visual name="visual"><geometry><cylinder><radius>0.25</radius><length>0.05</length></cylinder></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual></link>
+    </model>
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>-5 -10 8 0 0.6 0.3</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+  </world>
+</sdf>

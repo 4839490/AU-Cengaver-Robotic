@@ -1,7 +1,7 @@
 {
   "package_name": "common_msgs",
   "non_idl_tuples": [
-    "/ros2_ws/src/common_msgs:msg/AutonomyMode.msg",
-    "/ros2_ws/src/common_msgs:msg/StopReason.msg"
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/common_msgs:msg/AutonomyMode.msg",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/common_msgs:msg/StopReason.msg"
   ]
 }

@@ -1,10 +1,10 @@
 {
   "package_name": "common_msgs",
-  "output_dir": "/ros2_ws/build/common_msgs/rosidl_typesupport_introspection_cpp/common_msgs",
+  "output_dir": "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_typesupport_introspection_cpp/common_msgs",
   "template_dir": "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource",
   "idl_tuples": [
-    "/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/AutonomyMode.idl",
-    "/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/StopReason.idl"
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/AutonomyMode.idl",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs:msg/StopReason.idl"
   ],
   "target_dependencies": [
     "/opt/ros/foxy/lib/rosidl_typesupport_introspection_cpp/rosidl_typesupport_introspection_cpp",
@@ -15,7 +15,7 @@
     "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource/msg__type_support.cpp.em",
     "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource/srv__rosidl_typesupport_introspection_cpp.hpp.em",
     "/opt/ros/foxy/share/rosidl_typesupport_introspection_cpp/resource/srv__type_support.cpp.em",
-    "/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs/msg/AutonomyMode.idl",
-    "/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs/msg/StopReason.idl"
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs/msg/AutonomyMode.idl",
+    "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/common_msgs/rosidl_adapter/common_msgs/msg/StopReason.idl"
   ]
 }

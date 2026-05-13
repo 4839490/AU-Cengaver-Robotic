@@ -1,0 +1,213 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				},
+				{
+					"build" : "planning_msgs__py",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/planning_msgs/planning_msgs__py",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "planning_msgs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs-bdfe7bbaccee4959094c.json",
+					"name" : "planning_msgs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__cpp-3d6c903c8720da714e9f.json",
+					"name" : "planning_msgs__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "planning_msgs__py::@23a32eb2fd39142fa7b5",
+					"jsonFile" : "target-planning_msgs__py-8e0af5a5cfe092a7b091.json",
+					"name" : "planning_msgs__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__python::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__python-62f0aa5b0eb847489a0a.json",
+					"name" : "planning_msgs__python",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_generator_c-c4c1d2b7121ef6c56b28.json",
+					"name" : "planning_msgs__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_typesupport_c-e9f4051a967cb84c02c7.json",
+					"name" : "planning_msgs__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_typesupport_c__pyext-cfed56c3256ae6d54543.json",
+					"name" : "planning_msgs__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_typesupport_cpp-0ccc4164e36ec9494646.json",
+					"name" : "planning_msgs__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_typesupport_fastrtps_c-261be5f94df6a4f245d6.json",
+					"name" : "planning_msgs__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_typesupport_fastrtps_c__pyext-e5a6578cccdd722cb75b.json",
+					"name" : "planning_msgs__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_typesupport_fastrtps_cpp-ce18787ecb07204c34d3.json",
+					"name" : "planning_msgs__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_typesupport_introspection_c-e7111b5a6af80a0b57c4.json",
+					"name" : "planning_msgs__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_typesupport_introspection_c__pyext-54e1c47fd7b57c61d959.json",
+					"name" : "planning_msgs__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs__rosidl_typesupport_introspection_cpp-f2d5f92d35ae52d613e3.json",
+					"name" : "planning_msgs__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "planning_msgs_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-planning_msgs_uninstall-18a90822220555f58d0d.json",
+					"name" : "planning_msgs_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-679c8edc41ded0fa2701.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/usame/AU-Cengaver-Robotic/ros2_ws/build/planning_msgs",
+		"source" : "/home/usame/AU-Cengaver-Robotic/ros2_ws/src/planning_msgs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

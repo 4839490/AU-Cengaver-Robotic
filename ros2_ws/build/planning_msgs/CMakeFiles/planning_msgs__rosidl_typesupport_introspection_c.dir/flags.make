@@ -6,5 +6,5 @@ C_FLAGS = -fPIC   -Wall -std=gnu11
 
 C_DEFINES = -DRCUTILS_ENABLE_FAULT_INJECTION -DROS_PACKAGE_NAME=\"planning_msgs\" -Dplanning_msgs__rosidl_typesupport_introspection_c_EXPORTS
 
-C_INCLUDES = -I/ros2_ws/build/planning_msgs/rosidl_generator_c -I/ros2_ws/build/planning_msgs/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include 
+C_INCLUDES = -I/home/usame/AU-Cengaver-Robotic/ros2_ws/build/planning_msgs/rosidl_generator_c -I/home/usame/AU-Cengaver-Robotic/ros2_ws/build/planning_msgs/rosidl_typesupport_introspection_c -isystem /opt/ros/foxy/include 
 
