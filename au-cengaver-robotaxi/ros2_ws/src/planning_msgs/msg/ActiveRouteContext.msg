@@ -1,29 +1,28 @@
 # planning_msgs/ActiveRouteContext.msg
-# =============================================================================
-# Planner → Controller/Perception aktif rota bağlamı
-# Topic: /planning/active_route_context — 10-20Hz — BASE_LINK frame
-#
-# ⚠️ Koordinatlar base_link frame'inde — map frame değil!
-#    target_x/y: aracın önündeki hedef nokta (araç merkezine göre)
-#
-# ego_speed_mps TTC hesabı için zorunludur:
-#   controller_feedback.actual_speed → bu alana kopyalanır
-# =============================================================================
 
 std_msgs/Header header          # frame_id="base_link"
 
-float32 target_x                # Hedef nokta x — base_link frame (m)
-float32 target_y                # Hedef nokta y — base_link frame (m)
-uint8   planner_mode            # Mevcut mod — common_msgs/AutonomyMode
-bool    in_stop_zone            # Dur bölgesinde miyiz?
-float32 ego_speed_mps           # Araç hızı (m/s) — controller_feedback'ten gelir
-bool    route_context_valid     # Bağlam geçerli mi?
-                                # false = algıyı yoksaymak değil, konservatif davran
+uint32  active_waypoint_id
 
-# ⚠️ Bu noktalar BASE_LINK frame'inde — Trajectory.msg'deki MAP frame değil!  ← [DÜZELTİLDİ] yorum eklendi
-# Engel in_path hesabı için planner bu trajectory'yi kullanır (ObstacleTrack.msg'de in_path YOKTUR)
-TrajectoryPoint[] planned_trajectory
+float32 target_x
+float32 target_y
+float32 target_heading
 
-uint32 age_ms                   # Mesajın yaşı (ms)
-uint32 valid_until_ms           # Geçerlilik süresi (ms)
-string[] warning_flags          # Uyarı mesajları
+uint8   planner_mode
+string  route_direction         # STRAIGHT | LEFT | RIGHT | ROUNDABOUT | UNKNOWN
+
+geometry_msgs/Point[] planned_trajectory
+
+float32 lookahead_distance
+
+bool    in_stop_zone
+float32 distance_to_stop_zone
+
+float32 localization_confidence
+float32 ego_speed_mps
+
+bool    route_context_valid
+
+uint32  age_ms
+uint32  valid_until_ms
+string[] warning_flags
