@@ -27,7 +27,7 @@ bool   parking_entry_reached    # Park girişine ulaşıldı mı?
 bool   obstacle_blocking        # Engel yolu bloklıyor mu?
 bool   lane_lost                # Şerit kaybı var mı?
 bool   localization_degraded    # Lokalizasyon zayıf mı?
-uint8  active_waypoint_id       # Şu an hangi waypoint hedefi
+uint32  active_waypoint_id       # Şu an hangi waypoint hedefi
 float32 distance_to_goal        # Hedefe kalan mesafe (m)
 uint8  planner_mode             # Mevcut mod — common_msgs/AutonomyMode
 uint32 age_ms                   # Mesajın yaşı (ms)
