@@ -1,0 +1,12 @@
+msg/LocalizationDiagnostics.idl
+msg/LocalizationDiagnostics.msg
+msg/LocalizationOdometry.idl
+msg/LocalizationOdometry.msg
+msg/LocalizationPose.idl
+msg/LocalizationPose.msg
+msg/LocalizationStatus.idl
+msg/LocalizationStatus.msg
+msg/MapOrigin.idl
+msg/MapOrigin.msg
+msg/RawGps.idl
+msg/RawGps.msg

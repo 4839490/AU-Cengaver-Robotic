@@ -1,0 +1,33 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from localization_msgs/msg/MapOrigin.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module localization_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " localization_msgs/MapOrigin.msg" "\n"
+      " =============================================================================" "\n"
+      " map_origin_publisher → Planner harita referans noktası" "\n"
+      " Topic: /localization/map_origin — TRANSIENT_LOCAL QoS" "\n"
+      "" "\n"
+      " locked=false iken planner waypoint işlemez." "\n"
+      " =============================================================================")
+    struct MapOrigin {
+      std_msgs::msg::Header header;
+
+      double lat_ref;
+
+      double lon_ref;
+
+      double alt_ref;
+
+      double yaw_ref;
+
+      string source;
+
+      boolean locked;
+    };
+  };
+};

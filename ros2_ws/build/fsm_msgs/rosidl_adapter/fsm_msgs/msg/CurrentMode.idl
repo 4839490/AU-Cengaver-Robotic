@@ -1,0 +1,70 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from fsm_msgs/msg/CurrentMode.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module fsm_msgs {
+  module msg {
+    module CurrentMode_Constants {
+      const uint8 LANE_FOLLOW = 0;
+      const uint8 STOP_APPROACH = 1;
+      const uint8 PICKUP_APPROACH = 2;
+      const uint8 DROPOFF_APPROACH = 3;
+      const uint8 OBSTACLE_AVOID = 4;
+      const uint8 PARK_APPROACH = 5;
+      const uint8 PARK_MANEUVER = 6;
+      const uint8 MISSION_COMPLETE = 7;
+      const uint8 STOP_NONE = 0;
+      const uint8 STOP_RED_LIGHT = 1;
+      const uint8 STOP_STOP_SIGN = 2;
+      const uint8 STOP_OBSTACLE_TTC = 3;
+      const uint8 STOP_LOCALIZATION_LOST = 4;
+      const uint8 STOP_STALE_SENSOR = 5;
+      const uint8 STOP_MISSION_ABORT = 6;
+      const uint8 STOP_PEDESTRIAN = 7;
+    };
+    @verbatim (language="comment", text=
+      " fsm_msgs/CurrentMode.msg" "\n"
+      " =============================================================================" "\n"
+      " FSM → Planner / Controller / Perception  |  mevcut mod bilgisi" "\n"
+      " Topic: /fsm/current_mode — 10 Hz  |  valid_until: 500 ms" "\n"
+      " Contract: FSM↔Planner v1.1" "\n"
+      " =============================================================================")
+    struct CurrentMode {
+      @verbatim (language="comment", text=
+        " --- Fields ---")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        " AutonomyMode constant — aktif mod")
+      uint8 mode;
+
+      @verbatim (language="comment", text=
+        " AutonomyMode constant — bir önceki mod")
+      uint8 previous_mode;
+
+      @verbatim (language="comment", text=
+        " mod değişim nedeni (debug): \"RED_LIGHT\", \"OBSTACLE_DETECTED\" vb.")
+      string reason;
+
+      @verbatim (language="comment", text=
+        " STOP_APPROACH modunda geçerli — diğer modlarda STOP_NONE=0")
+      uint8 stop_reason;
+
+      @verbatim (language="comment", text=
+        " aktif GeoJSON nokta ID'si")
+      uint32 waypoint_id;
+
+      uint32 age_ms;
+
+      @verbatim (language="comment", text=
+        " 500 ms")
+      uint32 valid_until_ms;
+
+      @verbatim (language="comment", text=
+        " TRANSITION_FAILED | UNKNOWN_MODE | TIMEOUT")
+      sequence<string> warning_flags;
+    };
+  };
+};

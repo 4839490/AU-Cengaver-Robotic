@@ -1,0 +1,15 @@
+[console_scripts]
+dummy_perception_publishers = perception.dummy_publishers:main
+fake_image_pub = perception.fake_image_pub:main
+fake_lane_image_pub = perception.fake_lane_image_pub:main
+fake_pointcloud_pub = perception.fake_pointcloud_pub:main
+fake_route_context_pub = perception.fake_route_context_pub:main
+fake_traffic_light_state_pub = perception.fake_traffic_light_state_pub:main
+junction_node = perception.junction_node:main
+lane_node = perception.lane_node:main
+lidar_obstacle_node = perception.lidar_obstacle_node:main
+perception_diagnostics_node = perception.perception_diagnostics_node:main
+stop_target_node = perception.stop_target_node:main
+traffic_light_node = perception.traffic_light_node:main
+traffic_sign_node = perception.traffic_sign_node:main
+

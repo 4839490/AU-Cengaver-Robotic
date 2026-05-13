@@ -1,0 +1,33 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from common_msgs/msg/AutonomyMode.msg
+// generated code does not contain a copyright notice
+
+
+module common_msgs {
+  module msg {
+    module AutonomyMode_Constants {
+      const uint8 LANE_FOLLOW = 0;
+      const uint8 STOP_APPROACH = 1;
+      const uint8 PICKUP_APPROACH = 2;
+      const uint8 DROPOFF_APPROACH = 3;
+      const uint8 OBSTACLE_AVOID = 4;
+      const uint8 PARK_APPROACH = 5;
+      const uint8 PARK_MANEUVER = 6;
+      const uint8 MISSION_COMPLETE = 7;
+    };
+    @verbatim (language="comment", text=
+      " common_msgs/AutonomyMode.msg" "\n"
+      " =============================================================================" "\n"
+      " AU Cengaver Robotics — TEKNOFEST 2026" "\n"
+      " TEK MOD ENUM — tüm paketler bunu kullanır" "\n"
+      "" "\n"
+      " ⚠️ PlannerMode.msg ve FSMMode.msg YOKTUR" "\n"
+      " ⚠️ JUNCTION ve TUNNEL mod değildir — TargetSpeed.reason olarak kullanılır" "\n"
+      " =============================================================================")
+    struct AutonomyMode {
+      @verbatim (language="comment", text=
+        " Mevcut mod değeri")
+      uint8 mode;
+    };
+  };
+};

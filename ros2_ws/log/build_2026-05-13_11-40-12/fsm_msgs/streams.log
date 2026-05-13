@@ -1,0 +1,155 @@
+[0.070s] Invoking command in '/ros2_ws/build/fsm_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /ros2_ws/build/fsm_msgs -- -j10 -l10
+[0.421s] [  2%] Built target fsm_msgs__cpp
+[0.464s] [ 12%] Built target fsm_msgs__rosidl_generator_c
+[0.783s] [ 23%] Built target fsm_msgs__rosidl_typesupport_cpp
+[0.847s] [ 34%] Built target fsm_msgs__rosidl_typesupport_fastrtps_cpp
+[0.862s] [ 44%] Built target fsm_msgs__rosidl_typesupport_introspection_cpp
+[0.873s] [ 55%] Built target fsm_msgs__rosidl_typesupport_introspection_c
+[0.888s] [ 65%] Built target fsm_msgs__rosidl_typesupport_c
+[1.025s] [ 76%] Built target fsm_msgs__rosidl_typesupport_fastrtps_c
+[1.149s] [ 76%] Built target fsm_msgs
+[1.287s] [ 78%] Built target fsm_msgs__py
+[1.440s] [ 87%] Built target fsm_msgs__python
+[1.646s] [ 91%] Built target fsm_msgs__rosidl_typesupport_fastrtps_c__pyext
+[1.661s] [ 95%] Built target fsm_msgs__rosidl_typesupport_introspection_c__pyext
+[1.676s] [100%] Built target fsm_msgs__rosidl_typesupport_c__pyext
+[1.749s] Invoked command in '/ros2_ws/build/fsm_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /ros2_ws/build/fsm_msgs -- -j10 -l10
+[3.059s] Invoking command in '/ros2_ws/build/fsm_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /ros2_ws/build/fsm_msgs
+[3.094s] -- Install configuration: ""
+[3.095s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/ament_index/resource_index/rosidl_interfaces/fsm_msgs
+[3.097s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs
+[3.097s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg
+[3.098s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/rosidl_generator_c__visibility_control.h
+[3.098s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/current_mode.h
+[3.099s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/fsm_event.h
+[3.100s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/mission_state.h
+[3.103s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail
+[3.104s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__type_support.h
+[3.104s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__struct.h
+[3.104s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__functions.h
+[3.104s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__functions.c
+[3.104s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__functions.h
+[3.104s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__struct.h
+[3.104s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__type_support.h
+[3.105s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__struct.h
+[3.105s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__type_support.h
+[3.105s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__functions.c
+[3.105s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__functions.h
+[3.105s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__functions.c
+[3.105s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/environment/library_path.sh
+[3.105s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/environment/library_path.dsv
+[3.108s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/libfsm_msgs__rosidl_generator_c.so
+[3.110s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs
+[3.110s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg
+[3.111s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail
+[3.111s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__rosidl_typesupport_fastrtps_c.h
+[3.112s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__rosidl_typesupport_fastrtps_c.h
+[3.113s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__rosidl_typesupport_fastrtps_c.h
+[3.113s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[3.116s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/libfsm_msgs__rosidl_typesupport_fastrtps_c.so
+[3.117s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs
+[3.118s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg
+[3.118s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[3.118s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail
+[3.119s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__rosidl_typesupport_fastrtps_cpp.hpp
+[3.120s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/dds_fastrtps
+[3.120s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__rosidl_typesupport_fastrtps_cpp.hpp
+[3.120s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__rosidl_typesupport_fastrtps_cpp.hpp
+[3.126s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/libfsm_msgs__rosidl_typesupport_fastrtps_cpp.so
+[3.127s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs
+[3.128s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg
+[3.128s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail
+[3.129s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__type_support.c
+[3.130s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__rosidl_typesupport_introspection_c.h
+[3.130s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__rosidl_typesupport_introspection_c.h
+[3.131s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__type_support.c
+[3.131s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__rosidl_typesupport_introspection_c.h
+[3.132s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__type_support.c
+[3.132s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[3.133s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/libfsm_msgs__rosidl_typesupport_introspection_c.so
+[3.135s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/libfsm_msgs__rosidl_typesupport_c.so
+[3.136s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs
+[3.136s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg
+[3.138s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/fsm_event.hpp
+[3.138s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/current_mode.hpp
+[3.138s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/mission_state.hpp
+[3.139s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail
+[3.140s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__type_support.hpp
+[3.140s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__builder.hpp
+[3.141s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__traits.hpp
+[3.141s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__struct.hpp
+[3.142s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__struct.hpp
+[3.142s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__type_support.hpp
+[3.143s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__type_support.hpp
+[3.144s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__traits.hpp
+[3.146s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__builder.hpp
+[3.146s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__struct.hpp
+[3.147s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__builder.hpp
+[3.147s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__traits.hpp
+[3.147s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[3.149s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs
+[3.150s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg
+[3.150s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail
+[3.150s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__rosidl_typesupport_introspection_cpp.hpp
+[3.151s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__type_support.cpp
+[3.152s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/fsm_event__rosidl_typesupport_introspection_cpp.hpp
+[3.152s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/current_mode__type_support.cpp
+[3.153s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__rosidl_typesupport_introspection_cpp.hpp
+[3.153s] -- Up-to-date: /ros2_ws/install/fsm_msgs/include/fsm_msgs/msg/detail/mission_state__type_support.cpp
+[3.153s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/libfsm_msgs__rosidl_typesupport_introspection_cpp.so
+[3.157s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/libfsm_msgs__rosidl_typesupport_cpp.so
+[3.159s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/environment/pythonpath.sh
+[3.162s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/environment/pythonpath.dsv
+[3.162s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/__init__.py
+[3.240s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/msg
+[3.241s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/msg/_current_mode.py
+[3.242s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/msg/_fsm_event.py
+[3.242s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/msg/_mission_state_s.c
+[3.242s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/msg/__init__.py
+[3.243s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/msg/_fsm_event_s.c
+[3.244s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/msg/_mission_state.py
+[3.244s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/msg/_current_mode_s.c
+[3.245s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/fsm_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[3.246s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/fsm_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[3.249s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/python3.8/site-packages/fsm_msgs/fsm_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[3.253s] -- Up-to-date: /ros2_ws/install/fsm_msgs/lib/libfsm_msgs__python.so
+[3.255s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/msg/CurrentMode.idl
+[3.255s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/msg/MissionState.idl
+[3.256s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/msg/FSMEvent.idl
+[3.256s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/msg/CurrentMode.msg
+[3.256s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/msg/MissionState.msg
+[3.257s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/msg/FSMEvent.msg
+[3.257s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/ament_index/resource_index/package_run_dependencies/fsm_msgs
+[3.258s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/ament_index/resource_index/parent_prefix_path/fsm_msgs
+[3.259s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/environment/ament_prefix_path.sh
+[3.259s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/environment/ament_prefix_path.dsv
+[3.260s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/environment/path.sh
+[3.260s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/environment/path.dsv
+[3.261s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/local_setup.bash
+[3.261s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/local_setup.sh
+[3.262s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/local_setup.zsh
+[3.264s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/local_setup.dsv
+[3.264s] -- Installing: /ros2_ws/install/fsm_msgs/share/fsm_msgs/package.dsv
+[3.266s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/ament_index/resource_index/packages/fsm_msgs
+[3.267s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_generator_cExport.cmake
+[3.268s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_generator_cExport-noconfig.cmake
+[3.268s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_typesupport_introspection_cExport.cmake
+[3.269s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[3.271s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_typesupport_cExport.cmake
+[3.271s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[3.273s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_generator_cppExport.cmake
+[3.273s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[3.273s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[3.276s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_typesupport_cppExport.cmake
+[3.277s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[3.277s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/rosidl_cmake-extras.cmake
+[3.277s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[3.277s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[3.278s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[3.278s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[3.278s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[3.279s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[3.279s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgsConfig.cmake
+[3.280s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/cmake/fsm_msgsConfig-version.cmake
+[3.280s] -- Up-to-date: /ros2_ws/install/fsm_msgs/share/fsm_msgs/package.xml
+[3.291s] Invoked command in '/ros2_ws/build/fsm_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /ros2_ws/build/fsm_msgs

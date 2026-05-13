@@ -1,0 +1,40 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from planning_msgs/msg/TrajectoryPoint.msg
+// generated code does not contain a copyright notice
+
+
+module planning_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " planning_msgs/TrajectoryPoint.msg" "\n"
+      " =============================================================================" "\n"
+      " Tek bir yörünge noktası — map frame'inde" "\n"
+      " Planner → Controller (20Hz, Trajectory.msg içinde points[] listesi)" "\n"
+      " =============================================================================")
+    struct TrajectoryPoint {
+      @verbatim (language="comment", text=
+        " Konum x (metre) — map frame")
+      double x;
+
+      @verbatim (language="comment", text=
+        " Konum y (metre) — map frame")
+      double y;
+
+      @verbatim (language="comment", text=
+        " Yön açısı (radyan) — map frame")
+      double yaw;
+
+      @verbatim (language="comment", text=
+        " O noktadaki referans hız (m/s)")
+      float speed;
+
+      @verbatim (language="comment", text=
+        " Yol eğriliği (1/metre) — 0.0=düz, +sola, -sağa")
+      float curvature;
+
+      @verbatim (language="comment", text=
+        " Başlangıçtan bu noktaya mesafe (m)")
+      float distance_from_start;
+    };
+  };
+};

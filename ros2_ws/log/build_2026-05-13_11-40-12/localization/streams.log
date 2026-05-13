@@ -1,0 +1,23 @@
+[0.593s] Invoking command in '/ros2_ws/src/localization': AMENT_PREFIX_PATH=/ros2_ws/install/localization_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros2_ws/install/localization_msgs LD_LIBRARY_PATH=/ros2_ws/install/localization_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/ros2_ws/build/localization/prefix_override:/ros2_ws/install/localization/lib/python3.8/site-packages:/ros2_ws/install/localization_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/localization build --build-base /ros2_ws/build/localization/build install --record /ros2_ws/build/localization/install.log --single-version-externally-managed
+[0.775s] running egg_info
+[0.775s] writing ../../build/localization/localization.egg-info/PKG-INFO
+[0.777s] writing dependency_links to ../../build/localization/localization.egg-info/dependency_links.txt
+[0.777s] writing entry points to ../../build/localization/localization.egg-info/entry_points.txt
+[0.778s] writing requirements to ../../build/localization/localization.egg-info/requires.txt
+[0.779s] writing top-level names to ../../build/localization/localization.egg-info/top_level.txt
+[0.780s] reading manifest file '../../build/localization/localization.egg-info/SOURCES.txt'
+[0.782s] writing manifest file '../../build/localization/localization.egg-info/SOURCES.txt'
+[0.783s] running build
+[0.783s] running install
+[0.783s] running install_data
+[0.784s] running install_egg_info
+[0.784s] removing '/ros2_ws/install/localization/lib/python3.8/site-packages/localization-0.0.1-py3.8.egg-info' (and everything under it)
+[0.785s] Copying ../../build/localization/localization.egg-info to /ros2_ws/install/localization/lib/python3.8/site-packages/localization-0.0.1-py3.8.egg-info
+[0.793s] running install_scripts
+[0.811s] Installing global_localization_node script to /ros2_ws/install/localization/lib/localization
+[0.812s] Installing local_ekf_node script to /ros2_ws/install/localization/lib/localization
+[0.812s] Installing localization_diagnostics_node script to /ros2_ws/install/localization/lib/localization
+[0.813s] Installing map_origin_node script to /ros2_ws/install/localization/lib/localization
+[0.813s] Installing raw_gps_node script to /ros2_ws/install/localization/lib/localization
+[0.814s] writing list of installed files to '/ros2_ws/build/localization/install.log'
+[0.827s] Invoked command in '/ros2_ws/src/localization' returned '0': AMENT_PREFIX_PATH=/ros2_ws/install/localization_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros2_ws/install/localization_msgs LD_LIBRARY_PATH=/ros2_ws/install/localization_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/ros2_ws/build/localization/prefix_override:/ros2_ws/install/localization/lib/python3.8/site-packages:/ros2_ws/install/localization_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/localization build --build-base /ros2_ws/build/localization/build install --record /ros2_ws/build/localization/install.log --single-version-externally-managed

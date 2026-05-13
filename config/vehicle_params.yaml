@@ -1,0 +1,194 @@
+# =============================================================================
+# vehicle_params.yaml
+# AU Cengaver Robotics — TEKNOFEST 2026
+# =============================================================================
+# TEK KAYNAK: Tüm planner ve controller parametreleri buradan okunur.
+# Hiçbir node içinde sabit değer yazılmaz.
+#
+# Durum göstergeleri:
+#   CONFIRMED    → resmi katalog veya dokümanla doğrulandı
+#   TBD          → araç tesliminde (Ağustos 2025) ölçülecek
+#   ESTIMATED    → benzer araçlardan tahmin, doğrulanacak
+# =============================================================================
+
+vehicle:
+
+  # ── Kimlik ────────────────────────────────────────────────────────────────
+  name: "Tragger T-Car / BEE1"
+  model: "BEE1"
+
+  # ── Fiziksel Ölçüler ──────────────────────────────────────────────────────
+  geometry:
+    wheelbase:        2.40    # m | Ön-arka dingil arası | CONFIRMED (T-Car kataloğu)
+    track_width_front: 1.03   # m | Ön iz genişliği      | CONFIRMED (T-Car kataloğu)
+    track_width_rear:  1.115  # m | Arka iz genişliği    | CONFIRMED (T-Car kataloğu)
+    total_length:      2.385  # m | Toplam uzunluk        | CONFIRMED (T-Car kataloğu)
+    total_width:       1.330  # m | Toplam genişlik       | CONFIRMED (T-Car kataloğu)
+    total_height:      1.240  # m | Yükseklik (konopisiz) | CONFIRMED (T-Car kataloğu)
+    chassis_height:    0.185  # m | Şasi yerden yükseklik | CONFIRMED (T-Car kataloğu)
+
+  # ── Hız Limitleri ─────────────────────────────────────────────────────────
+  speed:
+    max_speed_mps:     6.67   # m/s = 24 km/h | CONFIRMED (T-Car kataloğu)
+    max_speed_kmh:     24.0   # km/h           | CONFIRMED (T-Car kataloğu)
+
+    # Mod bazlı hız limitleri (m/s)
+    lane_follow_mps:   6.67   # LANE_FOLLOW    | max hız
+    park_approach_mps: 1.39   # PARK_APPROACH  | 5 km/h
+    park_maneuver_mps: 0.83   # PARK_MANEUVER  | 3 km/h — sözleşme zorunlu
+    pickup_mps:        0.83   # PICKUP         | 3 km/h — sözleşme zorunlu
+    dropoff_mps:       0.83   # DROPOFF        | 3 km/h — sözleşme zorunlu
+    obstacle_avoid_mps: 0.50  # OBSTACLE_AVOID | kademeli — TTC'ye göre ayarlanır
+
+  # ── Direksiyon ────────────────────────────────────────────────────────────
+  steering:
+    max_steer_angle_deg:  32.5   # derece | ESTIMATED (sözleşmeden) | TBD arazide ölç
+    max_steer_angle_rad:  0.567  # radyan | ESTIMATED               | TBD arazide ölç
+    min_turn_radius_m:    4.1    # m      | ESTIMATED (sözleşmeden) | TBD arazide ölç
+
+    # CAN-Bus direksiyon byte değerleri
+    # VEHICLECTRL frame, Byte 1
+    steering_center_byte: 0x81  # DÜZ GİDİŞ — CONFIRMED (CAN protokol dokümanı)
+    steering_min_byte:    0x00  # TAM SOL    — CONFIRMED
+    steering_max_byte:    0xFF  # TAM SAĞ    — CONFIRMED
+
+    # Toe-in offset — fiziksel montaj sapması
+    toe_in_offset_byte:   0     # TBD — arazide düz gidişte ölçülecek
+
+  # ── İvme ve Frenleme ──────────────────────────────────────────────────────
+  dynamics:
+    max_accel_mps2:       2.5   # m/s² | ESTIMATED (sözleşmeden) | TBD arazide ölç
+    max_brake_accel_mps2: 6.5   # m/s² | ESTIMATED (sözleşmeden) | TBD arazide ölç
+    max_jerk_normal:      2.0   # m/s³ | normal sürüş yumuşatma
+    max_jerk_park:        1.0   # m/s³ | park manevrası yumuşatma
+    max_jerk_emergency:   10.0  # m/s³ | acil fren — ramp bypass
+
+  # ── Motor ve Elektrik ─────────────────────────────────────────────────────
+  motor:
+    model:        "BLVM640N-GFS ORIENTAL"
+    max_torque_nm: 125.0   # Nm  | CONFIRMED (T-Car kataloğu)
+    voltage_v:     48.0    # V   | CONFIRMED (T-Car kataloğu)
+    battery:       "Trojan T145 Plus"
+
+# =============================================================================
+# CAN-Bus Protokolü
+# =============================================================================
+can:
+  frame_id:    0x560     # VEHICLECTRL frame ID | CONFIRMED (CAN protokol dokümanı)
+  channel:     "can0"    # Linux CAN interface
+  bitrate:     500000    # 500 kbps
+
+  # Frame byte düzeni — CONFIRMED (CAN protokol dokümanı)
+  # Byte 0 → Kontak     (0x00=Kapalı,  0x01=Açık)
+  # Byte 1 → Direksiyon (0x00=TamSol,  0x81=Düz,  0xFF=TamSağ)
+  # Byte 2 → Hareket    (0x00=TamGeri, 0x81=Dur,   0xFF=Tamİleri)
+  # Byte 3 → El Freni   (0x00=İnik,    0xFF=Çekili)
+  # Byte 4 → Sinyal     (0=Kapalı,     1=Sol,       2=Sağ)
+  # Byte 5-7 → Rezerve  (0x00)
+
+  speed:
+    stop_byte:     0x81   # HAREKETSİZ | CONFIRMED
+    park_byte:     0x8C   # ~0.83 m/s = 3 km/h
+    creep_byte:    0x99   # ~1.39 m/s = 5 km/h
+    max_fwd_byte:  0xFF   # TAM İLERİ  | CONFIRMED
+    max_rev_byte:  0x00   # TAM GERİ   | CONFIRMED
+    ramp_step:     8      # max byte adımı / 50ms (jerk sınırı)
+
+# =============================================================================
+# PID Kontrolcü
+# =============================================================================
+pid:
+  # Cross-track error PID — arazide tune edilecek
+  cte:
+    kp: 0.8
+    ki: 0.01
+    kd: 0.15
+    integral_clamp: 1.0
+
+  # Heading error PID — arazide tune edilecek
+  heading:
+    kp: 1.2
+    ki: 0.005
+    kd: 0.25
+    integral_clamp: 1.0
+
+  # Ağırlıklar
+  cte_weight:     0.4   # cross-track'in ağırlığı
+  heading_weight: 0.6   # heading'in ağırlığı
+
+# =============================================================================
+# Stanley Kontrolcü
+# =============================================================================
+stanley:
+  k:              0.8    # Stanley kazanımı — arazide tune edilecek
+  ks:             0.1    # Softening sabiti — düşük hızda kararlılık
+  lookahead_min:  1.5    # m | minimum lookahead
+  lookahead_max:  6.0    # m | maksimum lookahead
+  lookahead_k:    0.5    # adaptif lookahead katsayısı (hız × k)
+
+# =============================================================================
+# Pure Pursuit Kontrolcü
+# =============================================================================
+pure_pursuit:
+  lookahead_min:  2.0    # m
+  lookahead_max:  8.0    # m
+  lookahead_k:    0.6    # adaptif katsayı
+
+# =============================================================================
+# Timeout Değerleri (Yol Haritası v1.1)
+# =============================================================================
+timeouts:
+  # /planning/trajectory timeout
+  trajectory:
+    normal_ms:    500    # 0-500ms    → normal
+    reduce_ms:    1000   # 500-1000ms → hız düşür
+    brake_ms:     1000   # >1000ms    → tam fren
+
+  # /planning/target_speed timeout
+  target_speed:
+    normal_ms:    500    # 0-500ms    → normal
+    reduce_ms:    1000   # 500-1000ms → son değer koru
+    brake_ms:     1000   # >1000ms    → tam fren
+
+  # /controller/feedback geçerlilik
+  feedback_valid_ms: 200   # planner bu sürede görmezse EMERGENCY
+
+# =============================================================================
+# Sensör Pozisyonları (base_link referans)
+# =============================================================================
+sensors:
+  # VLP-16 LiDAR
+  lidar:
+    x_mm: -177    # base_link'ten ileriye uzaklık
+    z_mm:  620    # yerden yükseklik
+    frame: "lidar_frame"
+
+  # ZED2 Stereo Kamera
+  camera:
+    x_mm: -205
+    y_mm:  60     # ±60 (sol/sağ)
+    z_mm:  685
+    frame: "camera_frame"
+
+  # Xsens IMU
+  imu:
+    x_mm: 1440
+    z_mm: 1390
+    frame: "imu_frame"
+    rate_hz: 400
+
+# =============================================================================
+# Araç Tesliminde Güncellenecekler (TBD)
+# =============================================================================
+# Aşağıdaki değerler Ağustos 2025 kamp döneminde gerçek araçta ölçülecek:
+#
+#   steering.max_steer_angle_deg  → direksiyonu tam kır, iletki ile ölç
+#   steering.max_steer_angle_rad  → yukarıdakinin radyan karşılığı
+#   steering.min_turn_radius_m    → tam dönüş çemberini mezurayla ölç
+#   steering.toe_in_offset_byte   → düz gidişte sapma byte cinsinden
+#   dynamics.max_accel_mps2       → 0→max hız süresinden hesapla
+#   dynamics.max_brake_accel_mps2 → max hız→0 süresinden hesapla
+#   pid.cte.kp/ki/kd              → Ziegler-Nichols veya deneme-yanılma
+#   pid.heading.kp/ki/kd          → aynı şekilde
+#   stanley.k                     → şerit takip testi ile
+# =============================================================================

@@ -1,0 +1,135 @@
+[0.053s] Invoking command in '/ros2_ws/build/common_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /ros2_ws/build/common_msgs -- -j10 -l10
+[0.391s] [ 10%] Built target common_msgs__rosidl_generator_c
+[0.392s] [ 12%] Built target common_msgs__cpp
+[0.767s] [ 41%] Built target common_msgs__rosidl_typesupport_introspection_cpp
+[0.778s] [ 43%] Built target common_msgs__rosidl_typesupport_cpp
+[0.783s] [ 43%] Built target common_msgs__rosidl_typesupport_c
+[0.832s] [ 53%] Built target common_msgs__rosidl_typesupport_fastrtps_cpp
+[0.946s] [ 64%] Built target common_msgs__rosidl_typesupport_introspection_c
+[0.996s] [ 74%] Built target common_msgs__rosidl_typesupport_fastrtps_c
+[1.124s] [ 74%] Built target common_msgs
+[1.246s] [ 76%] Built target common_msgs__py
+[1.399s] [ 84%] Built target common_msgs__python
+[1.655s] [ 89%] Built target common_msgs__rosidl_typesupport_introspection_c__pyext
+[1.664s] [ 94%] Built target common_msgs__rosidl_typesupport_fastrtps_c__pyext
+[1.673s] [100%] Built target common_msgs__rosidl_typesupport_c__pyext
+[1.728s] Invoked command in '/ros2_ws/build/common_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /ros2_ws/build/common_msgs -- -j10 -l10
+[2.746s] Invoking command in '/ros2_ws/build/common_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /ros2_ws/build/common_msgs
+[2.783s] -- Install configuration: ""
+[2.784s] -- Up-to-date: /ros2_ws/install/common_msgs/share/ament_index/resource_index/rosidl_interfaces/common_msgs
+[2.785s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs
+[2.785s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg
+[2.788s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/rosidl_generator_c__visibility_control.h
+[2.788s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/stop_reason.h
+[2.788s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail
+[2.788s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__functions.c
+[2.789s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__functions.c
+[2.789s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__struct.h
+[2.790s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__functions.h
+[2.790s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__struct.h
+[2.790s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__type_support.h
+[2.791s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__functions.h
+[2.792s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__type_support.h
+[2.794s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/autonomy_mode.h
+[2.795s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/environment/library_path.sh
+[2.795s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/environment/library_path.dsv
+[2.796s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/libcommon_msgs__rosidl_generator_c.so
+[2.796s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs
+[2.796s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg
+[2.797s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail
+[2.797s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__rosidl_typesupport_fastrtps_c.h
+[2.798s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__rosidl_typesupport_fastrtps_c.h
+[2.798s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[2.799s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/libcommon_msgs__rosidl_typesupport_fastrtps_c.so
+[2.799s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs
+[2.800s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg
+[2.801s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[2.802s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail
+[2.802s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__rosidl_typesupport_fastrtps_cpp.hpp
+[2.804s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__rosidl_typesupport_fastrtps_cpp.hpp
+[2.804s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/dds_fastrtps
+[2.805s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/libcommon_msgs__rosidl_typesupport_fastrtps_cpp.so
+[2.806s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs
+[2.806s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg
+[2.807s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail
+[2.808s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__rosidl_typesupport_introspection_c.h
+[2.808s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__type_support.c
+[2.808s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__type_support.c
+[2.809s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__rosidl_typesupport_introspection_c.h
+[2.809s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[2.810s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/libcommon_msgs__rosidl_typesupport_introspection_c.so
+[2.811s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/libcommon_msgs__rosidl_typesupport_c.so
+[2.812s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs
+[2.813s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg
+[2.814s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/autonomy_mode.hpp
+[2.814s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/stop_reason.hpp
+[2.815s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail
+[2.815s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__builder.hpp
+[2.815s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__traits.hpp
+[2.816s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__builder.hpp
+[2.817s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__type_support.hpp
+[2.818s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__traits.hpp
+[2.818s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__struct.hpp
+[2.819s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__struct.hpp
+[2.819s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__type_support.hpp
+[2.819s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[2.820s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs
+[2.820s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg
+[2.821s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail
+[2.821s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__rosidl_typesupport_introspection_cpp.hpp
+[2.822s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__type_support.cpp
+[2.822s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/autonomy_mode__type_support.cpp
+[2.823s] -- Up-to-date: /ros2_ws/install/common_msgs/include/common_msgs/msg/detail/stop_reason__rosidl_typesupport_introspection_cpp.hpp
+[2.824s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/libcommon_msgs__rosidl_typesupport_introspection_cpp.so
+[2.826s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/libcommon_msgs__rosidl_typesupport_cpp.so
+[2.827s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/environment/pythonpath.sh
+[2.827s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/environment/pythonpath.dsv
+[2.828s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/__init__.py
+[2.916s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/msg
+[2.916s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/msg/_autonomy_mode_s.c
+[2.917s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/msg/_stop_reason.py
+[2.917s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/msg/__init__.py
+[2.917s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/msg/_autonomy_mode.py
+[2.918s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/msg/_stop_reason_s.c
+[2.919s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/common_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[2.923s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/common_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[2.925s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/python3.8/site-packages/common_msgs/common_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[2.927s] -- Up-to-date: /ros2_ws/install/common_msgs/lib/libcommon_msgs__python.so
+[2.928s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/msg/AutonomyMode.idl
+[2.928s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/msg/StopReason.idl
+[2.929s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/msg/AutonomyMode.msg
+[2.929s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/msg/StopReason.msg
+[2.930s] -- Up-to-date: /ros2_ws/install/common_msgs/share/ament_index/resource_index/package_run_dependencies/common_msgs
+[2.930s] -- Up-to-date: /ros2_ws/install/common_msgs/share/ament_index/resource_index/parent_prefix_path/common_msgs
+[2.931s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/environment/ament_prefix_path.sh
+[2.931s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/environment/ament_prefix_path.dsv
+[2.932s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/environment/path.sh
+[2.934s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/environment/path.dsv
+[2.935s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/local_setup.bash
+[2.935s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/local_setup.sh
+[2.936s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/local_setup.zsh
+[2.936s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/local_setup.dsv
+[2.936s] -- Installing: /ros2_ws/install/common_msgs/share/common_msgs/package.dsv
+[2.937s] -- Up-to-date: /ros2_ws/install/common_msgs/share/ament_index/resource_index/packages/common_msgs
+[2.938s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_generator_cExport.cmake
+[2.939s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_generator_cExport-noconfig.cmake
+[2.939s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_typesupport_introspection_cExport.cmake
+[2.941s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[2.941s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_typesupport_cExport.cmake
+[2.942s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[2.943s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_generator_cppExport.cmake
+[2.944s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[2.944s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[2.945s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_typesupport_cppExport.cmake
+[2.946s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[2.946s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/rosidl_cmake-extras.cmake
+[2.946s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.947s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[2.947s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[2.948s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[2.948s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[2.949s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[2.950s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgsConfig.cmake
+[2.950s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/cmake/common_msgsConfig-version.cmake
+[2.950s] -- Up-to-date: /ros2_ws/install/common_msgs/share/common_msgs/package.xml
+[2.962s] Invoked command in '/ros2_ws/build/common_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /ros2_ws/build/common_msgs

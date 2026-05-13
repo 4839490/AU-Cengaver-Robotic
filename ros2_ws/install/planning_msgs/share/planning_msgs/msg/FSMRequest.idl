@@ -1,0 +1,39 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from planning_msgs/msg/FSMRequest.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module planning_msgs {
+  module msg {
+    module FSMRequest_Constants {
+      const uint8 MODE_CHANGE = 0;
+      const uint8 REPLANNING_NEEDED = 1;
+      const uint8 GOAL_CONFIRMED = 2;
+      const uint8 OBSTACLE_BLOCKED = 3;
+      const uint8 LOCALIZATION_DEGRADED = 4;
+      const uint8 PARK_READY = 5;
+    };
+    @verbatim (language="comment", text=
+      " planning_msgs/FSMRequest.msg" "\n"
+      " =============================================================================" "\n"
+      " Planner → FSM mod değişiklik isteği" "\n"
+      " Topic: /planning/fsm_request — event-driven" "\n"
+      " =============================================================================")
+    struct FSMRequest {
+      std_msgs::msg::Header header;
+
+      uint8 request_type;
+
+      uint8 requested_mode;
+
+      uint32 waypoint_id;
+
+      string reason;
+
+      uint32 age_ms;
+
+      uint32 valid_until_ms;
+    };
+  };
+};

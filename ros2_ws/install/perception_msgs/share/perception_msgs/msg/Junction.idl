@@ -1,0 +1,39 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from perception_msgs/msg/Junction.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module perception_msgs {
+  module msg {
+    module Junction_Constants {
+      const uint8 NORMAL = 0;
+      const uint8 ROUNDABOUT = 1;
+    };
+    @verbatim (language="comment", text=
+      " perception_msgs/msg/Junction.msg" "\n"
+      " Topic: /perception/junction | 10 Hz | frame_id: base_link | valid_until_ms: 500" "\n"
+      " OPTIONAL in MVP — when not published, planner uses active_route_context.route_direction.")
+    struct Junction {
+      std_msgs::msg::Header header;
+
+      boolean detected;
+
+      uint8 junction_type;
+
+      uint8 arm_count;
+
+      float distance_to_entry;
+
+      float confidence;
+
+      uint32 age_ms;
+
+      uint32 valid_until_ms;
+
+      string source_sensor;
+
+      sequence<string> warning_flags;
+    };
+  };
+};

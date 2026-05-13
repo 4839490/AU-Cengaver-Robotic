@@ -1,0 +1,25 @@
+[0.572s] Invoking command in '/ros2_ws/src/localization': CMAKE_PREFIX_PATH=/ros2_ws/install/localization_msgs:/ros2_ws/install/planning_msgs:/ros2_ws/install/perception_msgs:/ros2_ws/install/fsm_msgs:/ros2_ws/install/common_msgs LD_LIBRARY_PATH=/ros2_ws/install/localization_msgs/lib:/ros2_ws/install/planning_msgs/lib:/ros2_ws/install/perception_msgs/lib:/ros2_ws/install/fsm_msgs/lib:/ros2_ws/install/common_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib PYTHONPATH=/ros2_ws/build/localization/prefix_override:/ros2_ws/install/localization/lib/python3.8/site-packages:/ros2_ws/install/localization_msgs/lib/python3.8/site-packages:/ros2_ws/install/planning/lib/python3.8/site-packages:/ros2_ws/install/perception/lib/python3.8/site-packages:/ros2_ws/install/fsm/lib/python3.8/site-packages:/ros2_ws/install/cengaver_controller/lib/python3.8/site-packages:/ros2_ws/install/planning_msgs/lib/python3.8/site-packages:/ros2_ws/install/perception_msgs/lib/python3.8/site-packages:/ros2_ws/install/localization/lib/python3.8/site-packages:/ros2_ws/install/fsm_msgs/lib/python3.8/site-packages:/ros2_ws/install/common_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/localization build --build-base /ros2_ws/build/localization/build install --record /ros2_ws/build/localization/install.log --single-version-externally-managed
+[0.751s] running egg_info
+[0.752s] writing ../../build/localization/localization.egg-info/PKG-INFO
+[0.752s] writing dependency_links to ../../build/localization/localization.egg-info/dependency_links.txt
+[0.752s] writing entry points to ../../build/localization/localization.egg-info/entry_points.txt
+[0.753s] writing requirements to ../../build/localization/localization.egg-info/requires.txt
+[0.753s] writing top-level names to ../../build/localization/localization.egg-info/top_level.txt
+[0.773s] reading manifest file '../../build/localization/localization.egg-info/SOURCES.txt'
+[0.774s] writing manifest file '../../build/localization/localization.egg-info/SOURCES.txt'
+[0.774s] running build
+[0.775s] running build_py
+[0.776s] running install
+[0.776s] running install_lib
+[0.777s] running install_data
+[0.779s] running install_egg_info
+[0.779s] removing '/ros2_ws/install/localization/lib/python3.8/site-packages/localization-0.0.1-py3.8.egg-info' (and everything under it)
+[0.780s] Copying ../../build/localization/localization.egg-info to /ros2_ws/install/localization/lib/python3.8/site-packages/localization-0.0.1-py3.8.egg-info
+[0.786s] running install_scripts
+[0.796s] Installing global_localization_node script to /ros2_ws/install/localization/lib/localization
+[0.797s] Installing local_ekf_node script to /ros2_ws/install/localization/lib/localization
+[0.797s] Installing localization_diagnostics_node script to /ros2_ws/install/localization/lib/localization
+[0.797s] Installing map_origin_node script to /ros2_ws/install/localization/lib/localization
+[0.798s] Installing raw_gps_node script to /ros2_ws/install/localization/lib/localization
+[0.799s] writing list of installed files to '/ros2_ws/build/localization/install.log'
+[0.811s] Invoked command in '/ros2_ws/src/localization' returned '0': CMAKE_PREFIX_PATH=/ros2_ws/install/localization_msgs:/ros2_ws/install/planning_msgs:/ros2_ws/install/perception_msgs:/ros2_ws/install/fsm_msgs:/ros2_ws/install/common_msgs LD_LIBRARY_PATH=/ros2_ws/install/localization_msgs/lib:/ros2_ws/install/planning_msgs/lib:/ros2_ws/install/perception_msgs/lib:/ros2_ws/install/fsm_msgs/lib:/ros2_ws/install/common_msgs/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib PYTHONPATH=/ros2_ws/build/localization/prefix_override:/ros2_ws/install/localization/lib/python3.8/site-packages:/ros2_ws/install/localization_msgs/lib/python3.8/site-packages:/ros2_ws/install/planning/lib/python3.8/site-packages:/ros2_ws/install/perception/lib/python3.8/site-packages:/ros2_ws/install/fsm/lib/python3.8/site-packages:/ros2_ws/install/cengaver_controller/lib/python3.8/site-packages:/ros2_ws/install/planning_msgs/lib/python3.8/site-packages:/ros2_ws/install/perception_msgs/lib/python3.8/site-packages:/ros2_ws/install/localization/lib/python3.8/site-packages:/ros2_ws/install/fsm_msgs/lib/python3.8/site-packages:/ros2_ws/install/common_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/localization build --build-base /ros2_ws/build/localization/build install --record /ros2_ws/build/localization/install.log --single-version-externally-managed

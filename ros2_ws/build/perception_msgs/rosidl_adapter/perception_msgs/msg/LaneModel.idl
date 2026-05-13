@@ -1,0 +1,39 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from perception_msgs/msg/LaneModel.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+#include "std_msgs/msg/Header.idl"
+
+module perception_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " perception_msgs/msg/LaneModel.msg" "\n"
+      " Topic: /perception/lane_model | 20-30 Hz | frame_id: base_link | valid_until_ms: 500")
+    struct LaneModel {
+      std_msgs::msg::Header header;
+
+      sequence<geometry_msgs::msg::Point> centerline;
+
+      sequence<geometry_msgs::msg::Point> left_boundary;
+
+      sequence<geometry_msgs::msg::Point> right_boundary;
+
+      float lane_confidence;
+
+      boolean lane_lost;
+
+      float curvature;
+
+      float lane_width_estimate;
+
+      uint32 age_ms;
+
+      uint32 valid_until_ms;
+
+      string source_sensor;
+
+      sequence<string> warning_flags;
+    };
+  };
+};

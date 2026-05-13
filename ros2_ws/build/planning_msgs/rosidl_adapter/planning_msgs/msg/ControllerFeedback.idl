@@ -1,0 +1,73 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from planning_msgs/msg/ControllerFeedback.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module planning_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " controller_msgs/ControllerFeedback.msg" "\n"
+      " =============================================================================" "\n"
+      " AU Cengaver Robotics — TEKNOFEST 2026" "\n"
+      " Controller → Planner geri bildirim" "\n"
+      " Topic: /controller/feedback — 20Hz" "\n"
+      " Sorumlu: Muhammed Durmaz" "\n"
+      "" "\n"
+      " Sözleşme: Planner↔Controller v1.2, Bölüm 6.3" "\n"
+      "" "\n"
+      " ⚠️ 200ms içinde gelmezse → planner status=EMERGENCY yayınlar" "\n"
+      " ⚠️ actual_speed → ActiveRouteContext.ego_speed_mps olarak iletilir (TTC için)" "\n"
+      "" "\n"
+      " Planner kullanım kuralları:" "\n"
+      "   cross_track_error > 0.3m  → trajectory yeniden hesapla" "\n"
+      "   cross_track_error > 0.5m  → şerit kaybı uyarısı, hız düşür" "\n"
+      "   heading_error > 0.2 rad   → yönelim önceliklendir" "\n"
+      "   full_brake_active = true  → yeni trajectory üretmeyi beklet" "\n"
+      " =============================================================================")
+    struct ControllerFeedback {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        " ── Araç Durumu ───────────────────────────────────────────────────────────────" "\n"
+        " Gerçek hız (m/s) — odometri/encoder")
+      float actual_speed;
+
+      @verbatim (language="comment", text=
+        " Gerçek direksiyon açısı (derece)" "\n"
+        " CAN steering_center_byte offset uygulanmış fiziksel değer")
+      float actual_steering_deg;
+
+      @verbatim (language="comment", text=
+        " ── Hata Değerleri ────────────────────────────────────────────────────────────" "\n"
+        " Trajectory'den yanal sapma (m)" "\n"
+        " + = sola sapma | - = sağa sapma")
+      float cross_track_error;
+
+      @verbatim (language="comment", text=
+        " Hedef yönden açısal sapma (radyan)" "\n"
+        " + = sola bakıyor | - = sağa bakıyor")
+      float heading_error;
+
+      @verbatim (language="comment", text=
+        " ── Fren Durumu ───────────────────────────────────────────────────────────────" "\n"
+        " Fren komutu aktif mi?")
+      boolean brake_active;
+
+      @verbatim (language="comment", text=
+        " Tam fren (emergency) aktif mi?")
+      boolean full_brake_active;
+
+      @verbatim (language="comment", text=
+        " ── Zaman ─────────────────────────────────────────────────────────────────────" "\n"
+        " Mesajın yaşı (ms)                   ← eklendi")
+      @unit (value="DÜZELTİLDİ")
+      uint32 age_ms;
+
+      @verbatim (language="comment", text=
+        " Geçerlilik süresi = 200ms" "\n"
+        " Aşılırsa planner status=EMERGENCY yayınlar")
+      uint32 valid_until_ms;
+    };
+  };
+};

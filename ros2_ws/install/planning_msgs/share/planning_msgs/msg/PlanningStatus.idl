@@ -1,0 +1,96 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from planning_msgs/msg/PlanningStatus.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module planning_msgs {
+  module msg {
+    module PlanningStatus_Constants {
+      const uint8 STATUS_ACTIVE = 0;
+      const uint8 STATUS_WAITING_FSM = 1;
+      const uint8 STATUS_OBSTACLE_BLOCKED = 2;
+      const uint8 STATUS_LANE_LOST = 3;
+      const uint8 STATUS_LOCALIZATION_DEGRADED = 4;
+      const uint8 STATUS_EMERGENCY = 5;
+      const uint8 STATUS_MISSION_COMPLETE = 6;
+    };
+    @verbatim (language="comment", text=
+      " planning_msgs/PlanningStatus.msg" "\n"
+      " =============================================================================" "\n"
+      " Planner → Controller sağlık raporu" "\n"
+      " Topic: /planning/status — 10Hz" "\n"
+      "" "\n"
+      " status sabitleri:" "\n"
+      "   0 = ACTIVE               → normal çalışıyor" "\n"
+      "   1 = WAITING_FSM          → FSM onayı bekliyor" "\n"
+      "   2 = OBSTACLE_BLOCKED     → engel yolu bloke etti" "\n"
+      "   3 = LANE_LOST            → şerit kaybı" "\n"
+      "   4 = LOCALIZATION_DEGRADED → GPS/lokalizasyon zayıf" "\n"
+      "   5 = EMERGENCY            → acil durum" "\n"
+      "   6 = MISSION_COMPLETE     → görev tamamlandı" "\n"
+      "" "\n"
+      " Controller davranışları:" "\n"
+      "   status=4 (LOCALIZATION_DEGRADED) → hızı %50 düşür" "\n"
+      "   status=5 (EMERGENCY)             → TAM FREN" "\n"
+      "   status=6 (MISSION_COMPLETE)      → dur + el freni" "\n"
+      " =============================================================================")
+    struct PlanningStatus {
+      @verbatim (language="comment", text=
+        " Zaman damgası")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        " Planner genel durumu (yukarıdaki sabitler)")
+      uint8 status;
+
+      @verbatim (language="comment", text=
+        " Mevcut trajectory geçerli mi?")
+      boolean trajectory_valid;
+
+      @verbatim (language="comment", text=
+        " Hedefe ulaşıldı mı?")
+      boolean goal_reached;
+
+      @verbatim (language="comment", text=
+        " Park girişine ulaşıldı mı?")
+      boolean parking_entry_reached;
+
+      @verbatim (language="comment", text=
+        " Engel yolu bloklıyor mu?")
+      boolean obstacle_blocking;
+
+      @verbatim (language="comment", text=
+        " Şerit kaybı var mı?")
+      boolean lane_lost;
+
+      @verbatim (language="comment", text=
+        " Lokalizasyon zayıf mı?")
+      boolean localization_degraded;
+
+      @verbatim (language="comment", text=
+        " Şu an hangi waypoint hedefi")
+      uint32 active_waypoint_id;
+
+      @verbatim (language="comment", text=
+        " Hedefe kalan mesafe (m)")
+      float distance_to_goal;
+
+      @verbatim (language="comment", text=
+        " Mevcut mod — common_msgs/AutonomyMode")
+      uint8 planner_mode;
+
+      @verbatim (language="comment", text=
+        " Mesajın yaşı (ms)")
+      uint32 age_ms;
+
+      @verbatim (language="comment", text=
+        " Geçerlilik süresi (ms)")
+      uint32 valid_until_ms;
+
+      @verbatim (language="comment", text=
+        " Uyarı mesajları")
+      sequence<string> warning_flags;
+    };
+  };
+};

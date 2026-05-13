@@ -1,0 +1,126 @@
+[1.155s] Invoking command in '/ros2_ws/src/perception': AMENT_PREFIX_PATH=/ros2_ws/install/planning_msgs:/ros2_ws/install/perception_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros2_ws/install/planning_msgs:/ros2_ws/install/perception_msgs LD_LIBRARY_PATH=/ros2_ws/install/planning_msgs/lib:/ros2_ws/install/perception_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/ros2_ws/build/perception/prefix_override:/ros2_ws/install/perception/lib/python3.8/site-packages:/ros2_ws/install/planning_msgs/lib/python3.8/site-packages:/ros2_ws/install/perception_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/perception build --build-base /ros2_ws/build/perception/build install --record /ros2_ws/build/perception/install.log --single-version-externally-managed
+[1.341s] running egg_info
+[1.343s] creating ../../build/perception/perception.egg-info
+[1.344s] writing ../../build/perception/perception.egg-info/PKG-INFO
+[1.345s] writing dependency_links to ../../build/perception/perception.egg-info/dependency_links.txt
+[1.346s] writing entry points to ../../build/perception/perception.egg-info/entry_points.txt
+[1.346s] writing requirements to ../../build/perception/perception.egg-info/requires.txt
+[1.347s] writing top-level names to ../../build/perception/perception.egg-info/top_level.txt
+[1.351s] writing manifest file '../../build/perception/perception.egg-info/SOURCES.txt'
+[1.381s] reading manifest file '../../build/perception/perception.egg-info/SOURCES.txt'
+[1.382s] writing manifest file '../../build/perception/perception.egg-info/SOURCES.txt'
+[1.383s] running build
+[1.384s] running build_py
+[1.385s] creating /ros2_ws/build/perception/build
+[1.385s] creating /ros2_ws/build/perception/build/lib
+[1.387s] creating /ros2_ws/build/perception/build/lib/perception
+[1.387s] copying perception/dummy_common.py -> /ros2_ws/build/perception/build/lib/perception
+[1.388s] copying perception/fake_traffic_light_state_pub.py -> /ros2_ws/build/perception/build/lib/perception
+[1.390s] copying perception/perception_diagnostics_node.py -> /ros2_ws/build/perception/build/lib/perception
+[1.390s] copying perception/route_context_apply_utils.py -> /ros2_ws/build/perception/build/lib/perception
+[1.391s] copying perception/lane_contract.py -> /ros2_ws/build/perception/build/lib/perception
+[1.395s] copying perception/lidar_obstacle_node.py -> /ros2_ws/build/perception/build/lib/perception
+[1.396s] copying perception/fake_image_pub.py -> /ros2_ws/build/perception/build/lib/perception
+[1.397s] copying perception/route_context_utils.py -> /ros2_ws/build/perception/build/lib/perception
+[1.398s] copying perception/fake_lane_image_pub.py -> /ros2_ws/build/perception/build/lib/perception
+[1.399s] copying perception/dummy_publishers.py -> /ros2_ws/build/perception/build/lib/perception
+[1.402s] copying perception/__init__.py -> /ros2_ws/build/perception/build/lib/perception
+[1.402s] copying perception/centroid_tracker.py -> /ros2_ws/build/perception/build/lib/perception
+[1.404s] copying perception/fake_route_context_pub.py -> /ros2_ws/build/perception/build/lib/perception
+[1.407s] copying perception/ttc_utils.py -> /ros2_ws/build/perception/build/lib/perception
+[1.409s] copying perception/traffic_light_node.py -> /ros2_ws/build/perception/build/lib/perception
+[1.410s] copying perception/stop_target_node.py -> /ros2_ws/build/perception/build/lib/perception
+[1.411s] copying perception/lane_detector_utils.py -> /ros2_ws/build/perception/build/lib/perception
+[1.411s] copying perception/stale_utils.py -> /ros2_ws/build/perception/build/lib/perception
+[1.412s] copying perception/lane_image_utils.py -> /ros2_ws/build/perception/build/lib/perception
+[1.413s] copying perception/traffic_sign_node.py -> /ros2_ws/build/perception/build/lib/perception
+[1.415s] copying perception/pointcloud_utils.py -> /ros2_ws/build/perception/build/lib/perception
+[1.416s] copying perception/junction_node.py -> /ros2_ws/build/perception/build/lib/perception
+[1.417s] copying perception/lane_node.py -> /ros2_ws/build/perception/build/lib/perception
+[1.418s] copying perception/fake_pointcloud_pub.py -> /ros2_ws/build/perception/build/lib/perception
+[1.419s] copying perception/temporal_filter.py -> /ros2_ws/build/perception/build/lib/perception
+[1.420s] copying perception/colour_classifier.py -> /ros2_ws/build/perception/build/lib/perception
+[1.421s] copying perception/stop_target_policy.py -> /ros2_ws/build/perception/build/lib/perception
+[1.422s] copying perception/lidar_cluster_utils.py -> /ros2_ws/build/perception/build/lib/perception
+[1.424s] running install
+[1.426s] running install_lib
+[1.427s] creating /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.428s] copying /ros2_ws/build/perception/build/lib/perception/dummy_common.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.430s] copying /ros2_ws/build/perception/build/lib/perception/fake_traffic_light_state_pub.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.430s] copying /ros2_ws/build/perception/build/lib/perception/perception_diagnostics_node.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.432s] copying /ros2_ws/build/perception/build/lib/perception/route_context_apply_utils.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.435s] copying /ros2_ws/build/perception/build/lib/perception/lane_contract.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.437s] copying /ros2_ws/build/perception/build/lib/perception/lidar_obstacle_node.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.437s] copying /ros2_ws/build/perception/build/lib/perception/fake_image_pub.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.438s] copying /ros2_ws/build/perception/build/lib/perception/route_context_utils.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.440s] copying /ros2_ws/build/perception/build/lib/perception/fake_lane_image_pub.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.442s] copying /ros2_ws/build/perception/build/lib/perception/dummy_publishers.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.442s] copying /ros2_ws/build/perception/build/lib/perception/__init__.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.443s] copying /ros2_ws/build/perception/build/lib/perception/centroid_tracker.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.447s] copying /ros2_ws/build/perception/build/lib/perception/fake_route_context_pub.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.451s] copying /ros2_ws/build/perception/build/lib/perception/ttc_utils.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.451s] copying /ros2_ws/build/perception/build/lib/perception/traffic_light_node.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.453s] copying /ros2_ws/build/perception/build/lib/perception/stop_target_node.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.454s] copying /ros2_ws/build/perception/build/lib/perception/lane_detector_utils.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.454s] copying /ros2_ws/build/perception/build/lib/perception/stale_utils.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.455s] copying /ros2_ws/build/perception/build/lib/perception/lane_image_utils.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.456s] copying /ros2_ws/build/perception/build/lib/perception/traffic_sign_node.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.459s] copying /ros2_ws/build/perception/build/lib/perception/pointcloud_utils.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.460s] copying /ros2_ws/build/perception/build/lib/perception/junction_node.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.461s] copying /ros2_ws/build/perception/build/lib/perception/lane_node.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.461s] copying /ros2_ws/build/perception/build/lib/perception/fake_pointcloud_pub.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.461s] copying /ros2_ws/build/perception/build/lib/perception/temporal_filter.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.462s] copying /ros2_ws/build/perception/build/lib/perception/colour_classifier.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.462s] copying /ros2_ws/build/perception/build/lib/perception/stop_target_policy.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.463s] copying /ros2_ws/build/perception/build/lib/perception/lidar_cluster_utils.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+[1.465s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/dummy_common.py to dummy_common.cpython-38.pyc
+[1.469s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/fake_traffic_light_state_pub.py to fake_traffic_light_state_pub.cpython-38.pyc
+[1.474s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/perception_diagnostics_node.py to perception_diagnostics_node.cpython-38.pyc
+[1.476s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/route_context_apply_utils.py to route_context_apply_utils.cpython-38.pyc
+[1.478s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/lane_contract.py to lane_contract.cpython-38.pyc
+[1.482s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/lidar_obstacle_node.py to lidar_obstacle_node.cpython-38.pyc
+[1.489s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/fake_image_pub.py to fake_image_pub.cpython-38.pyc
+[1.490s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/route_context_utils.py to route_context_utils.cpython-38.pyc
+[1.491s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/fake_lane_image_pub.py to fake_lane_image_pub.cpython-38.pyc
+[1.493s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/dummy_publishers.py to dummy_publishers.cpython-38.pyc
+[1.498s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/__init__.py to __init__.cpython-38.pyc
+[1.500s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/centroid_tracker.py to centroid_tracker.cpython-38.pyc
+[1.501s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/fake_route_context_pub.py to fake_route_context_pub.cpython-38.pyc
+[1.504s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/ttc_utils.py to ttc_utils.cpython-38.pyc
+[1.504s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/traffic_light_node.py to traffic_light_node.cpython-38.pyc
+[1.505s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/stop_target_node.py to stop_target_node.cpython-38.pyc
+[1.506s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/lane_detector_utils.py to lane_detector_utils.cpython-38.pyc
+[1.507s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/stale_utils.py to stale_utils.cpython-38.pyc
+[1.508s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/lane_image_utils.py to lane_image_utils.cpython-38.pyc
+[1.509s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/traffic_sign_node.py to traffic_sign_node.cpython-38.pyc
+[1.510s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/pointcloud_utils.py to pointcloud_utils.cpython-38.pyc
+[1.511s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/junction_node.py to junction_node.cpython-38.pyc
+[1.512s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/lane_node.py to lane_node.cpython-38.pyc
+[1.514s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/fake_pointcloud_pub.py to fake_pointcloud_pub.cpython-38.pyc
+[1.515s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/temporal_filter.py to temporal_filter.cpython-38.pyc
+[1.516s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/colour_classifier.py to colour_classifier.cpython-38.pyc
+[1.517s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/stop_target_policy.py to stop_target_policy.cpython-38.pyc
+[1.518s] byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/lidar_cluster_utils.py to lidar_cluster_utils.cpython-38.pyc
+[1.519s] running install_data
+[1.520s] creating /ros2_ws/install/perception/share/ament_index
+[1.520s] creating /ros2_ws/install/perception/share/ament_index/resource_index
+[1.521s] creating /ros2_ws/install/perception/share/ament_index/resource_index/packages
+[1.521s] copying resource/perception -> /ros2_ws/install/perception/share/ament_index/resource_index/packages
+[1.521s] copying package.xml -> /ros2_ws/install/perception/share/perception
+[1.523s] running install_egg_info
+[1.523s] Copying ../../build/perception/perception.egg-info to /ros2_ws/install/perception/lib/python3.8/site-packages/perception-0.1.0-py3.8.egg-info
+[1.532s] running install_scripts
+[1.546s] Installing dummy_perception_publishers script to /ros2_ws/install/perception/lib/perception
+[1.547s] Installing fake_image_pub script to /ros2_ws/install/perception/lib/perception
+[1.547s] Installing fake_lane_image_pub script to /ros2_ws/install/perception/lib/perception
+[1.547s] Installing fake_pointcloud_pub script to /ros2_ws/install/perception/lib/perception
+[1.548s] Installing fake_route_context_pub script to /ros2_ws/install/perception/lib/perception
+[1.548s] Installing fake_traffic_light_state_pub script to /ros2_ws/install/perception/lib/perception
+[1.549s] Installing junction_node script to /ros2_ws/install/perception/lib/perception
+[1.549s] Installing lane_node script to /ros2_ws/install/perception/lib/perception
+[1.550s] Installing lidar_obstacle_node script to /ros2_ws/install/perception/lib/perception
+[1.550s] Installing perception_diagnostics_node script to /ros2_ws/install/perception/lib/perception
+[1.551s] Installing stop_target_node script to /ros2_ws/install/perception/lib/perception
+[1.551s] Installing traffic_light_node script to /ros2_ws/install/perception/lib/perception
+[1.552s] Installing traffic_sign_node script to /ros2_ws/install/perception/lib/perception
+[1.553s] writing list of installed files to '/ros2_ws/build/perception/install.log'

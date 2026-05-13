@@ -1,0 +1,7 @@
+[console_scripts]
+global_localization_node = localization.global_localization_node:main
+local_ekf_node = localization.local_ekf_node:main
+localization_diagnostics_node = localization.localization_diagnostics_node:main
+map_origin_node = localization.map_origin_node:main
+raw_gps_node = localization.raw_gps_node:main
+

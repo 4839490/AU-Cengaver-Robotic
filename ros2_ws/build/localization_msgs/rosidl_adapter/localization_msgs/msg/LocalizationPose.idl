@@ -1,0 +1,58 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from localization_msgs/msg/LocalizationPose.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module localization_msgs {
+  module msg {
+    module LocalizationPose_Constants {
+      const uint8 SOURCE_GPS_IMU_LIDAR = 0;
+      const uint8 SOURCE_IMU_LIDAR = 1;
+      const uint8 SOURCE_IMU_ONLY = 2;
+      const uint8 SOURCE_LIDAR_ONLY = 3;
+      const uint8 SOURCE_DEAD_RECKONING = 4;
+    };
+    @verbatim (language="comment", text=
+      " localization_msgs/LocalizationPose.msg" "\n"
+      " =============================================================================" "\n"
+      " Localization → Planner/FSM konum bilgisi" "\n"
+      " Topic: /localization/pose — 30-50 Hz — map frame (ENU)" "\n"
+      "" "\n"
+      " ENU yaw standardı:" "\n"
+      " yaw=0 → +x / Doğu" "\n"
+      " yaw=pi/2 → +y / Kuzey" "\n"
+      " yaw pozitif → CCW" "\n"
+      " yaw aralığı → [-pi, pi]" "\n"
+      " =============================================================================")
+    struct LocalizationPose {
+      std_msgs::msg::Header header;
+
+      uint32 age_ms;
+
+      uint32 valid_until_ms;
+
+      double x;
+
+      double y;
+
+      double yaw;
+
+      double linear_velocity;
+
+      double angular_velocity;
+
+      uint8 source;
+
+      double localization_confidence;
+
+      double position_covariance;
+
+      double heading_covariance;
+
+      double velocity_covariance;
+
+      sequence<string> warning_flags;
+    };
+  };
+};

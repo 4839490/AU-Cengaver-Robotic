@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from common_msgs/msg/StopReason.msg
+// generated code does not contain a copyright notice
+
+
+module common_msgs {
+  module msg {
+    module StopReason_Constants {
+      const uint8 STOP_NONE = 0;
+      const uint8 STOP_RED_LIGHT = 1;
+      const uint8 STOP_STOP_SIGN = 2;
+      const uint8 STOP_OBSTACLE_TTC = 3;
+      const uint8 STOP_LOCALIZATION_LOST = 4;
+      const uint8 STOP_STALE_SENSOR = 5;
+      const uint8 STOP_MISSION_ABORT = 6;
+      const uint8 STOP_PEDESTRIAN = 7;
+    };
+    @verbatim (language="comment", text=
+      " common_msgs/StopReason.msg" "\n"
+      " =============================================================================" "\n"
+      " STOP_APPROACH modunda durma sebebini belirtir." "\n"
+      " FSM, Planner ve Controller tarafından ortak kullanılır." "\n"
+      " =============================================================================")
+    struct StopReason {
+      uint8 reason;
+    };
+  };
+};

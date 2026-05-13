@@ -1,0 +1,36 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/junction__type_support_c.cpp.o"
+  "CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/lane_model__type_support_c.cpp.o"
+  "CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/obstacle_track__type_support_c.cpp.o"
+  "CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/obstacle_tracks__type_support_c.cpp.o"
+  "CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/perception_diagnostics__type_support_c.cpp.o"
+  "CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/stop_target__type_support_c.cpp.o"
+  "CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/traffic_light_state__type_support_c.cpp.o"
+  "CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/traffic_sign__type_support_c.cpp.o"
+  "CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/traffic_signs__type_support_c.cpp.o"
+  "libperception_msgs__rosidl_typesupport_fastrtps_c.pdb"
+  "libperception_msgs__rosidl_typesupport_fastrtps_c.so"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/junction__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/junction__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/lane_model__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/lane_model__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/obstacle_track__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/obstacle_track__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/obstacle_tracks__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/obstacle_tracks__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/perception_diagnostics__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/perception_diagnostics__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/stop_target__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/stop_target__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/traffic_light_state__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/traffic_light_state__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/traffic_sign__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/traffic_sign__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/traffic_signs__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/perception_msgs/msg/detail/traffic_signs__type_support_c.cpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/perception_msgs__rosidl_typesupport_fastrtps_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

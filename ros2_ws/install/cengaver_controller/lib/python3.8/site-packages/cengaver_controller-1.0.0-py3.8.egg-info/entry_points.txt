@@ -1,0 +1,4 @@
+[console_scripts]
+controller_feedback_node = cengaver_controller.controller_feedback_node:main
+controller_node = cengaver_controller.controller_node:main
+

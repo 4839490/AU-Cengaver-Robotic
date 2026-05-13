@@ -1,0 +1,287 @@
+[0.055s] Invoking command in '/ros2_ws/build/planning_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /ros2_ws/build/planning_msgs -- -j10 -l10
+[0.417s] [  1%] Built target planning_msgs__cpp
+[0.464s] [ 12%] Built target planning_msgs__rosidl_generator_c
+[0.820s] [ 24%] Built target planning_msgs__rosidl_typesupport_fastrtps_cpp
+[0.877s] [ 55%] Built target planning_msgs__rosidl_typesupport_introspection_cpp
+[0.880s] [ 55%] Built target planning_msgs__rosidl_typesupport_c
+[0.887s] [ 58%] Built target planning_msgs__rosidl_typesupport_cpp
+[0.943s] [ 70%] Built target planning_msgs__rosidl_typesupport_introspection_c
+[1.024s] [ 82%] Built target planning_msgs__rosidl_typesupport_fastrtps_c
+[1.154s] [ 82%] Built target planning_msgs
+[1.283s] [ 83%] Built target planning_msgs__py
+[1.437s] [ 93%] Built target planning_msgs__python
+[1.637s] [ 95%] Built target planning_msgs__rosidl_typesupport_c__pyext
+[1.650s] [ 97%] Built target planning_msgs__rosidl_typesupport_introspection_c__pyext
+[1.678s] [100%] Built target planning_msgs__rosidl_typesupport_fastrtps_c__pyext
+[1.747s] Invoked command in '/ros2_ws/build/planning_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /ros2_ws/build/planning_msgs -- -j10 -l10
+[4.953s] Invoking command in '/ros2_ws/build/planning_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /ros2_ws/build/planning_msgs
+[4.986s] -- Install configuration: ""
+[4.988s] -- Installing: /ros2_ws/install/planning_msgs/share/ament_index/resource_index/rosidl_interfaces/planning_msgs
+[4.991s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs
+[4.992s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg
+[4.993s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/planning_status.h
+[5.001s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/rosidl_generator_c__visibility_control.h
+[5.002s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/active_route_context.h
+[5.004s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/target_speed.h
+[5.007s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/trajectory_point.h
+[5.009s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/trajectory.h
+[5.011s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/fsm_request.h
+[5.013s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail
+[5.015s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__type_support.h
+[5.017s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__functions.h
+[5.020s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__struct.h
+[5.024s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__struct.h
+[5.028s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__type_support.h
+[5.034s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__struct.h
+[5.039s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__type_support.h
+[5.044s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__functions.h
+[5.048s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__functions.c
+[5.050s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__type_support.h
+[5.053s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__functions.c
+[5.053s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__functions.h
+[5.054s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__type_support.h
+[5.054s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__struct.h
+[5.056s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__functions.c
+[5.060s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__functions.c
+[5.064s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__functions.c
+[5.066s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__struct.h
+[5.069s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__functions.h
+[5.074s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__struct.h
+[5.076s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__type_support.h
+[5.080s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__struct.h
+[5.089s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__type_support.h
+[5.093s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__struct.h
+[5.095s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__functions.c
+[5.095s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__functions.h
+[5.096s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__functions.c
+[5.099s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__functions.h
+[5.101s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__functions.c
+[5.104s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__struct.h
+[5.108s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__type_support.h
+[5.111s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__type_support.h
+[5.114s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__functions.c
+[5.116s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__functions.h
+[5.119s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__functions.h
+[5.123s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__functions.h
+[5.124s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/goal_reached.h
+[5.127s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/controller_feedback.h
+[5.128s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/park_complete.h
+[5.130s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/environment/library_path.sh
+[5.131s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/environment/library_path.dsv
+[5.131s] -- Installing: /ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_generator_c.so
+[5.132s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_generator_c.so" to ""
+[5.132s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs
+[5.132s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg
+[5.132s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail
+[5.133s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__rosidl_typesupport_fastrtps_c.h
+[5.133s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__rosidl_typesupport_fastrtps_c.h
+[5.133s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__rosidl_typesupport_fastrtps_c.h
+[5.134s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__rosidl_typesupport_fastrtps_c.h
+[5.136s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__rosidl_typesupport_fastrtps_c.h
+[5.138s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__rosidl_typesupport_fastrtps_c.h
+[5.142s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__rosidl_typesupport_fastrtps_c.h
+[5.142s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__rosidl_typesupport_fastrtps_c.h
+[5.143s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__rosidl_typesupport_fastrtps_c.h
+[5.146s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[5.147s] -- Installing: /ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_fastrtps_c.so
+[5.150s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[5.150s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs
+[5.151s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg
+[5.151s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[5.152s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail
+[5.153s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__rosidl_typesupport_fastrtps_cpp.hpp
+[5.156s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__rosidl_typesupport_fastrtps_cpp.hpp
+[5.157s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__rosidl_typesupport_fastrtps_cpp.hpp
+[5.158s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__rosidl_typesupport_fastrtps_cpp.hpp
+[5.159s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__rosidl_typesupport_fastrtps_cpp.hpp
+[5.161s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__rosidl_typesupport_fastrtps_cpp.hpp
+[5.162s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__rosidl_typesupport_fastrtps_cpp.hpp
+[5.163s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__rosidl_typesupport_fastrtps_cpp.hpp
+[5.164s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__rosidl_typesupport_fastrtps_cpp.hpp
+[5.166s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/dds_fastrtps
+[5.167s] -- Installing: /ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_fastrtps_cpp.so
+[5.170s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[5.170s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs
+[5.170s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg
+[5.171s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail
+[5.171s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__rosidl_typesupport_introspection_c.h
+[5.172s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__type_support.c
+[5.174s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__rosidl_typesupport_introspection_c.h
+[5.176s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__type_support.c
+[5.177s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__type_support.c
+[5.181s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__type_support.c
+[5.183s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__type_support.c
+[5.184s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__type_support.c
+[5.185s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__rosidl_typesupport_introspection_c.h
+[5.187s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__rosidl_typesupport_introspection_c.h
+[5.192s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__type_support.c
+[5.193s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__rosidl_typesupport_introspection_c.h
+[5.194s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__rosidl_typesupport_introspection_c.h
+[5.195s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__rosidl_typesupport_introspection_c.h
+[5.196s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__rosidl_typesupport_introspection_c.h
+[5.197s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__type_support.c
+[5.201s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__type_support.c
+[5.202s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__rosidl_typesupport_introspection_c.h
+[5.203s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[5.206s] -- Installing: /ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_introspection_c.so
+[5.210s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_introspection_c.so" to ""
+[5.211s] -- Installing: /ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_c.so
+[5.216s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_c.so" to ""
+[5.216s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs
+[5.217s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg
+[5.218s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/fsm_request.hpp
+[5.219s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/trajectory.hpp
+[5.220s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/active_route_context.hpp
+[5.222s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/trajectory_point.hpp
+[5.225s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/goal_reached.hpp
+[5.231s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/park_complete.hpp
+[5.234s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail
+[5.236s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__traits.hpp
+[5.239s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__builder.hpp
+[5.242s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__builder.hpp
+[5.243s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__traits.hpp
+[5.245s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__builder.hpp
+[5.246s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__traits.hpp
+[5.247s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__type_support.hpp
+[5.251s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__type_support.hpp
+[5.254s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__type_support.hpp
+[5.255s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__struct.hpp
+[5.257s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__type_support.hpp
+[5.258s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__type_support.hpp
+[5.258s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__type_support.hpp
+[5.260s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__builder.hpp
+[5.262s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__builder.hpp
+[5.264s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__traits.hpp
+[5.266s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__struct.hpp
+[5.268s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__traits.hpp
+[5.270s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__traits.hpp
+[5.274s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__traits.hpp
+[5.275s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__builder.hpp
+[5.277s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__struct.hpp
+[5.281s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__struct.hpp
+[5.282s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__struct.hpp
+[5.283s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__traits.hpp
+[5.286s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__builder.hpp
+[5.287s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__builder.hpp
+[5.289s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__type_support.hpp
+[5.291s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__type_support.hpp
+[5.294s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__struct.hpp
+[5.295s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__struct.hpp
+[5.301s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__builder.hpp
+[5.303s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__type_support.hpp
+[5.305s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__struct.hpp
+[5.306s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__traits.hpp
+[5.310s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__struct.hpp
+[5.311s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[5.313s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/planning_status.hpp
+[5.318s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/target_speed.hpp
+[5.320s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/controller_feedback.hpp
+[5.321s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs
+[5.322s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg
+[5.322s] -- Up-to-date: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail
+[5.323s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__rosidl_typesupport_introspection_cpp.hpp
+[5.325s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__type_support.cpp
+[5.326s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__rosidl_typesupport_introspection_cpp.hpp
+[5.329s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/fsm_request__type_support.cpp
+[5.336s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__rosidl_typesupport_introspection_cpp.hpp
+[5.337s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__type_support.cpp
+[5.340s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__rosidl_typesupport_introspection_cpp.hpp
+[5.342s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/park_complete__rosidl_typesupport_introspection_cpp.hpp
+[5.345s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__rosidl_typesupport_introspection_cpp.hpp
+[5.346s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/goal_reached__type_support.cpp
+[5.348s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__type_support.cpp
+[5.349s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/target_speed__type_support.cpp
+[5.351s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory_point__rosidl_typesupport_introspection_cpp.hpp
+[5.353s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/planning_status__type_support.cpp
+[5.355s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__type_support.cpp
+[5.356s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/trajectory__rosidl_typesupport_introspection_cpp.hpp
+[5.358s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/controller_feedback__type_support.cpp
+[5.361s] -- Installing: /ros2_ws/install/planning_msgs/include/planning_msgs/msg/detail/active_route_context__rosidl_typesupport_introspection_cpp.hpp
+[5.364s] -- Installing: /ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_introspection_cpp.so
+[5.367s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[5.368s] -- Installing: /ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_cpp.so
+[5.369s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/libplanning_msgs__rosidl_typesupport_cpp.so" to ""
+[5.370s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/environment/pythonpath.sh
+[5.373s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/environment/pythonpath.dsv
+[5.378s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/__init__.py
+[5.463s] Compiling '/ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/__init__.py'...
+[5.467s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg
+[5.468s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_trajectory_point_s.c
+[5.471s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_trajectory.py
+[5.474s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_trajectory_s.c
+[5.476s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_target_speed.py
+[5.478s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_target_speed_s.c
+[5.479s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_park_complete.py
+[5.482s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_trajectory_point.py
+[5.484s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/__init__.py
+[5.485s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_goal_reached.py
+[5.486s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_goal_reached_s.c
+[5.489s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_park_complete_s.c
+[5.493s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_fsm_request_s.c
+[5.494s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_fsm_request.py
+[5.494s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_controller_feedback_s.c
+[5.497s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_active_route_context_s.c
+[5.501s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_planning_status_s.c
+[5.502s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_controller_feedback.py
+[5.504s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_active_route_context.py
+[5.507s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/msg/_planning_status.py
+[5.509s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/planning_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so
+[5.512s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/planning_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so" to ""
+[5.515s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/planning_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so
+[5.517s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/planning_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so" to ""
+[5.517s] -- Installing: /ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/planning_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so
+[5.522s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/python3.8/site-packages/planning_msgs/planning_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so" to ""
+[5.523s] -- Installing: /ros2_ws/install/planning_msgs/lib/libplanning_msgs__python.so
+[5.526s] -- Set runtime path of "/ros2_ws/install/planning_msgs/lib/libplanning_msgs__python.so" to ""
+[5.527s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/TrajectoryPoint.idl
+[5.528s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/Trajectory.idl
+[5.529s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/TargetSpeed.idl
+[5.530s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/PlanningStatus.idl
+[5.531s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/ActiveRouteContext.idl
+[5.532s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/GoalReached.idl
+[5.534s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/ParkComplete.idl
+[5.535s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/ControllerFeedback.idl
+[5.536s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/FSMRequest.idl
+[5.537s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/TrajectoryPoint.msg
+[5.539s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/Trajectory.msg
+[5.540s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/TargetSpeed.msg
+[5.541s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/PlanningStatus.msg
+[5.546s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/ActiveRouteContext.msg
+[5.547s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/GoalReached.msg
+[5.548s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/ParkComplete.msg
+[5.550s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/ControllerFeedback.msg
+[5.554s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/msg/FSMRequest.msg
+[5.559s] -- Installing: /ros2_ws/install/planning_msgs/share/ament_index/resource_index/package_run_dependencies/planning_msgs
+[5.561s] -- Installing: /ros2_ws/install/planning_msgs/share/ament_index/resource_index/parent_prefix_path/planning_msgs
+[5.564s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/environment/ament_prefix_path.sh
+[5.565s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/environment/ament_prefix_path.dsv
+[5.566s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/environment/path.sh
+[5.567s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/environment/path.dsv
+[5.575s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/local_setup.bash
+[5.576s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/local_setup.sh
+[5.577s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/local_setup.zsh
+[5.578s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/local_setup.dsv
+[5.582s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/package.dsv
+[5.588s] -- Installing: /ros2_ws/install/planning_msgs/share/ament_index/resource_index/packages/planning_msgs
+[5.592s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_generator_cExport.cmake
+[5.597s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_generator_cExport-noconfig.cmake
+[5.599s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_typesupport_introspection_cExport.cmake
+[5.600s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[5.602s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_typesupport_cExport.cmake
+[5.605s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[5.607s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_generator_cppExport.cmake
+[5.609s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[5.611s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[5.613s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_typesupport_cppExport.cmake
+[5.617s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[5.620s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/rosidl_cmake-extras.cmake
+[5.621s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[5.623s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[5.624s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[5.626s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.628s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[5.630s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[5.632s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgsConfig.cmake
+[5.633s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/cmake/planning_msgsConfig-version.cmake
+[5.636s] -- Installing: /ros2_ws/install/planning_msgs/share/planning_msgs/package.xml
+[5.644s] Invoked command in '/ros2_ws/build/planning_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /ros2_ws/build/planning_msgs

@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from perception_msgs/msg/TrafficSigns.msg
+// generated code does not contain a copyright notice
+
+#include "perception_msgs/msg/TrafficSign.idl"
+#include "std_msgs/msg/Header.idl"
+
+module perception_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " perception_msgs/msg/TrafficSigns.msg" "\n"
+      " Topic: /perception/traffic_signs | 10-30 Hz | frame_id: base_link | valid_until_ms: 1000")
+    struct TrafficSigns {
+      std_msgs::msg::Header header;
+
+      sequence<perception_msgs::msg::TrafficSign> signs;
+    };
+  };
+};

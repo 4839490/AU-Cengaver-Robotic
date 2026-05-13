@@ -1,0 +1,44 @@
+[0.717s] Invoking command in '/ros2_ws/src/fsm': PYTHONPATH=/ros2_ws/build/fsm/prefix_override:/ros2_ws/install/fsm/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/fsm build --build-base /ros2_ws/build/fsm/build install --record /ros2_ws/build/fsm/install.log --single-version-externally-managed
+[0.907s] running egg_info
+[0.907s] creating ../../build/fsm/fsm.egg-info
+[0.907s] writing ../../build/fsm/fsm.egg-info/PKG-INFO
+[0.909s] writing dependency_links to ../../build/fsm/fsm.egg-info/dependency_links.txt
+[0.910s] writing entry points to ../../build/fsm/fsm.egg-info/entry_points.txt
+[0.912s] writing requirements to ../../build/fsm/fsm.egg-info/requires.txt
+[0.912s] writing top-level names to ../../build/fsm/fsm.egg-info/top_level.txt
+[0.914s] writing manifest file '../../build/fsm/fsm.egg-info/SOURCES.txt'
+[0.939s] reading manifest file '../../build/fsm/fsm.egg-info/SOURCES.txt'
+[0.941s] writing manifest file '../../build/fsm/fsm.egg-info/SOURCES.txt'
+[0.942s] running build
+[0.942s] running build_py
+[0.943s] creating /ros2_ws/build/fsm/build
+[0.944s] creating /ros2_ws/build/fsm/build/lib
+[0.944s] creating /ros2_ws/build/fsm/build/lib/fsm
+[0.945s] copying fsm/event_handler.py -> /ros2_ws/build/fsm/build/lib/fsm
+[0.946s] copying fsm/transition_rules.py -> /ros2_ws/build/fsm/build/lib/fsm
+[0.946s] copying fsm/mission_state_manager.py -> /ros2_ws/build/fsm/build/lib/fsm
+[0.947s] copying fsm/__init__.py -> /ros2_ws/build/fsm/build/lib/fsm
+[0.949s] copying fsm/fsm_node.py -> /ros2_ws/build/fsm/build/lib/fsm
+[0.952s] copying fsm/mode_manager.py -> /ros2_ws/build/fsm/build/lib/fsm
+[0.954s] running install
+[0.954s] running install_lib
+[0.956s] creating /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm
+[0.957s] copying /ros2_ws/build/fsm/build/lib/fsm/event_handler.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm
+[0.958s] copying /ros2_ws/build/fsm/build/lib/fsm/transition_rules.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm
+[0.958s] copying /ros2_ws/build/fsm/build/lib/fsm/mission_state_manager.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm
+[0.961s] copying /ros2_ws/build/fsm/build/lib/fsm/__init__.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm
+[0.964s] copying /ros2_ws/build/fsm/build/lib/fsm/fsm_node.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm
+[0.969s] copying /ros2_ws/build/fsm/build/lib/fsm/mode_manager.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm
+[0.972s] byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/event_handler.py to event_handler.cpython-38.pyc
+[0.976s] byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/transition_rules.py to transition_rules.cpython-38.pyc
+[0.979s] byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/mission_state_manager.py to mission_state_manager.cpython-38.pyc
+[0.983s] byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/__init__.py to __init__.cpython-38.pyc
+[0.984s] byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/fsm_node.py to fsm_node.cpython-38.pyc
+[0.994s] byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/mode_manager.py to mode_manager.cpython-38.pyc
+[0.995s] running install_data
+[0.996s] creating /ros2_ws/install/fsm/share
+[0.997s] creating /ros2_ws/install/fsm/share/ament_index
+[0.999s] creating /ros2_ws/install/fsm/share/ament_index/resource_index
+[0.999s] creating /ros2_ws/install/fsm/share/ament_index/resource_index/packages
+[1.000s] error: can't copy 'resource/fsm': doesn't exist or not a regular file
+[1.016s] Invoked command in '/ros2_ws/src/fsm' returned '1': PYTHONPATH=/ros2_ws/build/fsm/prefix_override:/ros2_ws/install/fsm/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/fsm build --build-base /ros2_ws/build/fsm/build install --record /ros2_ws/build/fsm/install.log --single-version-externally-managed

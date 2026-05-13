@@ -1,0 +1,37 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from planning_msgs/msg/ParkComplete.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module planning_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " planning_msgs/ParkComplete.msg" "\n"
+      " =============================================================================" "\n"
+      " Planner → FSM park tamamlandı bildirimi" "\n"
+      " Topic: /planning/park_complete — event-driven" "\n"
+      " =============================================================================")
+    struct ParkComplete {
+      @verbatim (language="comment", text=
+        " planning_msgs/ParkComplete.msg")
+      std_msgs::msg::Header header;
+
+      boolean success;
+
+      float final_cross_track_error;
+
+      float final_heading_error;
+
+      uint8 iterations_used;
+
+      uint32 waypoint_id;
+
+      uint32 age_ms;
+
+      uint32 valid_until_ms;
+
+      sequence<string> warning_flags;
+    };
+  };
+};

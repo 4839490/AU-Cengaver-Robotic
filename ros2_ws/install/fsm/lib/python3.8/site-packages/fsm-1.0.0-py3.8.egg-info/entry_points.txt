@@ -1,0 +1,3 @@
+[console_scripts]
+fsm_node = fsm.fsm_node:main
+

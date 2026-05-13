@@ -1,0 +1,47 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from planning_msgs/msg/Trajectory.msg
+// generated code does not contain a copyright notice
+
+#include "planning_msgs/msg/TrajectoryPoint.idl"
+#include "std_msgs/msg/Header.idl"
+
+module planning_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " planning_msgs/Trajectory.msg" "\n"
+      " =============================================================================" "\n"
+      " Planner → Controller yörünge mesajı" "\n"
+      " Topic: /planning/trajectory — 20Hz — map frame" "\n"
+      "" "\n"
+      " Timeout kuralı (Yol Haritası v1.1):" "\n"
+      "   0-500ms   → normal" "\n"
+      "   500-1000ms → hız %50 düşür" "\n"
+      "   >1000ms   → TAM FREN" "\n"
+      " =============================================================================")
+    struct Trajectory {
+      @verbatim (language="comment", text=
+        " Zaman damgası + frame_id=\"map\"")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        " Yörünge noktaları listesi (en az 5 nokta beklenir)")
+      sequence<planning_msgs::msg::TrajectoryPoint> points;
+
+      @verbatim (language="comment", text=
+        " Mevcut mod — common_msgs/AutonomyMode sabitlerini kullan")
+      uint8 planner_mode;
+
+      @verbatim (language="comment", text=
+        " Geçerlilik süresi (ms) — varsayılan 200ms")
+      uint32 valid_until_ms;
+
+      @verbatim (language="comment", text=
+        " Mesajın yaşı (ms) — üretildiğinden bu yana")
+      uint32 age_ms;
+
+      @verbatim (language="comment", text=
+        " Uyarı mesajları")
+      sequence<string> warning_flags;
+    };
+  };
+};

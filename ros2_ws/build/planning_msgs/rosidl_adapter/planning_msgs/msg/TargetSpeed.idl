@@ -1,0 +1,73 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from planning_msgs/msg/TargetSpeed.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module planning_msgs {
+  module msg {
+    module TargetSpeed_Constants {
+      const uint8 REASON_LANE_FOLLOW = 0;
+      const uint8 REASON_APPROACH_STOP = 1;
+      const uint8 REASON_PICKUP_DROPOFF = 2;
+      const uint8 REASON_OBSTACLE_SLOW = 3;
+      const uint8 REASON_JUNCTION = 4;
+      const uint8 REASON_TUNNEL = 5;
+      const uint8 REASON_PARK_APPROACH = 6;
+      const uint8 REASON_PARK_MANEUVER = 7;
+      const uint8 REASON_EMERGENCY_STOP = 8;
+      const uint8 REASON_LOCALIZATION_DEGRADED = 9;
+      const uint8 REASON_LANE_LOST = 10;
+    };
+    @verbatim (language="comment", text=
+      " planning_msgs/TargetSpeed.msg" "\n"
+      " =============================================================================" "\n"
+      " Planner → Controller güvenlik hızı" "\n"
+      " Topic: /planning/target_speed — 20Hz" "\n"
+      "" "\n"
+      " Hız öncelik kuralı (Sözleşme v1.2 FIX-5):" "\n"
+      "   final_speed = min(target_speed.speed, trajectory_point.speed)" "\n"
+      "" "\n"
+      " reason sabitleri:" "\n"
+      "   0 = LANE_FOLLOW     → normal sürüş" "\n"
+      "   1 = APPROACH_STOP   → dur noktasına yaklaşım" "\n"
+      "   2 = PICKUP_DROPOFF  → yolcu işlemi (max 3 km/h)" "\n"
+      "   3 = OBSTACLE_SLOW   → engel yavaşlaması" "\n"
+      "   4 = JUNCTION        → kavşak (mod değil, reason!)" "\n"
+      "   5 = TUNNEL          → tünel (mod değil, reason!)" "\n"
+      "   6 = PARK_APPROACH   → park yaklaşımı" "\n"
+      "   7 = PARK_MANEUVER   → park manevrası (max 3 km/h)" "\n"
+      "   8 = EMERGENCY_STOP  → yazılımsal tam fren (güç kesilmez)" "\n"
+      " =============================================================================")
+    struct TargetSpeed {
+      @verbatim (language="comment", text=
+        " Zaman damgası")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        " Güvenlik hız limiti (m/s) — 0.0=dur")
+      float speed;
+
+      @verbatim (language="comment", text=
+        " Hız geçişi yumuşatma (m/s³)" "\n"
+        "   Normal: 2.0 | Park: 1.0 | Acil: 10.0")
+      float jerk_limit;
+
+      @verbatim (language="comment", text=
+        " Neden bu hız? (yukarıdaki sabitler)")
+      uint8 reason;
+
+      @verbatim (language="comment", text=
+        " Geçerlilik süresi (ms) — varsayılan 200ms")
+      uint32 valid_until_ms;
+
+      @verbatim (language="comment", text=
+        " Mesajın yaşı (ms)")
+      uint32 age_ms;
+
+      @verbatim (language="comment", text=
+        " Uyarı mesajları")
+      sequence<string> warning_flags;
+    };
+  };
+};

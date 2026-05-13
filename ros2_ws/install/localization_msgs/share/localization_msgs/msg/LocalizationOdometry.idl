@@ -1,0 +1,43 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from localization_msgs/msg/LocalizationOdometry.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module localization_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " localization_msgs/LocalizationOdometry.msg" "\n"
+      " =============================================================================" "\n"
+      " local_ekf_node → Planner/Controller odometri" "\n"
+      " Topic: /localization/odometry — 50 Hz" "\n"
+      " Frame: odom" "\n"
+      " TF: odom → base_link" "\n"
+      " =============================================================================")
+    struct LocalizationOdometry {
+      std_msgs::msg::Header header;
+
+      uint32 age_ms;
+
+      uint32 valid_until_ms;
+
+      double x;
+
+      double y;
+
+      double yaw;
+
+      double linear_velocity;
+
+      double angular_velocity;
+
+      double position_covariance;
+
+      double heading_covariance;
+
+      double velocity_covariance;
+
+      sequence<string> warning_flags;
+    };
+  };
+};

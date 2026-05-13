@@ -1,0 +1,47 @@
+running egg_info
+creating ../../build/cengaver_controller/cengaver_controller.egg-info
+writing ../../build/cengaver_controller/cengaver_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/cengaver_controller/cengaver_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/cengaver_controller/cengaver_controller.egg-info/entry_points.txt
+writing requirements to ../../build/cengaver_controller/cengaver_controller.egg-info/requires.txt
+writing top-level names to ../../build/cengaver_controller/cengaver_controller.egg-info/top_level.txt
+writing manifest file '../../build/cengaver_controller/cengaver_controller.egg-info/SOURCES.txt'
+reading manifest file '../../build/cengaver_controller/cengaver_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/cengaver_controller/cengaver_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /ros2_ws/build/cengaver_controller/build
+creating /ros2_ws/build/cengaver_controller/build/lib
+creating /ros2_ws/build/cengaver_controller/build/lib/controller
+copying controller/can_interface.py -> /ros2_ws/build/cengaver_controller/build/lib/controller
+copying controller/__init__.py -> /ros2_ws/build/cengaver_controller/build/lib/controller
+copying controller/ackermann_model.py -> /ros2_ws/build/cengaver_controller/build/lib/controller
+copying controller/stanley_controller.py -> /ros2_ws/build/cengaver_controller/build/lib/controller
+copying controller/pure_pursuit.py -> /ros2_ws/build/cengaver_controller/build/lib/controller
+copying controller/speed_controller.py -> /ros2_ws/build/cengaver_controller/build/lib/controller
+copying controller/controller_feedback_node.py -> /ros2_ws/build/cengaver_controller/build/lib/controller
+copying controller/controller_node.py -> /ros2_ws/build/cengaver_controller/build/lib/controller
+running install
+running install_lib
+creating /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller
+copying /ros2_ws/build/cengaver_controller/build/lib/controller/can_interface.py -> /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller
+copying /ros2_ws/build/cengaver_controller/build/lib/controller/__init__.py -> /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller
+copying /ros2_ws/build/cengaver_controller/build/lib/controller/ackermann_model.py -> /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller
+copying /ros2_ws/build/cengaver_controller/build/lib/controller/stanley_controller.py -> /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller
+copying /ros2_ws/build/cengaver_controller/build/lib/controller/pure_pursuit.py -> /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller
+copying /ros2_ws/build/cengaver_controller/build/lib/controller/speed_controller.py -> /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller
+copying /ros2_ws/build/cengaver_controller/build/lib/controller/controller_feedback_node.py -> /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller
+copying /ros2_ws/build/cengaver_controller/build/lib/controller/controller_node.py -> /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller
+byte-compiling /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller/can_interface.py to can_interface.cpython-38.pyc
+byte-compiling /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller/__init__.py to __init__.cpython-38.pyc
+byte-compiling /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller/ackermann_model.py to ackermann_model.cpython-38.pyc
+byte-compiling /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller/stanley_controller.py to stanley_controller.cpython-38.pyc
+byte-compiling /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller/pure_pursuit.py to pure_pursuit.cpython-38.pyc
+byte-compiling /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller/speed_controller.py to speed_controller.cpython-38.pyc
+byte-compiling /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller/controller_feedback_node.py to controller_feedback_node.cpython-38.pyc
+byte-compiling /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/controller/controller_node.py to controller_node.cpython-38.pyc
+running install_data
+creating /ros2_ws/install/cengaver_controller/share/ament_index
+creating /ros2_ws/install/cengaver_controller/share/ament_index/resource_index
+creating /ros2_ws/install/cengaver_controller/share/ament_index/resource_index/packages
+error: can't copy 'resource/cengaver_controller': doesn't exist or not a regular file

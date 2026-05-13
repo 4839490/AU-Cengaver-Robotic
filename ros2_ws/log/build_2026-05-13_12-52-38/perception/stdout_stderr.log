@@ -1,0 +1,40 @@
+running egg_info
+writing ../../build/perception/perception.egg-info/PKG-INFO
+writing dependency_links to ../../build/perception/perception.egg-info/dependency_links.txt
+writing entry points to ../../build/perception/perception.egg-info/entry_points.txt
+writing requirements to ../../build/perception/perception.egg-info/requires.txt
+writing top-level names to ../../build/perception/perception.egg-info/top_level.txt
+reading manifest file '../../build/perception/perception.egg-info/SOURCES.txt'
+writing manifest file '../../build/perception/perception.egg-info/SOURCES.txt'
+running build
+running build_py
+copying perception/route_context_utils.py -> /ros2_ws/build/perception/build/lib/perception
+copying perception/temporal_filter.py -> /ros2_ws/build/perception/build/lib/perception
+copying perception/colour_classifier.py -> /ros2_ws/build/perception/build/lib/perception
+running install
+running install_lib
+copying /ros2_ws/build/perception/build/lib/perception/route_context_utils.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+copying /ros2_ws/build/perception/build/lib/perception/temporal_filter.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+copying /ros2_ws/build/perception/build/lib/perception/colour_classifier.py -> /ros2_ws/install/perception/lib/python3.8/site-packages/perception
+byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/route_context_utils.py to route_context_utils.cpython-38.pyc
+byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/temporal_filter.py to temporal_filter.cpython-38.pyc
+byte-compiling /ros2_ws/install/perception/lib/python3.8/site-packages/perception/colour_classifier.py to colour_classifier.cpython-38.pyc
+running install_data
+running install_egg_info
+removing '/ros2_ws/install/perception/lib/python3.8/site-packages/perception-0.1.0-py3.8.egg-info' (and everything under it)
+Copying ../../build/perception/perception.egg-info to /ros2_ws/install/perception/lib/python3.8/site-packages/perception-0.1.0-py3.8.egg-info
+running install_scripts
+Installing dummy_perception_publishers script to /ros2_ws/install/perception/lib/perception
+Installing fake_image_pub script to /ros2_ws/install/perception/lib/perception
+Installing fake_lane_image_pub script to /ros2_ws/install/perception/lib/perception
+Installing fake_pointcloud_pub script to /ros2_ws/install/perception/lib/perception
+Installing fake_route_context_pub script to /ros2_ws/install/perception/lib/perception
+Installing fake_traffic_light_state_pub script to /ros2_ws/install/perception/lib/perception
+Installing junction_node script to /ros2_ws/install/perception/lib/perception
+Installing lane_node script to /ros2_ws/install/perception/lib/perception
+Installing lidar_obstacle_node script to /ros2_ws/install/perception/lib/perception
+Installing perception_diagnostics_node script to /ros2_ws/install/perception/lib/perception
+Installing stop_target_node script to /ros2_ws/install/perception/lib/perception
+Installing traffic_light_node script to /ros2_ws/install/perception/lib/perception
+Installing traffic_sign_node script to /ros2_ws/install/perception/lib/perception
+writing list of installed files to '/ros2_ws/build/perception/install.log'

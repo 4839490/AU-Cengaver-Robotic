@@ -1,0 +1,5 @@
+pyyaml
+setuptools
+
+[can]
+python-can

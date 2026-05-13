@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from perception_msgs/msg/ObstacleTracks.msg
+// generated code does not contain a copyright notice
+
+#include "perception_msgs/msg/ObstacleTrack.idl"
+#include "std_msgs/msg/Header.idl"
+
+module perception_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " perception_msgs/msg/ObstacleTracks.msg" "\n"
+      " Topic: /perception/obstacle_tracks | 20 Hz | frame_id: base_link | valid_until_ms: 200")
+    struct ObstacleTracks {
+      std_msgs::msg::Header header;
+
+      sequence<perception_msgs::msg::ObstacleTrack> tracks;
+    };
+  };
+};

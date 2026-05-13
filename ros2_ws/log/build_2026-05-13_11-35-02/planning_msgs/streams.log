@@ -1,0 +1,125 @@
+[0.047s] Invoking command in '/ros2_ws/build/planning_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /ros2_ws/build/planning_msgs -- -j10 -l10
+[0.289s] [  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[0.293s] [35m[1mScanning dependencies of target planning_msgs__cpp[0m
+[0.407s] [  2%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[3.846s] [35m[1mScanning dependencies of target planning_msgs__rosidl_generator_c[0m
+[4.065s] [  2%] Built target planning_msgs__cpp
+[4.309s] [  3%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_generator_c.dir/rosidl_generator_c/planning_msgs/msg/detail/target_speed__functions.c.o[0m
+[4.319s] [  5%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_generator_c.dir/rosidl_generator_c/planning_msgs/msg/detail/trajectory__functions.c.o[0m
+[4.323s] [  5%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_generator_c.dir/rosidl_generator_c/planning_msgs/msg/detail/goal_reached__functions.c.o[0m
+[4.383s] [  6%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_generator_c.dir/rosidl_generator_c/planning_msgs/msg/detail/active_route_context__functions.c.o[0m
+[4.402s] [  8%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_generator_c.dir/rosidl_generator_c/planning_msgs/msg/detail/trajectory_point__functions.c.o[0m
+[4.405s] [  8%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[4.428s] [  9%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_generator_c.dir/rosidl_generator_c/planning_msgs/msg/detail/planning_status__functions.c.o[0m
+[4.461s] [ 11%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[4.484s] [ 11%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[4.506s] [ 12%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_generator_c.dir/rosidl_generator_c/planning_msgs/msg/detail/park_complete__functions.c.o[0m
+[5.734s] [ 13%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_generator_c.dir/rosidl_generator_c/planning_msgs/msg/detail/controller_feedback__functions.c.o[0m
+[6.171s] [ 14%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_generator_c.dir/rosidl_generator_c/planning_msgs/msg/detail/fsm_request__functions.c.o[0m
+[7.299s] [ 15%] [32m[1mLinking C shared library libplanning_msgs__rosidl_generator_c.so[0m
+[7.685s] [35m[1mScanning dependencies of target planning_msgs__rosidl_typesupport_cpp[0m
+[8.292s] [ 16%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/planning_msgs/msg/trajectory_point__type_support.cpp.o[0m
+[8.350s] [ 16%] Built target planning_msgs__rosidl_generator_c
+[8.510s] [ 17%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/planning_msgs/msg/active_route_context__type_support.cpp.o[0m
+[8.533s] [ 20%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/planning_msgs/msg/target_speed__type_support.cpp.o[0m
+[8.533s] [ 20%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/planning_msgs/msg/trajectory__type_support.cpp.o[0m
+[8.581s] [ 21%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/planning_msgs/msg/planning_status__type_support.cpp.o[0m
+[8.600s] [ 22%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/planning_msgs/msg/goal_reached__type_support.cpp.o[0m
+[8.681s] [35m[1mScanning dependencies of target planning_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[8.700s] [ 23%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[8.835s] [ 24%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[10.177s] [35m[1mScanning dependencies of target planning_msgs__rosidl_typesupport_introspection_cpp[0m
+[10.331s] [ 25%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/planning_msgs/msg/detail/dds_fastrtps/trajectory_point__type_support.cpp.o[0m
+[10.722s] [ 26%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/planning_msgs/msg/park_complete__type_support.cpp.o[0m
+[10.975s] [ 27%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/planning_msgs/msg/detail/trajectory_point__type_support.cpp.o[0m
+[10.993s] [ 28%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/planning_msgs/msg/detail/dds_fastrtps/target_speed__type_support.cpp.o[0m
+[11.036s] [ 29%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/planning_msgs/msg/detail/dds_fastrtps/trajectory__type_support.cpp.o[0m
+[11.140s] [ 30%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/planning_msgs/msg/controller_feedback__type_support.cpp.o[0m
+[11.449s] [35m[1mScanning dependencies of target planning_msgs__rosidl_typesupport_c[0m
+[11.707s] [ 31%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/planning_msgs/msg/fsm_request__type_support.cpp.o[0m
+[11.720s] [ 32%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/planning_msgs/msg/detail/dds_fastrtps/planning_status__type_support.cpp.o[0m
+[11.826s] [ 33%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/planning_msgs/msg/trajectory_point__type_support.cpp.o[0m
+[12.479s] [ 34%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/planning_msgs/msg/detail/trajectory__type_support.cpp.o[0m
+[12.767s] [ 35%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/planning_msgs/msg/trajectory__type_support.cpp.o[0m
+[13.107s] [ 36%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/planning_msgs/msg/detail/target_speed__type_support.cpp.o[0m
+[13.293s] [ 37%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/planning_msgs/msg/detail/planning_status__type_support.cpp.o[0m
+[13.316s] [ 38%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/planning_msgs/msg/detail/active_route_context__type_support.cpp.o[0m
+[13.349s] [ 40%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/planning_msgs/msg/target_speed__type_support.cpp.o[0m
+[13.534s] [35m[1mScanning dependencies of target planning_msgs__rosidl_typesupport_introspection_c[0m
+[13.620s] [ 41%] [32m[1mLinking CXX shared library libplanning_msgs__rosidl_typesupport_cpp.so[0m
+[13.950s] [ 42%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/planning_msgs/msg/planning_status__type_support.cpp.o[0m
+[13.980s] [ 43%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/planning_msgs/msg/detail/dds_fastrtps/active_route_context__type_support.cpp.o[0m
+[14.072s] [ 44%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/planning_msgs/msg/detail/trajectory_point__type_support.c.o[0m
+[14.091s] [ 45%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/planning_msgs/msg/active_route_context__type_support.cpp.o[0m
+[14.312s] [ 46%] Built target planning_msgs__rosidl_typesupport_cpp
+[14.314s] [ 46%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/planning_msgs/msg/detail/goal_reached__type_support.cpp.o[0m
+[14.417s] [ 47%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/planning_msgs/msg/detail/dds_fastrtps/goal_reached__type_support.cpp.o[0m
+[14.541s] [ 48%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/planning_msgs/msg/detail/park_complete__type_support.cpp.o[0m
+[14.945s] [ 49%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/planning_msgs/msg/goal_reached__type_support.cpp.o[0m
+[14.955s] [ 51%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/planning_msgs/msg/detail/fsm_request__type_support.cpp.o[0m
+[14.960s] [ 51%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/planning_msgs/msg/detail/controller_feedback__type_support.cpp.o[0m
+[14.967s] [ 52%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/planning_msgs/msg/detail/trajectory__type_support.c.o[0m
+[15.048s] [ 53%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/planning_msgs/msg/detail/dds_fastrtps/park_complete__type_support.cpp.o[0m
+[15.157s] [ 54%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/planning_msgs/msg/detail/dds_fastrtps/controller_feedback__type_support.cpp.o[0m
+[15.495s] [ 55%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/planning_msgs/msg/park_complete__type_support.cpp.o[0m
+[15.532s] [ 56%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/planning_msgs/msg/detail/target_speed__type_support.c.o[0m
+[15.901s] [ 57%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/planning_msgs/msg/detail/planning_status__type_support.c.o[0m
+[16.236s] [ 58%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/planning_msgs/msg/detail/dds_fastrtps/fsm_request__type_support.cpp.o[0m
+[16.353s] [ 60%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/planning_msgs/msg/fsm_request__type_support.cpp.o[0m
+[16.381s] [ 61%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/planning_msgs/msg/detail/active_route_context__type_support.c.o[0m
+[16.397s] [ 62%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/planning_msgs/msg/controller_feedback__type_support.cpp.o[0m
+[16.529s] [ 63%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/planning_msgs/msg/detail/goal_reached__type_support.c.o[0m
+[16.627s] [ 64%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/planning_msgs/msg/detail/park_complete__type_support.c.o[0m
+[16.731s] [ 65%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/planning_msgs/msg/detail/controller_feedback__type_support.c.o[0m
+[16.822s] [ 66%] [32m[1mLinking CXX shared library libplanning_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[16.949s] [ 68%] [32m[1mLinking CXX shared library libplanning_msgs__rosidl_typesupport_c.so[0m
+[16.967s] [ 68%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/planning_msgs/msg/detail/fsm_request__type_support.c.o[0m
+[17.410s] [ 68%] Built target planning_msgs__rosidl_typesupport_c
+[17.528s] [ 69%] [32m[1mLinking C shared library libplanning_msgs__rosidl_typesupport_introspection_c.so[0m
+[17.566s] [ 69%] Built target planning_msgs__rosidl_typesupport_introspection_cpp
+[17.665s] [ 70%] [32m[1mLinking CXX shared library libplanning_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[17.838s] [ 70%] Built target planning_msgs__rosidl_typesupport_introspection_c
+[18.034s] [ 70%] Built target planning_msgs__rosidl_typesupport_fastrtps_cpp
+[18.128s] [ 71%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[19.501s] [35m[1mScanning dependencies of target planning_msgs__rosidl_typesupport_fastrtps_c[0m
+[19.828s] [ 73%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/planning_msgs/msg/detail/trajectory__type_support_c.cpp.o[0m
+[19.831s] [ 73%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/planning_msgs/msg/detail/planning_status__type_support_c.cpp.o[0m
+[19.836s] [ 74%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/planning_msgs/msg/detail/target_speed__type_support_c.cpp.o[0m
+[19.847s] [ 75%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/planning_msgs/msg/detail/trajectory_point__type_support_c.cpp.o[0m
+[20.818s] [ 77%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/planning_msgs/msg/detail/controller_feedback__type_support_c.cpp.o[0m
+[20.820s] [ 77%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/planning_msgs/msg/detail/park_complete__type_support_c.cpp.o[0m
+[20.834s] [ 80%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/planning_msgs/msg/detail/fsm_request__type_support_c.cpp.o[0m
+[20.840s] [ 80%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/planning_msgs/msg/detail/goal_reached__type_support_c.cpp.o[0m
+[20.862s] [ 81%] [32mBuilding CXX object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/planning_msgs/msg/detail/active_route_context__type_support_c.cpp.o[0m
+[21.723s] [ 82%] [32m[1mLinking CXX shared library libplanning_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[21.970s] [ 82%] Built target planning_msgs__rosidl_typesupport_fastrtps_c
+[22.068s] [35m[1mScanning dependencies of target planning_msgs[0m
+[22.238s] [ 82%] Built target planning_msgs
+[22.376s] [35m[1mScanning dependencies of target planning_msgs__py[0m
+[22.523s] [ 83%] [34m[1mGenerating Python code for ROS interfaces[0m
+[24.784s] [ 83%] Built target planning_msgs__py
+[24.869s] [35m[1mScanning dependencies of target planning_msgs__python[0m
+[25.241s] [ 85%] [32mBuilding C object CMakeFiles/planning_msgs__python.dir/rosidl_generator_py/planning_msgs/msg/_trajectory_point_s.c.o[0m
+[25.243s] [ 85%] [32mBuilding C object CMakeFiles/planning_msgs__python.dir/rosidl_generator_py/planning_msgs/msg/_trajectory_s.c.o[0m
+[25.254s] [ 86%] [32mBuilding C object CMakeFiles/planning_msgs__python.dir/rosidl_generator_py/planning_msgs/msg/_target_speed_s.c.o[0m
+[25.583s] [ 87%] [32mBuilding C object CMakeFiles/planning_msgs__python.dir/rosidl_generator_py/planning_msgs/msg/_fsm_request_s.c.o[0m
+[25.610s] [ 88%] [32mBuilding C object CMakeFiles/planning_msgs__python.dir/rosidl_generator_py/planning_msgs/msg/_controller_feedback_s.c.o[0m
+[25.619s] [ 89%] [32mBuilding C object CMakeFiles/planning_msgs__python.dir/rosidl_generator_py/planning_msgs/msg/_park_complete_s.c.o[0m
+[25.923s] [ 90%] [32mBuilding C object CMakeFiles/planning_msgs__python.dir/rosidl_generator_py/planning_msgs/msg/_goal_reached_s.c.o[0m
+[25.929s] [ 91%] [32mBuilding C object CMakeFiles/planning_msgs__python.dir/rosidl_generator_py/planning_msgs/msg/_active_route_context_s.c.o[0m
+[25.943s] [ 92%] [32mBuilding C object CMakeFiles/planning_msgs__python.dir/rosidl_generator_py/planning_msgs/msg/_planning_status_s.c.o[0m
+[26.325s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/planning_msgs/libplanning_msgs__python.so[0m
+[26.499s] [ 93%] Built target planning_msgs__python
+[26.567s] [35m[1mScanning dependencies of target planning_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[26.567s] [35m[1mScanning dependencies of target planning_msgs__rosidl_typesupport_c__pyext[0m
+[26.587s] [35m[1mScanning dependencies of target planning_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[26.762s] [ 94%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/planning_msgs/_planning_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[26.770s] [ 95%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/planning_msgs/_planning_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[26.774s] [ 96%] [32mBuilding C object CMakeFiles/planning_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/planning_msgs/_planning_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[27.099s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/planning_msgs/planning_msgs_s__rosidl_typesupport_c.cpython-38-x86_64-linux-gnu.so[0m
+[27.110s] [100%] [32m[1mLinking CXX shared library rosidl_generator_py/planning_msgs/planning_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-x86_64-linux-gnu.so[0m
+[27.111s] [100%] [32m[1mLinking C shared library rosidl_generator_py/planning_msgs/planning_msgs_s__rosidl_typesupport_introspection_c.cpython-38-x86_64-linux-gnu.so[0m
+[27.258s] [100%] Built target planning_msgs__rosidl_typesupport_c__pyext
+[27.263s] [100%] Built target planning_msgs__rosidl_typesupport_introspection_c__pyext
+[27.297s] [100%] Built target planning_msgs__rosidl_typesupport_fastrtps_c__pyext
+[27.338s] Invoked command in '/ros2_ws/build/planning_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /ros2_ws/build/planning_msgs -- -j10 -l10

@@ -1,0 +1,4 @@
+msg/AutonomyMode.idl
+msg/AutonomyMode.msg
+msg/StopReason.idl
+msg/StopReason.msg

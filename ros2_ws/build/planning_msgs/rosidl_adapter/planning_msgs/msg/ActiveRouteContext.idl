@@ -1,0 +1,52 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from planning_msgs/msg/ActiveRouteContext.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Point.idl"
+#include "std_msgs/msg/Header.idl"
+
+module planning_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " planning_msgs/ActiveRouteContext.msg")
+    struct ActiveRouteContext {
+      @verbatim (language="comment", text=
+        " frame_id=\"base_link\"")
+      std_msgs::msg::Header header;
+
+      uint32 active_waypoint_id;
+
+      float target_x;
+
+      float target_y;
+
+      float target_heading;
+
+      uint8 planner_mode;
+
+      @verbatim (language="comment", text=
+        " STRAIGHT | LEFT | RIGHT | ROUNDABOUT | UNKNOWN")
+      string route_direction;
+
+      sequence<geometry_msgs::msg::Point> planned_trajectory;
+
+      float lookahead_distance;
+
+      boolean in_stop_zone;
+
+      float distance_to_stop_zone;
+
+      float localization_confidence;
+
+      float ego_speed_mps;
+
+      boolean route_context_valid;
+
+      uint32 age_ms;
+
+      uint32 valid_until_ms;
+
+      sequence<string> warning_flags;
+    };
+  };
+};

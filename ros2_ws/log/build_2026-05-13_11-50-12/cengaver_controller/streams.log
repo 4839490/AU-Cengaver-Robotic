@@ -1,0 +1,26 @@
+[1.472s] Invoking command in '/ros2_ws/src/controller': AMENT_PREFIX_PATH=/ros2_ws/install/planning_msgs:/ros2_ws/install/fsm_msgs:/ros2_ws/install/common_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros2_ws/install/planning_msgs:/ros2_ws/install/fsm_msgs:/ros2_ws/install/common_msgs LD_LIBRARY_PATH=/ros2_ws/install/planning_msgs/lib:/ros2_ws/install/fsm_msgs/lib:/ros2_ws/install/common_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/ros2_ws/build/cengaver_controller/prefix_override:/ros2_ws/install/cengaver_controller/lib/python3.8/site-packages:/ros2_ws/install/planning_msgs/lib/python3.8/site-packages:/ros2_ws/install/fsm_msgs/lib/python3.8/site-packages:/ros2_ws/install/common_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/cengaver_controller build --build-base /ros2_ws/build/cengaver_controller/build install --record /ros2_ws/build/cengaver_controller/install.log --single-version-externally-managed
+[1.662s] running egg_info
+[1.664s] writing ../../build/cengaver_controller/cengaver_controller.egg-info/PKG-INFO
+[1.664s] writing dependency_links to ../../build/cengaver_controller/cengaver_controller.egg-info/dependency_links.txt
+[1.665s] writing entry points to ../../build/cengaver_controller/cengaver_controller.egg-info/entry_points.txt
+[1.666s] writing requirements to ../../build/cengaver_controller/cengaver_controller.egg-info/requires.txt
+[1.667s] writing top-level names to ../../build/cengaver_controller/cengaver_controller.egg-info/top_level.txt
+[1.693s] reading manifest file '../../build/cengaver_controller/cengaver_controller.egg-info/SOURCES.txt'
+[1.695s] writing manifest file '../../build/cengaver_controller/cengaver_controller.egg-info/SOURCES.txt'
+[1.696s] running build
+[1.697s] running build_py
+[1.699s] running install
+[1.699s] running install_lib
+[1.701s] running install_data
+[1.702s] copying resource/cengaver_controller -> /ros2_ws/install/cengaver_controller/share/ament_index/resource_index/packages
+[1.703s] copying package.xml -> /ros2_ws/install/cengaver_controller/share/cengaver_controller
+[1.704s] creating /ros2_ws/install/cengaver_controller/share/cengaver_controller/launch
+[1.705s] copying launch/controller.launch.py -> /ros2_ws/install/cengaver_controller/share/cengaver_controller/launch
+[1.706s] creating /ros2_ws/install/cengaver_controller/share/cengaver_controller/config
+[1.707s] running install_egg_info
+[1.707s] Copying ../../build/cengaver_controller/cengaver_controller.egg-info to /ros2_ws/install/cengaver_controller/lib/python3.8/site-packages/cengaver_controller-1.0.0-py3.8.egg-info
+[1.716s] running install_scripts
+[1.732s] Installing controller_feedback_node script to /ros2_ws/install/cengaver_controller/lib/cengaver_controller
+[1.734s] Installing controller_node script to /ros2_ws/install/cengaver_controller/lib/cengaver_controller
+[1.735s] writing list of installed files to '/ros2_ws/build/cengaver_controller/install.log'
+[1.753s] Invoked command in '/ros2_ws/src/controller' returned '0': AMENT_PREFIX_PATH=/ros2_ws/install/planning_msgs:/ros2_ws/install/fsm_msgs:/ros2_ws/install/common_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/ros2_ws/install/planning_msgs:/ros2_ws/install/fsm_msgs:/ros2_ws/install/common_msgs LD_LIBRARY_PATH=/ros2_ws/install/planning_msgs/lib:/ros2_ws/install/fsm_msgs/lib:/ros2_ws/install/common_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/ros2_ws/build/cengaver_controller/prefix_override:/ros2_ws/install/cengaver_controller/lib/python3.8/site-packages:/ros2_ws/install/planning_msgs/lib/python3.8/site-packages:/ros2_ws/install/fsm_msgs/lib/python3.8/site-packages:/ros2_ws/install/common_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/cengaver_controller build --build-base /ros2_ws/build/cengaver_controller/build install --record /ros2_ws/build/cengaver_controller/install.log --single-version-externally-managed

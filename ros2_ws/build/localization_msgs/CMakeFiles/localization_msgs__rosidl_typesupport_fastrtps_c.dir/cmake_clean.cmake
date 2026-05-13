@@ -1,0 +1,27 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/localization_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_diagnostics__type_support_c.cpp.o"
+  "CMakeFiles/localization_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_odometry__type_support_c.cpp.o"
+  "CMakeFiles/localization_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_pose__type_support_c.cpp.o"
+  "CMakeFiles/localization_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_status__type_support_c.cpp.o"
+  "CMakeFiles/localization_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/map_origin__type_support_c.cpp.o"
+  "CMakeFiles/localization_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/raw_gps__type_support_c.cpp.o"
+  "liblocalization_msgs__rosidl_typesupport_fastrtps_c.pdb"
+  "liblocalization_msgs__rosidl_typesupport_fastrtps_c.so"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_diagnostics__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_diagnostics__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_odometry__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_odometry__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_pose__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_pose__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_status__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/localization_status__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/map_origin__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/map_origin__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/raw_gps__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/localization_msgs/msg/detail/raw_gps__type_support_c.cpp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/localization_msgs__rosidl_typesupport_fastrtps_c.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

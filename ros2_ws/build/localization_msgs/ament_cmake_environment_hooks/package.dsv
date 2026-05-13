@@ -1,0 +1,4 @@
+source;share/localization_msgs/local_setup.bash
+source;share/localization_msgs/local_setup.dsv
+source;share/localization_msgs/local_setup.sh
+source;share/localization_msgs/local_setup.zsh

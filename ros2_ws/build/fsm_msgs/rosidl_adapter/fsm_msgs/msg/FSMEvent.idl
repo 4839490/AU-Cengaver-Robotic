@@ -1,0 +1,47 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from fsm_msgs/msg/FSMEvent.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module fsm_msgs {
+  module msg {
+    module FSMEvent_Constants {
+      const uint8 PICKUP_COMPLETE = 0;
+      const uint8 DROPOFF_COMPLETE = 1;
+      const uint8 OBSTACLE_CLEARED = 2;
+      const uint8 REPLANNING_REQUEST = 3;
+      const uint8 MISSION_ABORT = 4;
+      const uint8 RESUME = 5;
+      const uint8 PARK_SLOT_CHANGE = 6;
+      const uint8 EMERGENCY_STOP_REQUEST = 7;
+    };
+    @verbatim (language="comment", text=
+      " fsm_msgs/FSMEvent.msg" "\n"
+      " =============================================================================" "\n"
+      " FSM → Planner  |  olay bildirimleri" "\n"
+      " Topic: /fsm/event — event-driven  |  valid_until: 500 ms" "\n"
+      " Contract: FSM↔Planner v1.1" "\n"
+      "" "\n"
+      " EMERGENCY_STOP_REQUEST → yazılımsal tam fren isteği" "\n"
+      " AUTONOMOUS_EMERGENCY   → donanımsal güç kesme — safety supervisor sorumluluğu" "\n"
+      " =============================================================================")
+    struct FSMEvent {
+      @verbatim (language="comment", text=
+        " --- Fields ---")
+      std_msgs::msg::Header header;
+
+      uint8 event_type;
+
+      @verbatim (language="comment", text=
+        " ilgili waypoint ID (varsa)")
+      uint32 waypoint_id;
+
+      @verbatim (language="comment", text=
+        " ek bilgi — debug (ör: 'new_slot_id:3')")
+      string data;
+
+      uint32 age_ms;
+    };
+  };
+};

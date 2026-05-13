@@ -1,0 +1,6 @@
+msg/CurrentMode.idl
+msg/CurrentMode.msg
+msg/FSMEvent.idl
+msg/FSMEvent.msg
+msg/MissionState.idl
+msg/MissionState.msg

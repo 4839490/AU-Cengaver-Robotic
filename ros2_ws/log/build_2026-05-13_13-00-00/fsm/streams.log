@@ -1,0 +1,24 @@
+[0.691s] Invoking command in '/ros2_ws/src/fsm': PYTHONPATH=/ros2_ws/build/fsm/prefix_override:/ros2_ws/install/fsm/lib/python3.8/site-packages:/ros2_ws/install/planning_msgs/lib/python3.8/site-packages:/ros2_ws/install/perception_msgs/lib/python3.8/site-packages:/ros2_ws/install/localization_msgs/lib/python3.8/site-packages:/ros2_ws/install/fsm_msgs/lib/python3.8/site-packages:/ros2_ws/install/common_msgs/lib/python3.8/site-packages:/ros2_ws/install/planning/lib/python3.8/site-packages:/ros2_ws/install/perception/lib/python3.8/site-packages:/ros2_ws/install/fsm/lib/python3.8/site-packages:/ros2_ws/install/cengaver_controller/lib/python3.8/site-packages:/ros2_ws/install/localization/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/fsm build --build-base /ros2_ws/build/fsm/build install --record /ros2_ws/build/fsm/install.log --single-version-externally-managed
+[0.864s] running egg_info
+[0.865s] writing ../../build/fsm/fsm.egg-info/PKG-INFO
+[0.865s] writing dependency_links to ../../build/fsm/fsm.egg-info/dependency_links.txt
+[0.866s] writing entry points to ../../build/fsm/fsm.egg-info/entry_points.txt
+[0.866s] writing requirements to ../../build/fsm/fsm.egg-info/requires.txt
+[0.867s] writing top-level names to ../../build/fsm/fsm.egg-info/top_level.txt
+[0.887s] reading manifest file '../../build/fsm/fsm.egg-info/SOURCES.txt'
+[0.888s] writing manifest file '../../build/fsm/fsm.egg-info/SOURCES.txt'
+[0.888s] running build
+[0.888s] running build_py
+[0.889s] copying fsm/watchdog.py -> /ros2_ws/build/fsm/build/lib/fsm
+[0.890s] running install
+[0.890s] running install_lib
+[0.891s] copying /ros2_ws/build/fsm/build/lib/fsm/watchdog.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm
+[0.892s] byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/watchdog.py to watchdog.cpython-38.pyc
+[0.896s] running install_data
+[0.897s] running install_egg_info
+[0.898s] removing '/ros2_ws/install/fsm/lib/python3.8/site-packages/fsm-1.0.0-py3.8.egg-info' (and everything under it)
+[0.899s] Copying ../../build/fsm/fsm.egg-info to /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm-1.0.0-py3.8.egg-info
+[0.905s] running install_scripts
+[0.916s] Installing fsm_node script to /ros2_ws/install/fsm/bin
+[0.919s] writing list of installed files to '/ros2_ws/build/fsm/install.log'
+[0.929s] Invoked command in '/ros2_ws/src/fsm' returned '0': PYTHONPATH=/ros2_ws/build/fsm/prefix_override:/ros2_ws/install/fsm/lib/python3.8/site-packages:/ros2_ws/install/planning_msgs/lib/python3.8/site-packages:/ros2_ws/install/perception_msgs/lib/python3.8/site-packages:/ros2_ws/install/localization_msgs/lib/python3.8/site-packages:/ros2_ws/install/fsm_msgs/lib/python3.8/site-packages:/ros2_ws/install/common_msgs/lib/python3.8/site-packages:/ros2_ws/install/planning/lib/python3.8/site-packages:/ros2_ws/install/perception/lib/python3.8/site-packages:/ros2_ws/install/fsm/lib/python3.8/site-packages:/ros2_ws/install/cengaver_controller/lib/python3.8/site-packages:/ros2_ws/install/localization/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../../build/fsm build --build-base /ros2_ws/build/fsm/build install --record /ros2_ws/build/fsm/install.log --single-version-externally-managed

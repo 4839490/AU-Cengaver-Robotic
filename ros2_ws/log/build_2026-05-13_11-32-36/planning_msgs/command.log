@@ -1,0 +1,1 @@
+Invoking command in '/ros2_ws/build/planning_msgs': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /ros2_ws/src/planning_msgs -DCMAKE_INSTALL_PREFIX=/ros2_ws/install/planning_msgs

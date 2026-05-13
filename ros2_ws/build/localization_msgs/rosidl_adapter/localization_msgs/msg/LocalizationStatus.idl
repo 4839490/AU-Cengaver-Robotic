@@ -1,0 +1,56 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from localization_msgs/msg/LocalizationStatus.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module localization_msgs {
+  module msg {
+    module LocalizationStatus_Constants {
+      const uint8 OK = 0;
+      const uint8 GNSS_LOST = 1;
+      const uint8 IMU_ONLY = 2;
+      const uint8 LIDAR_ONLY = 3;
+      const uint8 DEGRADED = 4;
+      const uint8 RELOCALIZING = 5;
+      const uint8 LOST = 6;
+    };
+    @verbatim (language="comment", text=
+      " localization_msgs/LocalizationStatus.msg" "\n"
+      " =============================================================================" "\n"
+      " Localization → FSM/Planner/Safety sağlık durumu" "\n"
+      " Topic: /localization/status — 10 Hz" "\n"
+      " =============================================================================")
+    struct LocalizationStatus {
+      std_msgs::msg::Header header;
+
+      uint32 age_ms;
+
+      uint32 valid_until_ms;
+
+      uint8 status;
+
+      double localization_confidence;
+
+      double position_covariance;
+
+      double heading_covariance;
+
+      boolean ndt_healthy;
+
+      double ndt_quality;
+
+      boolean map_odom_stable;
+
+      double map_odom_drift;
+
+      boolean gps_available;
+
+      boolean imu_available;
+
+      boolean lidar_available;
+
+      sequence<string> warning_flags;
+    };
+  };
+};

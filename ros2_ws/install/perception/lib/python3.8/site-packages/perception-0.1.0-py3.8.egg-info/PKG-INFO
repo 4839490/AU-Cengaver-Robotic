@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: perception
+Version: 0.1.0
+Summary: Perception runtime package for AU Cengaver Robotics TEKNOFEST 2026 Robotaksi: Sprint 1–3 MVP perception nodes, ROS-free helpers, and fake publishers. Publishes evidence only; no driving decisions or control topics.
+Home-page: UNKNOWN
+Maintainer: AU Cengaver Robotics
+Maintainer-email: yusufaydinau@gmail.com
+License: Apache-2.0
+Description: UNKNOWN
+Platform: UNKNOWN

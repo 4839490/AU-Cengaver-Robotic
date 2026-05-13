@@ -1,0 +1,327 @@
+[0.000000] (-) TimerEvent: {}
+[0.003194] (common_msgs) JobQueued: {'identifier': 'common_msgs', 'dependencies': OrderedDict()}
+[0.003438] (fsm) JobQueued: {'identifier': 'fsm', 'dependencies': OrderedDict()}
+[0.003531] (fsm_msgs) JobQueued: {'identifier': 'fsm_msgs', 'dependencies': OrderedDict()}
+[0.003629] (localization_msgs) JobQueued: {'identifier': 'localization_msgs', 'dependencies': OrderedDict()}
+[0.006093] (perception_msgs) JobQueued: {'identifier': 'perception_msgs', 'dependencies': OrderedDict()}
+[0.006226] (planning_msgs) JobQueued: {'identifier': 'planning_msgs', 'dependencies': OrderedDict()}
+[0.006310] (cengaver_controller) JobQueued: {'identifier': 'cengaver_controller', 'dependencies': OrderedDict([('common_msgs', '/ros2_ws/install/common_msgs'), ('fsm_msgs', '/ros2_ws/install/fsm_msgs'), ('planning_msgs', '/ros2_ws/install/planning_msgs')])}
+[0.006485] (localization) JobQueued: {'identifier': 'localization', 'dependencies': OrderedDict([('localization_msgs', '/ros2_ws/install/localization_msgs')])}
+[0.006548] (perception) JobQueued: {'identifier': 'perception', 'dependencies': OrderedDict([('perception_msgs', '/ros2_ws/install/perception_msgs'), ('planning_msgs', '/ros2_ws/install/planning_msgs')])}
+[0.006619] (planning) JobQueued: {'identifier': 'planning', 'dependencies': OrderedDict([('common_msgs', '/ros2_ws/install/common_msgs'), ('fsm_msgs', '/ros2_ws/install/fsm_msgs'), ('localization_msgs', '/ros2_ws/install/localization_msgs'), ('perception_msgs', '/ros2_ws/install/perception_msgs'), ('planning_msgs', '/ros2_ws/install/planning_msgs')])}
+[0.007595] (planning_msgs) JobStarted: {'identifier': 'planning_msgs'}
+[0.009752] (common_msgs) JobStarted: {'identifier': 'common_msgs'}
+[0.020124] (fsm_msgs) JobStarted: {'identifier': 'fsm_msgs'}
+[0.037311] (localization_msgs) JobStarted: {'identifier': 'localization_msgs'}
+[0.050011] (perception_msgs) JobStarted: {'identifier': 'perception_msgs'}
+[0.070626] (fsm) JobStarted: {'identifier': 'fsm'}
+[0.086136] (planning_msgs) JobProgress: {'identifier': 'planning_msgs', 'progress': 'cmake'}
+[0.087487] (planning_msgs) Command: {'cmd': ['/usr/bin/cmake', '/ros2_ws/src/planning_msgs', '-DCMAKE_INSTALL_PREFIX=/ros2_ws/install/planning_msgs'], 'cwd': '/ros2_ws/build/planning_msgs', 'env': OrderedDict([('HOSTNAME', 'a4507bd97660'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'foxy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('PWD', '/ros2_ws/build/planning_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.100154] (-) TimerEvent: {}
+[0.101839] (common_msgs) JobProgress: {'identifier': 'common_msgs', 'progress': 'cmake'}
+[0.106604] (common_msgs) Command: {'cmd': ['/usr/bin/cmake', '/ros2_ws/src/common_msgs', '-DCMAKE_INSTALL_PREFIX=/ros2_ws/install/common_msgs'], 'cwd': '/ros2_ws/build/common_msgs', 'env': OrderedDict([('HOSTNAME', 'a4507bd97660'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'foxy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('PWD', '/ros2_ws/build/common_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.111870] (fsm_msgs) JobProgress: {'identifier': 'fsm_msgs', 'progress': 'cmake'}
+[0.119556] (fsm_msgs) Command: {'cmd': ['/usr/bin/cmake', '/ros2_ws/src/fsm_msgs', '-DCMAKE_INSTALL_PREFIX=/ros2_ws/install/fsm_msgs'], 'cwd': '/ros2_ws/build/fsm_msgs', 'env': OrderedDict([('HOSTNAME', 'a4507bd97660'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'foxy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('PWD', '/ros2_ws/build/fsm_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.133371] (localization_msgs) JobProgress: {'identifier': 'localization_msgs', 'progress': 'cmake'}
+[0.134194] (localization_msgs) Command: {'cmd': ['/usr/bin/cmake', '/ros2_ws/src/localization_msgs', '-DCMAKE_INSTALL_PREFIX=/ros2_ws/install/localization_msgs'], 'cwd': '/ros2_ws/build/localization_msgs', 'env': OrderedDict([('HOSTNAME', 'a4507bd97660'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'foxy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('PWD', '/ros2_ws/build/localization_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.144804] (perception_msgs) JobProgress: {'identifier': 'perception_msgs', 'progress': 'cmake'}
+[0.147481] (perception_msgs) Command: {'cmd': ['/usr/bin/cmake', '/ros2_ws/src/perception_msgs', '-DCMAKE_INSTALL_PREFIX=/ros2_ws/install/perception_msgs'], 'cwd': '/ros2_ws/build/perception_msgs', 'env': OrderedDict([('HOSTNAME', 'a4507bd97660'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'foxy'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('PWD', '/ros2_ws/build/perception_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.200571] (-) TimerEvent: {}
+[0.302308] (-) TimerEvent: {}
+[0.403520] (-) TimerEvent: {}
+[0.505564] (-) TimerEvent: {}
+[0.574050] (planning_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.580006] (common_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.584789] (localization_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.591226] (fsm_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.607064] (-) TimerEvent: {}
+[0.614775] (perception_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.707523] (-) TimerEvent: {}
+[0.785489] (fsm) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../../build/fsm', 'build', '--build-base', '/ros2_ws/build/fsm/build', 'install', '--record', '/ros2_ws/build/fsm/install.log', '--single-version-externally-managed'], 'cwd': '/ros2_ws/src/fsm', 'env': {'HOSTNAME': 'a4507bd97660', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib', 'HOME': '/root', 'OLDPWD': '/', 'ROS_PYTHON_VERSION': '3', 'ROS_DISTRO': 'foxy', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/opt/ros/foxy', 'PWD': '/ros2_ws/build/fsm', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/ros2_ws/build/fsm/prefix_override:/ros2_ws/install/fsm/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'COLCON': '1'}, 'shell': False}
+[0.808496] (-) TimerEvent: {}
+[0.869253] (common_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.872069] (planning_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.877528] (localization_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.879686] (common_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.881122] (fsm_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.883317] (planning_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.885884] (localization_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.895534] (perception_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.899327] (fsm_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.909591] (-) TimerEvent: {}
+[0.911197] (perception_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.980023] (fsm) StdoutLine: {'line': b'running egg_info\n'}
+[0.980492] (fsm) StdoutLine: {'line': b'creating ../../build/fsm/fsm.egg-info\n'}
+[0.980796] (fsm) StdoutLine: {'line': b'writing ../../build/fsm/fsm.egg-info/PKG-INFO\n'}
+[0.982366] (fsm) StdoutLine: {'line': b'writing dependency_links to ../../build/fsm/fsm.egg-info/dependency_links.txt\n'}
+[0.983482] (fsm) StdoutLine: {'line': b'writing entry points to ../../build/fsm/fsm.egg-info/entry_points.txt\n'}
+[0.984355] (fsm) StdoutLine: {'line': b'writing requirements to ../../build/fsm/fsm.egg-info/requires.txt\n'}
+[0.985730] (fsm) StdoutLine: {'line': b'writing top-level names to ../../build/fsm/fsm.egg-info/top_level.txt\n'}
+[0.987373] (fsm) StdoutLine: {'line': b"writing manifest file '../../build/fsm/fsm.egg-info/SOURCES.txt'\n"}
+[1.010522] (-) TimerEvent: {}
+[1.011823] (fsm) StdoutLine: {'line': b"reading manifest file '../../build/fsm/fsm.egg-info/SOURCES.txt'\n"}
+[1.014049] (fsm) StdoutLine: {'line': b"writing manifest file '../../build/fsm/fsm.egg-info/SOURCES.txt'\n"}
+[1.015136] (fsm) StdoutLine: {'line': b'running build\n'}
+[1.015768] (fsm) StdoutLine: {'line': b'running build_py\n'}
+[1.016368] (fsm) StdoutLine: {'line': b'creating /ros2_ws/build/fsm/build\n'}
+[1.017267] (fsm) StdoutLine: {'line': b'creating /ros2_ws/build/fsm/build/lib\n'}
+[1.017852] (fsm) StdoutLine: {'line': b'creating /ros2_ws/build/fsm/build/lib/fsm\n'}
+[1.018629] (fsm) StdoutLine: {'line': b'copying fsm/event_handler.py -> /ros2_ws/build/fsm/build/lib/fsm\n'}
+[1.019236] (fsm) StdoutLine: {'line': b'copying fsm/transition_rules.py -> /ros2_ws/build/fsm/build/lib/fsm\n'}
+[1.019843] (fsm) StdoutLine: {'line': b'copying fsm/mission_state_manager.py -> /ros2_ws/build/fsm/build/lib/fsm\n'}
+[1.020595] (fsm) StdoutLine: {'line': b'copying fsm/__init__.py -> /ros2_ws/build/fsm/build/lib/fsm\n'}
+[1.022120] (fsm) StdoutLine: {'line': b'copying fsm/fsm_node.py -> /ros2_ws/build/fsm/build/lib/fsm\n'}
+[1.024029] (fsm) StdoutLine: {'line': b'copying fsm/mode_manager.py -> /ros2_ws/build/fsm/build/lib/fsm\n'}
+[1.027288] (fsm) StdoutLine: {'line': b'running install\n'}
+[1.027912] (fsm) StdoutLine: {'line': b'running install_lib\n'}
+[1.029155] (fsm) StdoutLine: {'line': b'creating /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm\n'}
+[1.029970] (fsm) StdoutLine: {'line': b'copying /ros2_ws/build/fsm/build/lib/fsm/event_handler.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm\n'}
+[1.030991] (fsm) StdoutLine: {'line': b'copying /ros2_ws/build/fsm/build/lib/fsm/transition_rules.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm\n'}
+[1.032084] (fsm) StdoutLine: {'line': b'copying /ros2_ws/build/fsm/build/lib/fsm/mission_state_manager.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm\n'}
+[1.034525] (fsm) StdoutLine: {'line': b'copying /ros2_ws/build/fsm/build/lib/fsm/__init__.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm\n'}
+[1.037007] (fsm) StdoutLine: {'line': b'copying /ros2_ws/build/fsm/build/lib/fsm/fsm_node.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm\n'}
+[1.040548] (fsm) StdoutLine: {'line': b'copying /ros2_ws/build/fsm/build/lib/fsm/mode_manager.py -> /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm\n'}
+[1.042820] (fsm) StdoutLine: {'line': b'byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/event_handler.py to event_handler.cpython-38.pyc\n'}
+[1.048970] (fsm) StdoutLine: {'line': b'byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/transition_rules.py to transition_rules.cpython-38.pyc\n'}
+[1.053130] (fsm) StdoutLine: {'line': b'byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/mission_state_manager.py to mission_state_manager.cpython-38.pyc\n'}
+[1.056272] (fsm) StdoutLine: {'line': b'byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/__init__.py to __init__.cpython-38.pyc\n'}
+[1.057471] (fsm) StdoutLine: {'line': b'byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/fsm_node.py to fsm_node.cpython-38.pyc\n'}
+[1.066124] (fsm) StdoutLine: {'line': b'byte-compiling /ros2_ws/install/fsm/lib/python3.8/site-packages/fsm/mode_manager.py to mode_manager.cpython-38.pyc\n'}
+[1.068646] (fsm) StdoutLine: {'line': b'running install_data\n'}
+[1.069760] (fsm) StdoutLine: {'line': b'creating /ros2_ws/install/fsm/share\n'}
+[1.070477] (fsm) StdoutLine: {'line': b'creating /ros2_ws/install/fsm/share/ament_index\n'}
+[1.070955] (fsm) StdoutLine: {'line': b'creating /ros2_ws/install/fsm/share/ament_index/resource_index\n'}
+[1.073018] (fsm) StdoutLine: {'line': b'creating /ros2_ws/install/fsm/share/ament_index/resource_index/packages\n'}
+[1.073543] (fsm) StderrLine: {'line': b"error: can't copy 'resource/fsm': doesn't exist or not a regular file\n"}
+[1.089495] (fsm) CommandEnded: {'returncode': 1}
+[1.089854] (fsm) JobEnded: {'identifier': 'fsm', 'rc': 1}
+[1.111573] (-) TimerEvent: {}
+[1.212577] (-) TimerEvent: {}
+[1.314746] (-) TimerEvent: {}
+[1.356957] (common_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.358180] (common_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.372014] (perception_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.373515] (localization_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.374430] (localization_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.375906] (perception_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.387491] (planning_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.388590] (planning_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.389694] (fsm_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.390148] (fsm_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.415647] (-) TimerEvent: {}
+[1.516515] (-) TimerEvent: {}
+[1.618013] (-) TimerEvent: {}
+[1.718787] (-) TimerEvent: {}
+[1.774446] (perception_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.782093] (localization_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.782957] (common_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.787731] (perception_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.788445] (perception_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.793148] (perception_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.795877] (localization_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.796729] (common_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.797393] (common_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.797866] (localization_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.800656] (fsm_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.804121] (common_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.806326] (localization_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.812832] (planning_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.819597] (-) TimerEvent: {}
+[1.829228] (fsm_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.830445] (fsm_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.835653] (planning_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.837201] (fsm_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.837693] (planning_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.843105] (planning_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.920621] (-) TimerEvent: {}
+[2.021589] (-) TimerEvent: {}
+[2.125543] (-) TimerEvent: {}
+[2.226529] (-) TimerEvent: {}
+[2.244273] (common_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.245359] (common_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.249357] (perception_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.250325] (perception_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.272391] (localization_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.273298] (fsm_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.273935] (localization_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.277956] (fsm_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.327524] (-) TimerEvent: {}
+[2.334061] (planning_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.337349] (planning_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.428575] (-) TimerEvent: {}
+[2.529636] (-) TimerEvent: {}
+[2.631787] (-) TimerEvent: {}
+[2.732665] (-) TimerEvent: {}
+[2.743814] (perception_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.746254] (common_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.764528] (perception_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.765892] (common_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.766734] (perception_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.768918] (common_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.778735] (common_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[2.783162] (localization_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.789318] (fsm_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.792523] (perception_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[2.815138] (localization_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.815874] (localization_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.819110] (fsm_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.820802] (fsm_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.828534] (localization_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[2.832274] (fsm_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[2.833761] (-) TimerEvent: {}
+[2.885038] (common_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[2.887581] (common_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.900441] (perception_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[2.901352] (perception_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.914900] (planning_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.927918] (localization_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[2.930193] (localization_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.934511] (-) TimerEvent: {}
+[2.935701] (fsm_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[2.936709] (fsm_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.937158] (planning_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.938093] (planning_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.952509] (planning_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[3.035523] (-) TimerEvent: {}
+[3.046644] (planning_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[3.047154] (planning_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[3.137532] (-) TimerEvent: {}
+[3.144304] (common_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[3.147409] (common_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.152975] (common_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[3.158893] (perception_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[3.164122] (perception_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.168516] (perception_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[3.174694] (fsm_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[3.177282] (fsm_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.179934] (localization_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[3.184415] (fsm_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[3.185778] (localization_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.195149] (localization_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[3.238628] (-) TimerEvent: {}
+[3.262272] (planning_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[3.264469] (planning_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.269608] (planning_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[3.339303] (-) TimerEvent: {}
+[3.440839] (-) TimerEvent: {}
+[3.540981] (common_msgs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[3.543509] (-) TimerEvent: {}
+[3.544709] (fsm_msgs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[3.550086] (perception_msgs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[3.551684] (localization_msgs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[3.574670] (common_msgs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[3.577525] (fsm_msgs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[3.580881] (perception_msgs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[3.584507] (localization_msgs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[3.631556] (planning_msgs) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[3.642208] (common_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.644639] (-) TimerEvent: {}
+[3.645905] (fsm_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.648547] (perception_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.650066] (localization_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.659992] (planning_msgs) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[3.660499] (fsm_msgs) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[3.665303] (localization_msgs) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[3.666538] (perception_msgs) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[3.690995] (perception_msgs) StdoutLine: {'line': b'-- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)\n'}
+[3.730373] (planning_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.741307] (common_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[3.744251] (planning_msgs) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/opt/ros/foxy/share/std_msgs/cmake)\n'}
+[3.747554] (-) TimerEvent: {}
+[3.759384] (fsm_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[3.763964] (planning_msgs) StdoutLine: {'line': b'-- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)\n'}
+[3.791005] (localization_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[3.807158] (perception_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[3.848584] (-) TimerEvent: {}
+[3.894321] (planning_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[3.949550] (-) TimerEvent: {}
+[4.009516] (common_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[4.050577] (-) TimerEvent: {}
+[4.078360] (fsm_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[4.119602] (localization_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[4.151573] (-) TimerEvent: {}
+[4.153686] (common_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.195790] (perception_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[4.198617] (common_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.252515] (-) TimerEvent: {}
+[4.268850] (planning_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[4.296963] (common_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.298014] (common_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[4.338919] (fsm_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.353501] (-) TimerEvent: {}
+[4.366031] (common_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.366941] (common_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[4.367316] (common_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[4.368006] (common_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[4.392725] (localization_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.439334] (common_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[4.454557] (-) TimerEvent: {}
+[4.475580] (fsm_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.525166] (localization_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.544957] (fsm_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.546172] (fsm_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[4.555581] (-) TimerEvent: {}
+[4.576254] (perception_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.596834] (localization_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.598500] (localization_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[4.615797] (fsm_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.616954] (fsm_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[4.617737] (fsm_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[4.618285] (fsm_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[4.656548] (-) TimerEvent: {}
+[4.660116] (common_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[4.664003] (planning_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.681984] (fsm_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[4.710607] (localization_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.711430] (localization_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[4.712429] (localization_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[4.713581] (localization_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[4.757712] (-) TimerEvent: {}
+[4.779627] (localization_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[4.789858] (perception_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.851778] (common_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[4.858628] (-) TimerEvent: {}
+[4.868100] (perception_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.870561] (perception_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[4.877335] (common_msgs) StdoutLine: {'line': b'-- Build files have been written to: /ros2_ws/build/common_msgs\n'}
+[4.882644] (common_msgs) JobEnded: {'identifier': 'common_msgs', 'rc': 'SIGINT'}
+[4.888127] (fsm_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[4.898100] (planning_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.936770] (perception_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.937402] (perception_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[4.938749] (perception_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[4.939698] (perception_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[4.959521] (-) TimerEvent: {}
+[4.966377] (planning_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[4.967050] (planning_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[5.009528] (perception_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[5.020527] (localization_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.036119] (planning_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[5.036812] (planning_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[5.037313] (planning_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[5.038375] (planning_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.8.so\n'}
+[5.060527] (-) TimerEvent: {}
+[5.062569] (fsm_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[5.080329] (fsm_msgs) StdoutLine: {'line': b'-- Build files have been written to: /ros2_ws/build/fsm_msgs\n'}
+[5.087477] (fsm_msgs) JobEnded: {'identifier': 'fsm_msgs', 'rc': 'SIGINT'}
+[5.102700] (planning_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[5.161595] (-) TimerEvent: {}
+[5.182441] (localization_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[5.198992] (localization_msgs) StdoutLine: {'line': b'-- Build files have been written to: /ros2_ws/build/localization_msgs\n'}
+[5.202286] (perception_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.208713] (localization_msgs) JobEnded: {'identifier': 'localization_msgs', 'rc': 'SIGINT'}
+[5.262528] (-) TimerEvent: {}
+[5.298025] (planning_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[5.363541] (-) TimerEvent: {}
+[5.369630] (perception_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[5.383499] (perception_msgs) StdoutLine: {'line': b'-- Build files have been written to: /ros2_ws/build/perception_msgs\n'}
+[5.391678] (perception_msgs) JobEnded: {'identifier': 'perception_msgs', 'rc': 'SIGINT'}
+[5.448811] (planning_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[5.459889] (planning_msgs) StdoutLine: {'line': b'-- Build files have been written to: /ros2_ws/build/planning_msgs\n'}
+[5.463667] (-) TimerEvent: {}
+[5.465935] (planning_msgs) JobEnded: {'identifier': 'planning_msgs', 'rc': 'SIGINT'}
+[5.467321] (cengaver_controller) JobSkipped: {'identifier': 'cengaver_controller'}
+[5.467356] (localization) JobSkipped: {'identifier': 'localization'}
+[5.467383] (perception) JobSkipped: {'identifier': 'perception'}
+[5.467408] (planning) JobSkipped: {'identifier': 'planning'}
+[5.467435] (-) EventReactorShutdown: {}

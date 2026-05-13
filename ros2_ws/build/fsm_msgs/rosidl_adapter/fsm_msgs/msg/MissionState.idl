@@ -1,0 +1,68 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from fsm_msgs/msg/MissionState.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module fsm_msgs {
+  module msg {
+    module MissionState_Constants {
+      const uint8 PICKUP = 0;
+      const uint8 DROPOFF = 1;
+      const uint8 WAYPOINT = 2;
+      const uint8 PARK_ENTRY = 3;
+    };
+    @verbatim (language="comment", text=
+      " fsm_msgs/MissionState.msg" "\n"
+      " =============================================================================" "\n"
+      " FSM → Planner  |  görev durumu" "\n"
+      " Topic: /fsm/mission_state — 5 Hz  |  valid_until: 1000 ms" "\n"
+      " Contract: FSM↔Planner v1.1" "\n"
+      " =============================================================================")
+    struct MissionState {
+      @verbatim (language="comment", text=
+        " --- Fields ---")
+      std_msgs::msg::Header header;
+
+      boolean mission_active;
+
+      @verbatim (language="comment", text=
+        " toplam waypoint sayısı")
+      uint8 total_waypoints;
+
+      @verbatim (language="comment", text=
+        " tamamlanan waypoint sayısı")
+      uint8 completed_waypoints;
+
+      @verbatim (language="comment", text=
+        " aktif GeoJSON nokta ID'si")
+      uint32 current_waypoint_id;
+
+      @verbatim (language="comment", text=
+        " waypoint type constant")
+      uint8 current_waypoint_type;
+
+      @verbatim (language="comment", text=
+        " sonraki waypoint ID — planner önceden hazırlanabilir")
+      uint32 next_waypoint_id;
+
+      @verbatim (language="comment", text=
+        " sonraki waypoint type constant")
+      uint8 next_waypoint_type;
+
+      @verbatim (language="comment", text=
+        " aktif PICKUP tamamlandı sinyali")
+      boolean pickup_complete;
+
+      @verbatim (language="comment", text=
+        " aktif DROPOFF tamamlandı sinyali")
+      boolean dropoff_complete;
+
+      uint32 age_ms;
+
+      @verbatim (language="comment", text=
+        " 1000 ms")
+      uint32 valid_until_ms;
+    };
+  };
+};

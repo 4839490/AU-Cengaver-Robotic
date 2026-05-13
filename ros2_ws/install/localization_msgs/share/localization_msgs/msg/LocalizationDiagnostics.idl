@@ -1,0 +1,53 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from localization_msgs/msg/LocalizationDiagnostics.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module localization_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      " localization_msgs/LocalizationDiagnostics.msg" "\n"
+      " =============================================================================" "\n"
+      " Localization → izleme/debug diagnostik bilgisi" "\n"
+      " Topic: /localization/diagnostics — 1-2 Hz" "\n"
+      " =============================================================================")
+    struct LocalizationDiagnostics {
+      std_msgs::msg::Header header;
+
+      uint32 age_ms;
+
+      uint32 valid_until_ms;
+
+      double ekf_output_hz;
+
+      double gps_input_hz;
+
+      double imu_input_hz;
+
+      double ndt_output_hz;
+
+      double ekf_latency_ms;
+
+      double ndt_latency_ms;
+
+      double position_covariance;
+
+      double heading_covariance;
+
+      double ndt_quality;
+
+      boolean ekf_healthy;
+
+      boolean gps_healthy;
+
+      boolean imu_healthy;
+
+      boolean ndt_healthy;
+
+      boolean map_odom_stable;
+
+      sequence<string> warning_flags;
+    };
+  };
+};
