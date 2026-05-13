@@ -4,82 +4,99 @@ AU Cengaver Robotics — TEKNOFEST 2026
 local_ekf_node.py
 
 Görev:
-  IMU (400Hz) + tekerlek encoder → /localization/odometry (50Hz)
+  IMU + tekerlek encoder → /localization/odometry
   TF: odom → base_link
-
-Sözleşme: Localization ↔ Planner Contract v1.2
-  - FIX-1: Bu node odom→base_link TF üretir (Controller değil)
-  - FIX-5: yaw standardı ENU — yaw=0 +x(Doğu), pozitif CCW, [-π,π]
-  - Simülasyonda: /imu/data + /joint_states kullanılır
 """
+
+import math
+
+import numpy as np
 
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy, HistoryPolicy
+from rclpy.qos import (
+    QoSProfile,
+    ReliabilityPolicy,
+    DurabilityPolicy,
+    HistoryPolicy,
+    qos_profile_sensor_data,
+)
 
-import math
-import numpy as np
-
-from std_msgs.msg import Header
 from sensor_msgs.msg import Imu, JointState
 from geometry_msgs.msg import TransformStamped
-
 from tf2_ros import TransformBroadcaster
 
 from localization_msgs.msg import LocalizationOdometry
 
 
-# ─── QoS ───────────────────────────────────────────────────────────────────
 RELIABLE_QOS = QoSProfile(
     reliability=ReliabilityPolicy.RELIABLE,
     durability=DurabilityPolicy.VOLATILE,
     history=HistoryPolicy.KEEP_LAST,
-    depth=10
+    depth=10,
 )
 
 
 class LocalEkfNode(Node):
     """
     IMU + encoder verisiyle kısa vadeli odometri üretir.
-    EKF predict: IMU ile, update: encoder ile.
+
+    State:
+      [x, y, yaw, vx, wz]
     """
 
     def __init__(self):
         super().__init__('local_ekf_node')
 
-        # ─── Parametreler ──────────────────────────────────────────────────
+        # ─── Parameters ────────────────────────────────────────────────────
         self.declare_parameter('publish_hz', 50.0)
         self.declare_parameter('imu_topic', '/imu/data')
         self.declare_parameter('joint_states_topic', '/joint_states')
-        self.declare_parameter('wheel_radius', 0.3)       # metre (TBD kalibrasyon)
-        self.declare_parameter('wheelbase', 2.40)         # metre — vehicle_params.yaml
+        self.declare_parameter('wheel_radius', 0.3)
+        self.declare_parameter('wheelbase', 2.40)
         self.declare_parameter('valid_until_ms', 200)
 
-        self.publish_hz     = self.get_parameter('publish_hz').value
-        self.imu_topic      = self.get_parameter('imu_topic').value
-        self.joint_topic    = self.get_parameter('joint_states_topic').value
-        self.wheel_radius   = self.get_parameter('wheel_radius').value
-        self.wheelbase      = self.get_parameter('wheelbase').value
-        self.valid_until_ms = self.get_parameter('valid_until_ms').value
+        self.publish_hz = float(self.get_parameter('publish_hz').value)
+        self.imu_topic = str(self.get_parameter('imu_topic').value)
+        self.joint_topic = str(self.get_parameter('joint_states_topic').value)
+        self.wheel_radius = float(self.get_parameter('wheel_radius').value)
+        self.wheelbase = float(self.get_parameter('wheelbase').value)
+        self.valid_until_ms = int(self.get_parameter('valid_until_ms').value)
 
-        # ─── EKF Durum Vektörü: [x, y, yaw, vx, wz] ───────────────────────
-        self.state = np.zeros(5)   # [x, y, yaw, vx, wz]
-        self.P     = np.eye(5) * 0.1  # kovaryans matrisi
+        if self.publish_hz <= 0.0:
+            self.get_logger().warn(
+                f'Geçersiz publish_hz={self.publish_hz}, 50Hz yapılacak.'
+            )
+            self.publish_hz = 50.0
 
-        # Proses gürültüsü
+        if self.wheel_radius <= 0.0:
+            self.get_logger().warn(
+                f'Geçersiz wheel_radius={self.wheel_radius}, 0.3m yapılacak.'
+            )
+            self.wheel_radius = 0.3
+
+        if self.wheelbase <= 0.0:
+            self.get_logger().warn(
+                f'Geçersiz wheelbase={self.wheelbase}, 2.40m yapılacak.'
+            )
+            self.wheelbase = 2.40
+
+        if self.valid_until_ms <= 0:
+            self.valid_until_ms = 200
+
+        # ─── EKF State ─────────────────────────────────────────────────────
+        self.state = np.zeros(5, dtype=float)
+        self.P = np.eye(5, dtype=float) * 0.1
+
         self.Q = np.diag([0.01, 0.01, 0.001, 0.1, 0.01])
-        # Ölçüm gürültüsü
-        self.R_imu     = np.diag([0.01, 0.01])   # [ax, wz]
-        self.R_encoder = np.diag([0.05])           # [vx]
+        self.R_encoder = np.diag([0.05])
 
-        # ─── Zaman ─────────────────────────────────────────────────────────
-        self.last_time       = self.get_clock().now()
-        self.last_imu_time   = None
+        # ─── Time / Sensor State ───────────────────────────────────────────
+        self.last_imu_time = None
         self.last_joint_time = None
 
-        # ─── Sensor verisi ─────────────────────────────────────────────────
-        self.latest_imu   = None
-        self.latest_speed = 0.0   # encoder'dan hesaplanan hız
+        self.latest_speed = 0.0
+        self.has_encoder_speed = False
 
         # ─── TF Broadcaster ────────────────────────────────────────────────
         self.tf_broadcaster = TransformBroadcaster(self)
@@ -88,28 +105,28 @@ class LocalEkfNode(Node):
         self.odom_pub = self.create_publisher(
             LocalizationOdometry,
             '/localization/odometry',
-            RELIABLE_QOS
+            RELIABLE_QOS,
         )
 
-        # ─── Subscriber ────────────────────────────────────────────────────
+        # ─── Subscribers ───────────────────────────────────────────────────
         self.imu_sub = self.create_subscription(
             Imu,
             self.imu_topic,
             self.imu_callback,
-            RELIABLE_QOS
+            qos_profile_sensor_data,
         )
 
         self.joint_sub = self.create_subscription(
             JointState,
             self.joint_topic,
             self.joint_callback,
-            RELIABLE_QOS
+            RELIABLE_QOS,
         )
 
         # ─── Timer ─────────────────────────────────────────────────────────
         self.timer = self.create_timer(
             1.0 / self.publish_hz,
-            self.publish_odometry
+            self.publish_odometry,
         )
 
         self.get_logger().info('local_ekf_node başlatıldı.')
@@ -118,144 +135,154 @@ class LocalEkfNode(Node):
     # CALLBACKS
     # ───────────────────────────────────────────────────────────────────────
 
-    def imu_callback(self, msg: Imu):
-        """IMU verisi gelince EKF predict adımı."""
+    def imu_callback(self, msg: Imu) -> None:
+        """IMU angular velocity ile predict adımı."""
         now = self.get_clock().now()
 
         if self.last_imu_time is None:
             self.last_imu_time = now
-            self.latest_imu = msg
             return
 
-        dt = (now - self.last_imu_time).nanoseconds * 1e-9
+        dt = (now.nanoseconds - self.last_imu_time.nanoseconds) / 1e9
         self.last_imu_time = now
-        self.latest_imu = msg
 
-        if dt <= 0 or dt > 0.5:
+        if dt <= 0.0 or dt > 0.5:
             return
 
-        # IMU'dan angular velocity (yaw rate)
-        wz = msg.angular_velocity.z
+        wz = float(msg.angular_velocity.z)
 
-        # EKF Predict
-        self._ekf_predict(dt, wz)
+        if not math.isfinite(wz):
+            return
 
-    def joint_callback(self, msg: JointState):
-        """
-        Encoder verisi: /joint_states üzerinden tekerlek hızı.
-        Simülasyonda rear wheel velocity kullanılır.
-        """
-        now = self.get_clock().now()
-        self.last_joint_time = now
+        self._ekf_predict(dt=dt, wz=wz)
 
-        # Tekerlek isimlerini bul
-        try:
-            # Simülasyonda wheel joint isimleri değişebilir
-            # 'rear_left_wheel' veya 'rear_right_wheel' aranır
-            vl = vr = None
-            for i, name in enumerate(msg.name):
-                if 'rear_left' in name or 'left_wheel' in name:
-                    vl = msg.velocity[i] * self.wheel_radius
-                elif 'rear_right' in name or 'right_wheel' in name:
-                    vr = msg.velocity[i] * self.wheel_radius
+    def joint_callback(self, msg: JointState) -> None:
+        """JointState üzerinden tekerlek hızını hesaplar."""
+        self.last_joint_time = self.get_clock().now()
 
-            if vl is not None and vr is not None:
-                self.latest_speed = (vl + vr) / 2.0
-            elif vl is not None:
-                self.latest_speed = vl
-            elif vr is not None:
-                self.latest_speed = vr
+        speed = self._extract_wheel_speed(msg)
 
-        except (IndexError, AttributeError):
-            pass
+        if speed is None:
+            return
 
-        # EKF Update — encoder
-        self._ekf_update_encoder(self.latest_speed)
+        self.latest_speed = speed
+        self.has_encoder_speed = True
+
+        self._ekf_update_encoder(speed)
 
     # ───────────────────────────────────────────────────────────────────────
     # EKF
     # ───────────────────────────────────────────────────────────────────────
 
-    def _ekf_predict(self, dt: float, wz: float):
-        """EKF tahmin adımı — kinematik model."""
+    def _ekf_predict(self, dt: float, wz: float) -> None:
+        """Basit kinematik predict."""
         x, y, yaw, vx, _ = self.state
 
-        # Durum geçiş
-        new_x   = x   + vx * math.cos(yaw) * dt
-        new_y   = y   + vx * math.sin(yaw) * dt
+        yaw = self._normalize_angle(yaw)
+
+        new_x = x + vx * math.cos(yaw) * dt
+        new_y = y + vx * math.sin(yaw) * dt
         new_yaw = self._normalize_angle(yaw + wz * dt)
-        new_vx  = vx   # sabit hız modeli
-        new_wz  = wz
+        new_vx = vx
+        new_wz = wz
 
-        self.state = np.array([new_x, new_y, new_yaw, new_vx, new_wz])
+        self.state = np.array(
+            [new_x, new_y, new_yaw, new_vx, new_wz],
+            dtype=float,
+        )
 
-        # Jacobian
         F = np.eye(5)
         F[0, 2] = -vx * math.sin(yaw) * dt
-        F[0, 3] =  math.cos(yaw) * dt
-        F[1, 2] =  vx * math.cos(yaw) * dt
-        F[1, 3] =  math.sin(yaw) * dt
-        F[2, 4] =  dt
+        F[0, 3] = math.cos(yaw) * dt
+        F[1, 2] = vx * math.cos(yaw) * dt
+        F[1, 3] = math.sin(yaw) * dt
+        F[2, 4] = dt
 
-        # Kovaryans güncelle
         self.P = F @ self.P @ F.T + self.Q
+        self.P = self._stabilize_covariance(self.P)
 
-    def _ekf_update_encoder(self, measured_vx: float):
-        """EKF güncelleme adımı — encoder hızı."""
-        # Ölçüm modeli: H = [0, 0, 0, 1, 0]
-        H = np.array([[0, 0, 0, 1, 0]])
-        z = np.array([measured_vx])
-        y = z - H @ self.state
+    def _ekf_update_encoder(self, measured_vx: float) -> None:
+        """Encoder hız ölçümü ile update."""
+        if not math.isfinite(measured_vx):
+            return
+
+        H = np.array([[0.0, 0.0, 0.0, 1.0, 0.0]])
+        z = np.array([measured_vx], dtype=float)
+
+        innovation = z - H @ self.state
         S = H @ self.P @ H.T + self.R_encoder
-        K = self.P @ H.T @ np.linalg.inv(S)
 
-        self.state = self.state + K.flatten() * y[0]
+        try:
+            K = self.P @ H.T @ np.linalg.inv(S)
+        except np.linalg.LinAlgError:
+            self.get_logger().warn(
+                'EKF update atlandı: S matrisi singular.',
+                throttle_duration_sec=2.0,
+            )
+            return
+
+        self.state = self.state + (K @ innovation).flatten()
         self.state[2] = self._normalize_angle(self.state[2])
-        self.P = (np.eye(5) - K @ H) @ self.P
+
+        I = np.eye(5)
+        self.P = (I - K @ H) @ self.P
+        self.P = self._stabilize_covariance(self.P)
 
     # ───────────────────────────────────────────────────────────────────────
     # PUBLISH
     # ───────────────────────────────────────────────────────────────────────
 
-    def publish_odometry(self):
-        """50Hz odometri yayını + TF."""
+    def publish_odometry(self) -> None:
+        """Odometry mesajı ve odom → base_link TF yayınlar."""
         now = self.get_clock().now()
 
         x, y, yaw, vx, wz = self.state
+        yaw = self._normalize_angle(yaw)
 
-        # ── Odometry mesajı ─────────────────────────────────────────────
         msg = LocalizationOdometry()
-        msg.header.stamp    = now.to_msg()
+        msg.header.stamp = now.to_msg()
         msg.header.frame_id = 'odom'
-        msg.age_ms          = 0
-        msg.valid_until_ms  = self.valid_until_ms
 
-        msg.x                = x
-        msg.y                = y
-        msg.yaw              = yaw
-        msg.linear_velocity  = vx
-        msg.angular_velocity = wz
+        msg.x = float(x)
+        msg.y = float(y)
+        msg.yaw = float(yaw)
 
-        msg.position_covariance = float(self.P[0, 0])
-        msg.heading_covariance  = float(self.P[2, 2])
+        msg.linear_velocity = float(vx)
+        msg.angular_velocity = float(wz)
+
+        msg.position_covariance = float(max(self.P[0, 0], self.P[1, 1]))
+        msg.heading_covariance = float(self.P[2, 2])
         msg.velocity_covariance = float(self.P[3, 3])
 
+        if hasattr(msg, 'age_ms'):
+            msg.age_ms = 0
+
+        if hasattr(msg, 'valid_until_ms'):
+            msg.valid_until_ms = int(self.valid_until_ms)
+
         self.odom_pub.publish(msg)
+        self._publish_odom_to_base_link_tf(now, x, y, yaw)
 
-        # ── TF: odom → base_link ────────────────────────────────────────
-        # FIX-1: Bu TF'yi local_ekf_node üretir
+    def _publish_odom_to_base_link_tf(
+        self,
+        now,
+        x: float,
+        y: float,
+        yaw: float,
+    ) -> None:
+        """TF: odom → base_link."""
         t = TransformStamped()
-        t.header.stamp    = now.to_msg()
+        t.header.stamp = now.to_msg()
         t.header.frame_id = 'odom'
-        t.child_frame_id  = 'base_link'
+        t.child_frame_id = 'base_link'
 
-        t.transform.translation.x = x
-        t.transform.translation.y = y
+        t.transform.translation.x = float(x)
+        t.transform.translation.y = float(y)
         t.transform.translation.z = 0.0
 
-        # yaw → quaternion
         qz = math.sin(yaw / 2.0)
         qw = math.cos(yaw / 2.0)
+
         t.transform.rotation.x = 0.0
         t.transform.rotation.y = 0.0
         t.transform.rotation.z = qz
@@ -264,21 +291,85 @@ class LocalEkfNode(Node):
         self.tf_broadcaster.sendTransform(t)
 
     # ───────────────────────────────────────────────────────────────────────
-    # YARDIMCI
+    # HELPERS
     # ───────────────────────────────────────────────────────────────────────
+
+    def _extract_wheel_speed(self, msg: JointState):
+        """JointState içinden sol/sağ arka teker hızını m/s olarak çıkarır."""
+        if not msg.name or not msg.velocity:
+            return None
+
+        vl = None
+        vr = None
+
+        velocity_len = len(msg.velocity)
+
+        for i, name in enumerate(msg.name):
+            if i >= velocity_len:
+                break
+
+            wheel_angular_speed = float(msg.velocity[i])
+
+            if not math.isfinite(wheel_angular_speed):
+                continue
+
+            linear_speed = wheel_angular_speed * self.wheel_radius
+            name_l = name.lower()
+
+            if (
+                'rear_left' in name_l
+                or 'left_rear' in name_l
+                or 'left_wheel' in name_l
+                or 'rl_wheel' in name_l
+            ):
+                vl = linear_speed
+
+            elif (
+                'rear_right' in name_l
+                or 'right_rear' in name_l
+                or 'right_wheel' in name_l
+                or 'rr_wheel' in name_l
+            ):
+                vr = linear_speed
+
+        if vl is not None and vr is not None:
+            return (vl + vr) / 2.0
+
+        if vl is not None:
+            return vl
+
+        if vr is not None:
+            return vr
+
+        # Fallback: velocity listesindeki ilk sonlu değeri kullan
+        for v in msg.velocity:
+            v = float(v)
+            if math.isfinite(v):
+                return v * self.wheel_radius
+
+        return None
+
+    @staticmethod
+    def _stabilize_covariance(P):
+        """Kovaryans matrisini simetrik ve pozitif diyagonal yapar."""
+        P = 0.5 * (P + P.T)
+
+        for i in range(P.shape[0]):
+            if not math.isfinite(float(P[i, i])) or P[i, i] < 1e-9:
+                P[i, i] = 1e-9
+
+        return P
 
     @staticmethod
     def _normalize_angle(angle: float) -> float:
-        """Açıyı [-π, π] aralığına normalize et."""
-        while angle >  math.pi: angle -= 2.0 * math.pi
-        while angle < -math.pi: angle += 2.0 * math.pi
-        return angle
+        return math.atan2(math.sin(angle), math.cos(angle))
 
 
-# ───────────────────────────────────────────────────────────────────────────
 def main(args=None):
     rclpy.init(args=args)
+
     node = LocalEkfNode()
+
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
