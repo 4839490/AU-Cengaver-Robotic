@@ -3,84 +3,56 @@
 AU Cengaver Robotics — TEKNOFEST 2026
 waypoint_manager.py
 
-Algoritma 2: Waypoint Yönetimi (Sıralı Liste + İndeks)
-Algoritma 3: Öklid Mesafesi + Heading Toleransı (Hedef Doğrulama)
-
-Algoritma Tablosu v2.0 §4:
-  Algo 2:
-    - Anlık pose ile aktif waypoint arasındaki Öklid mesafesini hesapla
-    - Mesafe < eşik AND Δheading < tolerans → hedef doğrulama
-    - Doğrulama başarılı → active_waypoint_id++ ve goal_reached yayınla
-    - Tüm waypointler tamamlandı → MISSION_COMPLETE
-
-  Algo 3:
-    - dist = sqrt((x−x_t)²+(y−y_t)²)
-    - Δheading = │yaw−yaw_t│ (mod 2π)
-    - dist < d_thresh AND Δheading < θ_thresh → ulaşıldı
-
-Parametreler (Algo 2):
-  WAYPOINT:     mesafe < 0.5m, Δheading < ±20°
-  PICKUP/DROPOFF: mesafe < 0.5m, Δheading < ±10°
-  PARK:         mesafe < 1.0m, Δheading < ±15°
-  DEGRADED modda tüm eşikler ×2
+Algoritma 2: Waypoint Yönetimi
+Algoritma 3: Öklid Mesafesi + Heading Toleransı
 """
 
 import math
 from typing import List, Optional, Tuple
 from dataclasses import dataclass
 
-from .geojson_loader import Waypoint, WAYPOINT_TYPE_MAP
+from .geojson_loader import Waypoint
 
 
-# ─── Waypoint Tipleri ──────────────────────────────────────────────────────
-TYPE_WAYPOINT   = 0
-TYPE_PICKUP     = 1
-TYPE_DROPOFF    = 2
+# planning_msgs/GoalReached.msg ile uyumlu:
+# PICKUP=0, DROPOFF=1, WAYPOINT=2, PARK_ENTRY=3
+TYPE_PICKUP = 0
+TYPE_DROPOFF = 1
+TYPE_WAYPOINT = 2
 TYPE_PARK_ENTRY = 3
 
-# ─── Eşik Değerleri (Algo 2) ───────────────────────────────────────────────
+
 THRESHOLDS = {
-    TYPE_WAYPOINT:   {'dist': 0.5, 'heading': math.radians(20.0)},
-    TYPE_PICKUP:     {'dist': 0.5, 'heading': math.radians(10.0)},
-    TYPE_DROPOFF:    {'dist': 0.5, 'heading': math.radians(10.0)},
+    TYPE_PICKUP: {'dist': 0.5, 'heading': math.radians(10.0)},
+    TYPE_DROPOFF: {'dist': 0.5, 'heading': math.radians(10.0)},
+    TYPE_WAYPOINT: {'dist': 0.5, 'heading': math.radians(20.0)},
     TYPE_PARK_ENTRY: {'dist': 1.0, 'heading': math.radians(15.0)},
 }
 
-# DEGRADED modda eşik çarpanı
 DEGRADED_MULTIPLIER = 2.0
 
 
-@dataclass
+@dataclass(frozen=True)
 class WaypointResult:
-    """Waypoint kontrolü sonucu."""
-    reached:        bool
-    distance:       float
-    heading_error:  float
-    waypoint_id:    int
-    waypoint_type:  int
+    reached: bool
+    distance: float
+    heading_error: float
+    waypoint_id: int
+    waypoint_type: int
     mission_complete: bool = False
+    distance_error: float = 0.0
 
 
 class WaypointManager:
     """
-    Algoritma 2 + 3 — Waypoint Yönetimi ve Hedef Doğrulama.
-
-    Kullanım:
-        manager = WaypointManager(waypoints)
-        result = manager.update(x, y, yaw, localization_degraded=False)
-        if result.reached:
-            manager.advance()
+    Waypoint listesini yönetir ve aktif waypoint'e ulaşılıp ulaşılmadığını kontrol eder.
     """
 
     def __init__(self, waypoints: List[Waypoint]):
-        self._waypoints       = waypoints
-        self._active_index    = 0
+        self._waypoints = list(waypoints) if waypoints else []
+        self._active_index = 0
         self._mission_complete = False
         self._completed_ids: List[int] = []
-
-    # ───────────────────────────────────────────────────────────────────────
-    # PUBLIC API
-    # ───────────────────────────────────────────────────────────────────────
 
     def update(
         self,
@@ -88,76 +60,75 @@ class WaypointManager:
         y: float,
         yaw: float,
         localization_degraded: bool = False,
-        position_covariance:   float = 0.0
+        position_covariance: float = 0.0,
     ) -> WaypointResult:
-        """
-        Anlık pose ile aktif waypoint arasındaki mesafeyi hesapla.
-        Algoritma 2 + 3.
 
-        Args:
-            x, y, yaw: Anlık araç pozu (map frame)
-            localization_degraded: DEGRADED mod → eşikler ×2
-            position_covariance: Yüksekse eşikler dinamik genişler
-
-        Returns:
-            WaypointResult
-        """
         if self._mission_complete or not self._waypoints:
             return WaypointResult(
                 reached=False,
                 distance=float('inf'),
                 heading_error=float('inf'),
-                waypoint_id=-1,
-                waypoint_type=-1,
-                mission_complete=self._mission_complete
+                waypoint_id=0,
+                waypoint_type=TYPE_WAYPOINT,
+                mission_complete=self._mission_complete,
+                distance_error=float('inf'),
             )
 
         wp = self.active_waypoint
+
         if wp is None:
+            self._mission_complete = True
+
             return WaypointResult(
                 reached=False,
                 distance=float('inf'),
                 heading_error=float('inf'),
-                waypoint_id=-1,
-                waypoint_type=-1,
-                mission_complete=True
+                waypoint_id=0,
+                waypoint_type=TYPE_WAYPOINT,
+                mission_complete=True,
+                distance_error=float('inf'),
             )
 
-        # Algoritma 3 — Öklid mesafesi + heading toleransı
-        dist, h_err = self._check_goal(x, y, yaw, wp)
-
-        # Eşik değerleri
-        d_thresh, θ_thresh = self._get_thresholds(
-            wp.type,
-            localization_degraded,
-            position_covariance
+        dist, h_err = self._check_goal(
+            x=float(x),
+            y=float(y),
+            yaw=float(yaw),
+            wp=wp,
         )
 
-        reached = (dist < d_thresh) and (abs(h_err) < θ_thresh)
+        d_thresh, heading_thresh = self._get_thresholds(
+            wp_type=int(wp.type),
+            degraded=bool(localization_degraded),
+            position_covariance=float(position_covariance),
+        )
+
+        reached = dist < d_thresh and abs(h_err) < heading_thresh
 
         return WaypointResult(
             reached=reached,
             distance=dist,
             heading_error=h_err,
-            waypoint_id=wp.id,
-            waypoint_type=wp.type,
-            mission_complete=False
+            waypoint_id=int(wp.id),
+            waypoint_type=int(wp.type),
+            mission_complete=False,
+            distance_error=dist,
         )
 
     def advance(self) -> bool:
         """
-        Aktif waypoint'i tamamla, sıradakine geç.
+        Aktif waypoint'i tamamlar ve sıradakine geçer.
 
         Returns:
-            True: Sıradaki waypoint var
-            False: Tüm waypointler tamamlandı (MISSION_COMPLETE)
+            True: sıradaki waypoint var
+            False: görev tamamlandı
         """
         if self._mission_complete:
             return False
 
         wp = self.active_waypoint
+
         if wp is not None:
-            self._completed_ids.append(wp.id)
+            self._completed_ids.append(int(wp.id))
 
         self._active_index += 1
 
@@ -167,35 +138,33 @@ class WaypointManager:
 
         return True
 
-    def reset(self):
-        """Waypoint listesini başa al."""
-        self._active_index     = 0
+    def reset(self) -> None:
+        self._active_index = 0
         self._mission_complete = False
-        self._completed_ids    = []
+        self._completed_ids = []
 
-    def reload(self, waypoints: List[Waypoint]):
-        """Yeni waypoint listesi yükle."""
-        self._waypoints = waypoints
+    def reload(self, waypoints: List[Waypoint]) -> None:
+        self._waypoints = list(waypoints) if waypoints else []
         self.reset()
-
-    # ───────────────────────────────────────────────────────────────────────
-    # PROPERTIES
-    # ───────────────────────────────────────────────────────────────────────
 
     @property
     def active_waypoint(self) -> Optional[Waypoint]:
-        """Aktif waypoint."""
-        if self._active_index < len(self._waypoints):
+        if 0 <= self._active_index < len(self._waypoints):
             return self._waypoints[self._active_index]
         return None
 
     @property
     def next_waypoint(self) -> Optional[Waypoint]:
-        """Sonraki waypoint."""
         idx = self._active_index + 1
-        if idx < len(self._waypoints):
+
+        if 0 <= idx < len(self._waypoints):
             return self._waypoints[idx]
+
         return None
+
+    @property
+    def waypoints(self) -> List[Waypoint]:
+        return list(self._waypoints)
 
     @property
     def active_index(self) -> int:
@@ -217,26 +186,20 @@ class WaypointManager:
     def completed_ids(self) -> List[int]:
         return list(self._completed_ids)
 
-    # ───────────────────────────────────────────────────────────────────────
-    # PRIVATE — Algoritma 3
-    # ───────────────────────────────────────────────────────────────────────
-
     def _check_goal(
         self,
-        x: float, y: float, yaw: float,
-        wp: Waypoint
+        x: float,
+        y: float,
+        yaw: float,
+        wp: Waypoint,
     ) -> Tuple[float, float]:
-        """
-        Algoritma 3 — Öklid mesafesi + heading toleransı.
 
-        dist = sqrt((x−x_t)²+(y−y_t)²)
-        Δheading = │yaw−yaw_t│ (mod 2π) → [-π, π]
-        """
-        # Öklid mesafesi
-        dist = math.sqrt((x - wp.x) ** 2 + (y - wp.y) ** 2)
+        dist = math.hypot(
+            float(x) - float(wp.x),
+            float(y) - float(wp.y),
+        )
 
-        # Heading hatası — normalize et
-        h_err = self._normalize_angle(yaw - wp.yaw)
+        h_err = self._normalize_angle(float(yaw) - float(wp.yaw))
 
         return dist, h_err
 
@@ -244,33 +207,25 @@ class WaypointManager:
         self,
         wp_type: int,
         degraded: bool,
-        position_covariance: float
+        position_covariance: float,
     ) -> Tuple[float, float]:
-        """
-        Algoritma 2 — Waypoint tipine göre eşik değerleri.
-        DEGRADED modda ×2, yüksek kovaryans'ta dinamik genişleme.
-        """
-        thresh = THRESHOLDS.get(wp_type, THRESHOLDS[TYPE_WAYPOINT])
-        d_thresh = thresh['dist']
-        θ_thresh = thresh['heading']
 
-        # DEGRADED mod → ×2
+        thresh = THRESHOLDS.get(int(wp_type), THRESHOLDS[TYPE_WAYPOINT])
+
+        d_thresh = float(thresh['dist'])
+        heading_thresh = float(thresh['heading'])
+
         if degraded:
             d_thresh *= DEGRADED_MULTIPLIER
-            θ_thresh *= DEGRADED_MULTIPLIER
+            heading_thresh *= DEGRADED_MULTIPLIER
 
-        # Yüksek kovaryans → dinamik genişleme
-        # Localization Contract §7
-        if position_covariance > 1.0:
-            scale    = min(2.0, 1.0 + position_covariance)
+        if math.isfinite(position_covariance) and position_covariance > 1.0:
+            scale = min(2.0, 1.0 + float(position_covariance))
             d_thresh *= scale
-            θ_thresh *= scale
+            heading_thresh *= scale
 
-        return d_thresh, θ_thresh
+        return d_thresh, heading_thresh
 
     @staticmethod
     def _normalize_angle(angle: float) -> float:
-        """Açıyı [-π, π] aralığına normalize et."""
-        while angle >  math.pi: angle -= 2.0 * math.pi
-        while angle < -math.pi: angle += 2.0 * math.pi
-        return angle
+        return math.atan2(math.sin(angle), math.cos(angle))
