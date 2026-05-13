@@ -13,4 +13,5 @@ float64 lon_ref
 float64 alt_ref
 float64 yaw_ref
 
+string source
 bool locked
