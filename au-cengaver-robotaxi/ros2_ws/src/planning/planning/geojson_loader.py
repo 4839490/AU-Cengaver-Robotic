@@ -4,19 +4,6 @@ AU Cengaver Robotics — TEKNOFEST 2026
 geojson_loader.py
 
 Algoritma 1: GeoJSON Rota Parser
-  Yarışma günü rota dosyasını okuyarak waypoint listesi üretir
-
-Algoritma Tablosu v2.0 §4 Algoritma 1:
-  - json.load ile GeoJSON oku
-  - Her Feature için lat/lon al
-  - EKF referans noktasından map frame'e dönüştür
-  - Waypoint listesini (id, x, y, type) bellekte sakla
-  - active_waypoint_id=0 ile başlat
-
-Sözleşme: Localization ↔ Planner Contract v1.2
-  - FIX-4: GeoJSON front_bumper referansı → base_link dönüşümü
-  - FIX-7: Planner raw_gps okumaz — dönüşüm bu modül yapar
-  - map_origin.locked=true gelmeden waypoint işleme
 """
 
 import json
@@ -27,29 +14,43 @@ from typing import List, Optional
 from .coordinate_transform import CoordinateTransform
 
 
-# ─── Waypoint Tipleri ──────────────────────────────────────────────────────
+# Contract uyumlu waypoint tipleri
+# planning_msgs/GoalReached.msg ile aynı tutulmalı:
+# PICKUP=0, DROPOFF=1, WAYPOINT=2, PARK_ENTRY=3
+WAYPOINT_PICKUP = 0
+WAYPOINT_DROPOFF = 1
+WAYPOINT_NORMAL = 2
+WAYPOINT_PARK_ENTRY = 3
+
 WAYPOINT_TYPE_MAP = {
-    'WAYPOINT':   0,
-    'PICKUP':     1,
-    'DROPOFF':    2,
-    'PARK_ENTRY': 3,
-    'PARK':       3,   # alias
+    'PICKUP': WAYPOINT_PICKUP,
+    'DROPOFF': WAYPOINT_DROPOFF,
+    'WAYPOINT': WAYPOINT_NORMAL,
+    'NORMAL': WAYPOINT_NORMAL,
+    'START': WAYPOINT_NORMAL,
+    'PARK_ENTRY': WAYPOINT_PARK_ENTRY,
+    'PARK': WAYPOINT_PARK_ENTRY,
 }
 
-WAYPOINT_TYPE_NAMES = {v: k for k, v in WAYPOINT_TYPE_MAP.items()}
+WAYPOINT_TYPE_NAMES = {
+    WAYPOINT_PICKUP: 'PICKUP',
+    WAYPOINT_DROPOFF: 'DROPOFF',
+    WAYPOINT_NORMAL: 'WAYPOINT',
+    WAYPOINT_PARK_ENTRY: 'PARK_ENTRY',
+}
 
 
 @dataclass
 class Waypoint:
     """Tek bir waypoint."""
-    id:        int
-    x:         float    # map frame, metre
-    y:         float    # map frame, metre
-    yaw:       float    # hedef yön (radyan) — ENU
-    type:      int      # WAYPOINT=0, PICKUP=1, DROPOFF=2, PARK_ENTRY=3
-    lat:       float    # orijinal enlem (debug)
-    lon:       float    # orijinal boylam (debug)
-    name:      str      # GeoJSON feature name
+    id: int
+    x: float          # map frame, metre, base_link referanslı
+    y: float          # map frame, metre, base_link referanslı
+    yaw: float        # hedef yön, rad, ENU
+    type: int         # PICKUP=0, DROPOFF=1, WAYPOINT=2, PARK_ENTRY=3
+    lat: float        # debug
+    lon: float        # debug
+    name: str
 
     @property
     def type_name(self) -> str:
@@ -64,14 +65,8 @@ class Waypoint:
 
 class GeoJsonLoader:
     """
-    Algoritma 1 — GeoJSON Rota Parser.
-
-    GeoJSON dosyasını okur, waypoint listesi üretir.
+    GeoJSON dosyasını okur ve waypoint listesi üretir.
     Koordinat dönüşümü için CoordinateTransform kullanır.
-
-    Kullanım:
-        loader = GeoJsonLoader(coord_transform)
-        waypoints = loader.load('/path/to/mission.geojson')
     """
 
     def __init__(self, coord_transform: CoordinateTransform):
@@ -79,78 +74,34 @@ class GeoJsonLoader:
         self._waypoints: List[Waypoint] = []
         self._loaded = False
 
-    # ───────────────────────────────────────────────────────────────────────
-    # PUBLIC API
-    # ───────────────────────────────────────────────────────────────────────
-
     def load(self, filepath: str) -> List[Waypoint]:
-        """
-        GeoJSON dosyasını yükle ve waypoint listesi üret.
+        """GeoJSON dosyasını yükle."""
+        if not filepath:
+            raise ValueError('GeoJsonLoader: mission_file boş olamaz.')
 
-        Algoritma 1 adımları:
-          1. json.load ile oku
-          2. Her Feature için lat/lon al
-          3. map frame'e dönüştür
-          4. Waypoint listesi oluştur
-          5. active_waypoint_id=0 ile başlat
-
-        Raises:
-            RuntimeError: map_origin kilitli değilse
-            FileNotFoundError: dosya bulunamazsa
-            ValueError: GeoJSON formatı yanlışsa
-        """
         if not self._ct.is_locked:
             raise RuntimeError(
-                'GeoJsonLoader: CoordinateTransform origin kilitlenmedi! '
+                'GeoJsonLoader: CoordinateTransform origin kilitlenmedi. '
                 'map_origin.locked=true gelmeden waypoint işlenemez.'
             )
 
         with open(filepath, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
-        if data.get('type') != 'FeatureCollection':
-            raise ValueError(
-                f'GeoJSON formatı hatalı: type=FeatureCollection bekleniyor, '
-                f'bulunan: {data.get("type")}'
-            )
-
-        features = data.get('features', [])
-        if not features:
-            raise ValueError('GeoJSON dosyasında hiç Feature bulunamadı.')
-
-        waypoints = []
-        for i, feature in enumerate(features):
-            wp = self._parse_feature(i, feature)
-            if wp is not None:
-                waypoints.append(wp)
-
-        # ID'ye göre sırala
-        waypoints.sort(key=lambda w: w.id)
-
-        self._waypoints = waypoints
-        self._loaded    = True
-
-        return self._waypoints
+        return self._load_from_dict(data)
 
     def load_from_string(self, geojson_str: str) -> List[Waypoint]:
-        """GeoJSON string'den yükle (test amaçlı)."""
+        """GeoJSON string üzerinden yükle. Test için kullanılır."""
+        if not geojson_str:
+            raise ValueError('GeoJsonLoader: geojson_str boş olamaz.')
+
         if not self._ct.is_locked:
-            raise RuntimeError('map_origin kilitlenmedi!')
+            raise RuntimeError(
+                'GeoJsonLoader: CoordinateTransform origin kilitlenmedi.'
+            )
 
         data = json.loads(geojson_str)
-        features = data.get('features', [])
-        waypoints = []
-
-        for i, feature in enumerate(features):
-            wp = self._parse_feature(i, feature)
-            if wp is not None:
-                waypoints.append(wp)
-
-        waypoints.sort(key=lambda w: w.id)
-        self._waypoints = waypoints
-        self._loaded    = True
-
-        return self._waypoints
+        return self._load_from_dict(data)
 
     @property
     def waypoints(self) -> List[Waypoint]:
@@ -167,66 +118,89 @@ class GeoJsonLoader:
                 return wp
         return None
 
-    # ───────────────────────────────────────────────────────────────────────
-    # PRIVATE
-    # ───────────────────────────────────────────────────────────────────────
+    def _load_from_dict(self, data: dict) -> List[Waypoint]:
+        """GeoJSON dict içeriğini waypoint listesine çevirir."""
+        if data.get('type') != 'FeatureCollection':
+            raise ValueError(
+                f'GeoJSON formatı hatalı: type=FeatureCollection bekleniyor, '
+                f'bulunan: {data.get("type")}'
+            )
+
+        features = data.get('features', [])
+        if not features:
+            raise ValueError('GeoJSON dosyasında hiç Feature bulunamadı.')
+
+        waypoints: List[Waypoint] = []
+
+        for i, feature in enumerate(features):
+            wp = self._parse_feature(i, feature)
+            if wp is not None:
+                waypoints.append(wp)
+
+        if not waypoints:
+            raise ValueError('GeoJSON içinde geçerli waypoint bulunamadı.')
+
+        waypoints.sort(key=lambda w: w.id)
+
+        self._waypoints = waypoints
+        self._loaded = True
+
+        return self._waypoints
 
     def _parse_feature(self, index: int, feature: dict) -> Optional[Waypoint]:
         """
-        Tek bir GeoJSON Feature'ı Waypoint'e dönüştür.
+        Tek bir GeoJSON Feature'ı Waypoint'e dönüştürür.
 
-        GeoJSON format:
+        Beklenen format:
         {
           "type": "Feature",
           "properties": {
-            "name": "PICKUP_1",
             "id": 1,
+            "name": "PICKUP_1",
             "type": "PICKUP",
             "yaw_deg": 90.0
           },
           "geometry": {
             "type": "Point",
-            "coordinates": [lon, lat]  ← GeoJSON'da lon önce!
+            "coordinates": [lon, lat]
           }
         }
         """
+        geometry = feature.get('geometry', {})
+        properties = feature.get('properties', {})
+
+        if geometry.get('type') != 'Point':
+            return None
+
+        coords = geometry.get('coordinates', [])
+        if len(coords) < 2:
+            return None
+
         try:
-            geometry   = feature.get('geometry', {})
-            properties = feature.get('properties', {})
-
-            if geometry.get('type') != 'Point':
-                return None
-
-            # GeoJSON'da koordinat sırası: [lon, lat]
-            coords = geometry.get('coordinates', [])
-            if len(coords) < 2:
-                return None
-
             lon = float(coords[0])
             lat = float(coords[1])
 
-            # Lat/lon → map frame
+            if not math.isfinite(lat) or not math.isfinite(lon):
+                return None
+
             x_map, y_map = self._ct.latlon_to_map(lat, lon)
 
-            # FIX-4: front_bumper → base_link dönüşümü
-            # yaw önce bilinmeli — properties'ten al
             yaw_deg = float(properties.get('yaw_deg', 0.0))
-            yaw_rad = math.radians(yaw_deg)
-            yaw_rad = self._normalize_angle(yaw_rad)
+            yaw_rad = self._normalize_angle(math.radians(yaw_deg))
 
+            # GeoJSON waypoint front_bumper referanslı kabul edilir.
+            # Planner içinde base_link referansına çevrilir.
             x_base, y_base = self._ct.front_bumper_to_base_link(
-                x_map, y_map, yaw_rad
+                x_map,
+                y_map,
+                yaw_rad,
             )
 
-            # Waypoint tipi
-            type_str = properties.get('type', 'WAYPOINT').upper()
-            wp_type  = WAYPOINT_TYPE_MAP.get(type_str, 0)
+            type_str = str(properties.get('type', 'WAYPOINT')).upper()
+            wp_type = WAYPOINT_TYPE_MAP.get(type_str, WAYPOINT_NORMAL)
 
-            # ID
             wp_id = int(properties.get('id', index))
-
-            # İsim
-            name = properties.get('name', f'wp_{wp_id}')
+            name = str(properties.get('name', f'wp_{wp_id}'))
 
             return Waypoint(
                 id=wp_id,
@@ -239,19 +213,21 @@ class GeoJsonLoader:
                 name=name,
             )
 
-        except (KeyError, ValueError, TypeError) as e:
-            # Hatalı feature'ı atla
+        except (ValueError, TypeError):
             return None
 
     @staticmethod
     def _normalize_angle(angle: float) -> float:
-        """Açıyı [-π, π] aralığına normalize et."""
-        while angle >  math.pi: angle -= 2.0 * math.pi
-        while angle < -math.pi: angle += 2.0 * math.pi
+        """Açıyı [-pi, pi] aralığına normalize eder."""
+        while angle > math.pi:
+            angle -= 2.0 * math.pi
+
+        while angle < -math.pi:
+            angle += 2.0 * math.pi
+
         return angle
 
 
-# ─── Örnek GeoJSON ─────────────────────────────────────────────────────────
 SAMPLE_GEOJSON = """
 {
   "type": "FeatureCollection",
