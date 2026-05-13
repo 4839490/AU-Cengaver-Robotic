@@ -3,200 +3,233 @@
 AU Cengaver Robotics — TEKNOFEST 2026
 route_context_publisher.py
 
-Görev:
-  /planning/active_route_context yayınlar — 10-20Hz — base_link frame
-
-Sözleşme: Planner ↔ Controller Contract v1.3 FIX-4
-  - frame_id: base_link — TÜM KOORDINATLAR BASE_LINK
-  - map→base_link dönüşümü planner içinde yapılır
-  - ego_speed_mps: controller/feedback.actual_speed'den beslenir
-  - route_context_valid: lokalizasyon + waypoint + planner ACTIVE → true
-
-Perception ↔ Planner Contract v1.4 FIX-2:
-  - age_ms > 200ms → relevant_to_route=false
-  - route_context_valid=false → perception agresif karar üretmez
-
-4 contractta BİREBİR AYNI şema — değiştirilmemeli!
+/planning/active_route_context için veri üretir.
+Tüm koordinatlar base_link frame'indedir.
 """
 
 import math
-from typing import List, Optional, Tuple
+from typing import Any, List, Optional
 
 from .coordinate_transform import CoordinateTransform
-from .waypoint_manager import WaypointManager
-from .trajectory_builder import TrajectoryPoint
+
+
+VALID_ROUTE_DIRECTIONS = {
+    'STRAIGHT',
+    'LEFT',
+    'RIGHT',
+    'ROUNDABOUT',
+    'UNKNOWN',
+}
 
 
 class RouteContextPublisher:
     """
-    /planning/active_route_context mesajı için veri üretir.
+    ActiveRouteContext mesajı için dict üretir.
 
-    Kullanım:
-        rcp = RouteContextPublisher(coord_transform)
-        ctx = rcp.build(
-            ego_x=1.0, ego_y=2.0, ego_yaw=0.5,
-            ego_speed=3.0,
-            waypoint_manager=wm,
-            trajectory=traj,
-            planner_mode=0,
-            in_stop_zone=False,
-            localization_confidence=0.9,
-            route_context_valid=True
-        )
+    Planner node bu dict'i planning_msgs/ActiveRouteContext mesajına çevirir.
     """
 
     def __init__(self, coord_transform: CoordinateTransform):
         self._ct = coord_transform
 
-    # ───────────────────────────────────────────────────────────────────────
-    # PUBLIC API
-    # ───────────────────────────────────────────────────────────────────────
-
     def build(
         self,
-        ego_x:                   float,
-        ego_y:                   float,
-        ego_yaw:                 float,
-        ego_speed:               float,
-        waypoint_manager:        WaypointManager,
-        trajectory:              Optional[List[TrajectoryPoint]],
-        planner_mode:            int,
-        in_stop_zone:            bool,
+        ego_x: float,
+        ego_y: float,
+        ego_yaw: float,
+        ego_speed: float,
+        waypoint_manager: Any,
+        trajectory: Optional[List[Any]],
+        planner_mode: int,
+        in_stop_zone: bool,
         localization_confidence: float,
-        route_context_valid:     bool,
-        lookahead_distance:      float = 1.5,
-        distance_to_stop_zone:   float = float('inf'),
-        route_direction:         str   = 'STRAIGHT',
+        route_context_valid: bool,
+        lookahead_distance: float = 1.5,
+        distance_to_stop_zone: float = -1.0,
+        route_direction: str = 'UNKNOWN',
     ) -> dict:
         """
-        ActiveRouteContext verisi üret.
-
-        Returns:
-            dict — planning_msgs/ActiveRouteContext alanları
+        ActiveRouteContext alanlarına uygun dict üretir.
         """
-        # Aktif waypoint
-        active_wp = waypoint_manager.active_waypoint
-        next_wp   = waypoint_manager.next_waypoint
 
-        active_waypoint_id = active_wp.id if active_wp else 0
+        warning_flags: List[str] = []
 
-        # Hedef noktayı map → base_link'e çevir
+        ego_yaw = self._normalize_angle(float(ego_yaw))
+
+        active_wp = getattr(waypoint_manager, 'active_waypoint', None)
+        next_wp = getattr(waypoint_manager, 'next_waypoint', None)
+
+        if active_wp is None:
+            warning_flags.append('NO_ACTIVE_WAYPOINT')
+
+        if not route_context_valid:
+            warning_flags.append('ROUTE_CONTEXT_INVALID')
+
+        if localization_confidence < 0.5:
+            warning_flags.append('LOW_LOCALIZATION_CONFIDENCE')
+
+        active_waypoint_id = int(getattr(active_wp, 'id', 0)) if active_wp else 0
+
         target_x_bl = 0.0
         target_y_bl = 0.0
-        target_heading = ego_yaw
+        target_heading = 0.0
 
         if active_wp is not None:
-            target_x_bl, target_y_bl = self._ct.map_to_base_link(
-                active_wp.x, active_wp.y,
-                ego_x, ego_y, ego_yaw
-            )
-            target_heading = self._normalize_angle(
-                active_wp.yaw - ego_yaw
-            )
+            try:
+                target_x_bl, target_y_bl = self._ct.map_to_base_link(
+                    target_x_map=float(active_wp.x),
+                    target_y_map=float(active_wp.y),
+                    ego_x=float(ego_x),
+                    ego_y=float(ego_y),
+                    ego_yaw=ego_yaw,
+                )
 
-        # Trajectory → base_link frame noktaları
+                target_heading = self._normalize_angle(
+                    float(getattr(active_wp, 'yaw', ego_yaw)) - ego_yaw
+                )
+
+            except Exception:
+                target_x_bl = 0.0
+                target_y_bl = 0.0
+                target_heading = 0.0
+                route_context_valid = False
+                warning_flags.append('TARGET_TRANSFORM_FAILED')
+
         planned_trajectory_bl = self._trajectory_to_base_link(
-            trajectory, ego_x, ego_y, ego_yaw
+            trajectory=trajectory,
+            ego_x=float(ego_x),
+            ego_y=float(ego_y),
+            ego_yaw=ego_yaw,
         )
 
-        # route_direction — next waypoint'e göre
-        if route_direction == 'STRAIGHT' and next_wp is not None \
-                and active_wp is not None:
+        route_direction = str(route_direction).upper()
+
+        if route_direction not in VALID_ROUTE_DIRECTIONS:
+            route_direction = 'UNKNOWN'
+            warning_flags.append('INVALID_ROUTE_DIRECTION')
+
+        if route_direction == 'UNKNOWN' and active_wp is not None and next_wp is not None:
             route_direction = self._compute_route_direction(
-                active_wp.yaw, next_wp.yaw
+                current_yaw=float(getattr(active_wp, 'yaw', 0.0)),
+                next_yaw=float(getattr(next_wp, 'yaw', 0.0)),
             )
 
+        distance_to_stop_zone = self._safe_float32_value(
+            distance_to_stop_zone,
+            fallback=-1.0,
+        )
+
         return {
-            # Header
-            'frame_id':              'base_link',
-            'active_waypoint_id':    active_waypoint_id,
+            'frame_id': 'base_link',
 
-            # Hedef — base_link frame
-            'target_x':              target_x_bl,
-            'target_y':              target_y_bl,
-            'target_heading':        target_heading,
+            'active_waypoint_id': active_waypoint_id,
 
-            # Mod ve durum
-            'planner_mode':          planner_mode,
-            'route_direction':       route_direction,
+            'target_x': float(target_x_bl),
+            'target_y': float(target_y_bl),
+            'target_heading': float(target_heading),
 
-            # Trajectory — base_link frame
-            'planned_trajectory':    planned_trajectory_bl,
+            'planner_mode': int(planner_mode),
+            'route_direction': route_direction,
 
-            # Lookahead
-            'lookahead_distance':    lookahead_distance,
+            'planned_trajectory': planned_trajectory_bl,
 
-            # Stop zone
-            'in_stop_zone':          in_stop_zone,
-            'distance_to_stop_zone': distance_to_stop_zone,
+            'lookahead_distance': max(0.0, float(lookahead_distance)),
 
-            # Lokalizasyon
-            'localization_confidence': localization_confidence,
+            'in_stop_zone': bool(in_stop_zone),
+            'distance_to_stop_zone': float(distance_to_stop_zone),
 
-            # ego_speed — controller/feedback'ten gelir
-            # TTC hesabında perception bu alanı kullanır
-            'ego_speed_mps':         ego_speed,
+            'localization_confidence': max(
+                0.0,
+                min(1.0, float(localization_confidence)),
+            ),
 
-            # Geçerlilik
-            'route_context_valid':   route_context_valid,
+            'ego_speed_mps': max(0.0, float(ego_speed)),
 
-            # Zaman
-            'age_ms':                0,
-            'valid_until_ms':        500,
+            'route_context_valid': bool(route_context_valid),
+
+            'age_ms': 0,
+            'valid_until_ms': 500,
+            'warning_flags': warning_flags,
         }
-
-    # ───────────────────────────────────────────────────────────────────────
-    # PRIVATE
-    # ───────────────────────────────────────────────────────────────────────
 
     def _trajectory_to_base_link(
         self,
-        trajectory: Optional[List[TrajectoryPoint]],
-        ego_x:      float,
-        ego_y:      float,
-        ego_yaw:    float,
+        trajectory: Optional[List[Any]],
+        ego_x: float,
+        ego_y: float,
+        ego_yaw: float,
     ) -> List[dict]:
         """
-        Trajectory noktalarını map frame'den base_link frame'e çevir.
-        geometry_msgs/Point[] formatında döndür.
+        map frame trajectory noktalarını base_link frame'e çevirir.
         """
         if not trajectory:
             return []
 
-        points = []
-        for pt in trajectory[:20]:   # max 20 nokta
-            x_bl, y_bl = self._ct.map_to_base_link(
-                pt.x, pt.y, ego_x, ego_y, ego_yaw
-            )
-            points.append({
-                'x': x_bl,
-                'y': y_bl,
-                'z': 0.0
-            })
+        points: List[dict] = []
+
+        for pt in trajectory[:20]:
+            try:
+                px = float(getattr(pt, 'x'))
+                py = float(getattr(pt, 'y'))
+
+                x_bl, y_bl = self._ct.map_to_base_link(
+                    target_x_map=px,
+                    target_y_map=py,
+                    ego_x=ego_x,
+                    ego_y=ego_y,
+                    ego_yaw=ego_yaw,
+                )
+
+                points.append({
+                    'x': float(x_bl),
+                    'y': float(y_bl),
+                    'z': 0.0,
+                })
+
+            except Exception:
+                continue
 
         return points
 
     def _compute_route_direction(
         self,
         current_yaw: float,
-        next_yaw:    float,
+        next_yaw: float,
     ) -> str:
         """
-        Rota yönünü belirle.
-        STRAIGHT | LEFT | RIGHT | ROUNDABOUT | UNKNOWN
+        STRAIGHT | LEFT | RIGHT döndürür.
         """
-        diff = self._normalize_angle(next_yaw - current_yaw)
+        diff = self._normalize_angle(float(next_yaw) - float(current_yaw))
 
-        if abs(diff) < math.radians(20):
+        if abs(diff) < math.radians(20.0):
             return 'STRAIGHT'
-        elif diff > 0:
+
+        if diff > 0.0:
             return 'LEFT'
-        else:
-            return 'RIGHT'
+
+        return 'RIGHT'
+
+    @staticmethod
+    def _safe_float32_value(value: float, fallback: float = -1.0) -> float:
+        """
+        ROS float32 alanlarına inf/nan basmayı engeller.
+        """
+        try:
+            value = float(value)
+        except Exception:
+            return fallback
+
+        if not math.isfinite(value):
+            return fallback
+
+        return value
 
     @staticmethod
     def _normalize_angle(angle: float) -> float:
-        """Açıyı [-π, π] aralığına normalize et."""
-        while angle >  math.pi: angle -= 2.0 * math.pi
-        while angle < -math.pi: angle += 2.0 * math.pi
+        while angle > math.pi:
+            angle -= 2.0 * math.pi
+
+        while angle < -math.pi:
+            angle += 2.0 * math.pi
+
         return angle
