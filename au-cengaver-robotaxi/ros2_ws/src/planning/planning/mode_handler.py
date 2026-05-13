@@ -3,87 +3,65 @@
 AU Cengaver Robotics — TEKNOFEST 2026
 mode_handler.py
 
-Görev:
-  FSM moduna göre planner davranışını yönetir
-  Mod geçişlerini izler, planner eylemlerini belirler
-
-Sözleşme: FSM ↔ Planner Contract v1.1
-  - FSM mod geçiş kararını verir → /fsm/current_mode
-  - Planner moda göre trajectory ve hız üretir
-  - mission_active=false → trajectory ÜRETMEZ
-  - MISSION_COMPLETE → speed=0, /planning/status DEVAM EDER
-
-FSM Mod Geçiş Tablosu (Contract v1.1 §4):
-  LANE_FOLLOW     → trajectory + adaptif lookahead
-  STOP_APPROACH   → speed=0, jerk sınırlı fren, stop_reason ile ayrım
-  PICKUP_APPROACH → 3km/h yaklaşım, sağa offset
-  DROPOFF_APPROACH→ 3km/h yaklaşım, sağa offset
-  OBSTACLE_AVOID  → trajectory sampling + kaçınma
-  PARK_APPROACH   → Dubins Path hesapla
-  PARK_MANEUVER   → ≤3km/h, hassas hizalama
-  MISSION_COMPLETE→ speed=0
+FSM moduna göre planner davranışını yönetir.
 """
 
+import time
 from dataclasses import dataclass
 from typing import Optional
 
 
 # ─── AutonomyMode Sabitleri ────────────────────────────────────────────────
-MODE_LANE_FOLLOW       = 0
-MODE_STOP_APPROACH     = 1
-MODE_PICKUP_APPROACH   = 2
-MODE_DROPOFF_APPROACH  = 3
-MODE_OBSTACLE_AVOID    = 4
-MODE_PARK_APPROACH     = 5
-MODE_PARK_MANEUVER     = 6
-MODE_MISSION_COMPLETE  = 7
+MODE_LANE_FOLLOW = 0
+MODE_STOP_APPROACH = 1
+MODE_PICKUP_APPROACH = 2
+MODE_DROPOFF_APPROACH = 3
+MODE_OBSTACLE_AVOID = 4
+MODE_PARK_APPROACH = 5
+MODE_PARK_MANEUVER = 6
+MODE_MISSION_COMPLETE = 7
 
-# ─── StopReason Sabitleri (common_msgs/StopReason) ─────────────────────────
-STOP_NONE              = 0
-STOP_RED_LIGHT         = 1
-STOP_STOP_SIGN         = 2
-STOP_OBSTACLE_TTC      = 3
+# ─── StopReason Sabitleri ──────────────────────────────────────────────────
+STOP_NONE = 0
+STOP_RED_LIGHT = 1
+STOP_STOP_SIGN = 2
+STOP_OBSTACLE_TTC = 3
 STOP_LOCALIZATION_LOST = 4
-STOP_STALE_SENSOR      = 5
-STOP_MISSION_ABORT     = 6
-STOP_PEDESTRIAN        = 7
+STOP_STALE_SENSOR = 5
+STOP_MISSION_ABORT = 6
+STOP_PEDESTRIAN = 7
 
 # ─── FSMEvent Sabitleri ────────────────────────────────────────────────────
-EVENT_PICKUP_COMPLETE   = 0
-EVENT_DROPOFF_COMPLETE  = 1
-EVENT_OBSTACLE_CLEARED  = 2
-EVENT_REPLANNING        = 3
-EVENT_MISSION_ABORT     = 4
-EVENT_RESUME            = 5
-EVENT_PARK_SLOT_CHANGE  = 6
-EVENT_EMERGENCY_STOP    = 7
+EVENT_PICKUP_COMPLETE = 0
+EVENT_DROPOFF_COMPLETE = 1
+EVENT_OBSTACLE_CLEARED = 2
+EVENT_REPLANNING = 3
+EVENT_MISSION_ABORT = 4
+EVENT_RESUME = 5
+EVENT_PARK_SLOT_CHANGE = 6
+EVENT_EMERGENCY_STOP = 7
 
 # ─── FSMRequest Sabitleri ──────────────────────────────────────────────────
-REQUEST_MODE_CHANGE     = 0
-REQUEST_REPLANNING      = 1
-REQUEST_GOAL_CONFIRMED  = 2
+REQUEST_MODE_CHANGE = 0
+REQUEST_REPLANNING_NEEDED = 1
+REQUEST_GOAL_CONFIRMED = 2
 REQUEST_OBSTACLE_BLOCKED = 3
-REQUEST_LOC_DEGRADED    = 4
-REQUEST_PARK_READY      = 5
-
-# ─── Lokalizasyon Status ───────────────────────────────────────────────────
-LOC_STATUS_DEGRADED = 4
-LOC_STATUS_LOST     = 6
+REQUEST_LOCALIZATION_DEGRADED = 4
+REQUEST_PARK_READY = 5
 
 
-@dataclass
+@dataclass(frozen=True)
 class ModeAction:
     """Mod bazlı planner eylemi."""
-    produce_trajectory:  bool     # Trajectory üret mi?
-    target_speed:        float    # m/s
-    jerk_limit:          float    # m/s³
-    use_dubins:          bool     # Dubins Path kullan mı?
-    use_sampling:        bool     # Trajectory sampling kullan mı?
-    lateral_offset:      float    # metre — sağa offset (pickup/dropoff)
-    description:         str
+    produce_trajectory: bool
+    target_speed: float
+    jerk_limit: float
+    use_dubins: bool
+    use_sampling: bool
+    lateral_offset: float
+    description: str
 
 
-# ─── Mod → Eylem Tablosu ───────────────────────────────────────────────────
 MODE_ACTIONS = {
     MODE_LANE_FOLLOW: ModeAction(
         produce_trajectory=True,
@@ -92,8 +70,9 @@ MODE_ACTIONS = {
         use_dubins=False,
         use_sampling=False,
         lateral_offset=0.0,
-        description='Normal şerit takibi — adaptif lookahead'
+        description='LANE_FOLLOW — normal şerit takibi'
     ),
+
     MODE_STOP_APPROACH: ModeAction(
         produce_trajectory=True,
         target_speed=0.0,
@@ -101,44 +80,49 @@ MODE_ACTIONS = {
         use_dubins=False,
         use_sampling=False,
         lateral_offset=0.0,
-        description='Jerk sınırlı fren — dur çizgisine'
+        description='STOP_APPROACH — jerk sınırlı fren'
     ),
+
     MODE_PICKUP_APPROACH: ModeAction(
         produce_trajectory=True,
         target_speed=0.83,
         jerk_limit=1.5,
         use_dubins=False,
         use_sampling=False,
-        lateral_offset=0.5,   # sağa offset
-        description='3km/h yaklaşım — yolcu tarafına'
+        lateral_offset=0.5,
+        description='PICKUP_APPROACH — 3 km/h sağa offset yaklaşım'
     ),
+
     MODE_DROPOFF_APPROACH: ModeAction(
         produce_trajectory=True,
         target_speed=0.83,
         jerk_limit=1.5,
         use_dubins=False,
         use_sampling=False,
-        lateral_offset=0.5,   # sağa offset
-        description='3km/h yaklaşım — yolcu tarafına'
+        lateral_offset=0.5,
+        description='DROPOFF_APPROACH — 3 km/h sağa offset yaklaşım'
     ),
+
     MODE_OBSTACLE_AVOID: ModeAction(
         produce_trajectory=True,
         target_speed=2.78,
         jerk_limit=1.5,
         use_dubins=False,
-        use_sampling=True,    # Trajectory sampling
+        use_sampling=True,
         lateral_offset=0.0,
-        description='Trajectory sampling + engel kaçınma'
+        description='OBSTACLE_AVOID — trajectory sampling + kaçınma'
     ),
+
     MODE_PARK_APPROACH: ModeAction(
         produce_trajectory=True,
         target_speed=1.39,
         jerk_limit=1.5,
-        use_dubins=True,      # Dubins Path
+        use_dubins=True,
         use_sampling=False,
         lateral_offset=0.0,
-        description='Dubins Path — park slot girişi'
+        description='PARK_APPROACH — Dubins path ile slot yaklaşımı'
     ),
+
     MODE_PARK_MANEUVER: ModeAction(
         produce_trajectory=True,
         target_speed=0.83,
@@ -146,8 +130,9 @@ MODE_ACTIONS = {
         use_dubins=False,
         use_sampling=False,
         lateral_offset=0.0,
-        description='≤3km/h hassas hizalama'
+        description='PARK_MANEUVER — düşük hız hassas hizalama'
     ),
+
     MODE_MISSION_COMPLETE: ModeAction(
         produce_trajectory=False,
         target_speed=0.0,
@@ -155,157 +140,158 @@ MODE_ACTIONS = {
         use_dubins=False,
         use_sampling=False,
         lateral_offset=0.0,
-        description='Görev tamamlandı — dur'
+        description='MISSION_COMPLETE — trajectory üretme, speed=0'
     ),
 }
 
 
+SAFE_STOP_ACTION = ModeAction(
+    produce_trajectory=True,
+    target_speed=0.0,
+    jerk_limit=2.0,
+    use_dubins=False,
+    use_sampling=False,
+    lateral_offset=0.0,
+    description='SAFE_STOP — güvenli duruş'
+)
+
+
+WAIT_ACTION = ModeAction(
+    produce_trajectory=False,
+    target_speed=0.0,
+    jerk_limit=2.0,
+    use_dubins=False,
+    use_sampling=False,
+    lateral_offset=0.0,
+    description='WAIT — mission_active=false, trajectory üretme'
+)
+
+
 class ModeHandler:
     """
-    FSM Mod Yöneticisi.
+    FSM mod yöneticisi.
 
-    Kullanım:
-        mh = ModeHandler()
-        mh.update_mode(mode=1, stop_reason=1, mission_active=True)
-        action = mh.get_action()
-        if action.produce_trajectory:
-            # trajectory üret
+    FSM /fsm/current_mode yayınlar.
+    Planner bu moda göre trajectory ve hız davranışını seçer.
     """
 
     def __init__(self):
-        self._current_mode    = MODE_LANE_FOLLOW
-        self._previous_mode   = MODE_LANE_FOLLOW
-        self._stop_reason     = STOP_NONE
-        self._mission_active  = False
-        self._waypoint_id     = 0
-        self._mode_changed    = False
+        self._current_mode = MODE_LANE_FOLLOW
+        self._previous_mode = MODE_LANE_FOLLOW
+        self._stop_reason = STOP_NONE
+        self._mission_active = False
+        self._waypoint_id = 0
+        self._mode_changed = False
 
-        # FSM timeout — Contract v1.1
-        # valid_until_ms aşılırsa son modu 1s koru → STOP_APPROACH
         self._last_fsm_update_ns: Optional[int] = None
-        self._fsm_timeout_ms = 500
-
-    # ───────────────────────────────────────────────────────────────────────
-    # PUBLIC API
-    # ───────────────────────────────────────────────────────────────────────
+        self._fsm_timeout_ms = 1000.0
 
     def update_mode(
         self,
-        mode:           int,
-        stop_reason:    int  = STOP_NONE,
+        mode: int,
+        stop_reason: int = STOP_NONE,
         mission_active: bool = False,
-        waypoint_id:    int  = 0,
-    ):
-        """FSM'den gelen mod güncellemesi."""
-        import time
+        waypoint_id: int = 0,
+    ) -> None:
+        """FSM'den gelen mod güncellemesini işler."""
         self._last_fsm_update_ns = time.monotonic_ns()
 
-        self._mode_changed   = (mode != self._current_mode)
-        self._previous_mode  = self._current_mode
-        self._current_mode   = mode
-        self._stop_reason    = stop_reason
-        self._mission_active = mission_active
-        self._waypoint_id    = waypoint_id
+        mode = int(mode)
+        stop_reason = int(stop_reason)
+        waypoint_id = int(waypoint_id)
+
+        self._mode_changed = mode != self._current_mode
+        self._previous_mode = self._current_mode
+        self._current_mode = mode
+        self._stop_reason = stop_reason
+        self._mission_active = bool(mission_active)
+        self._waypoint_id = waypoint_id
 
     def get_action(self) -> ModeAction:
         """
-        Mevcut moda göre planner eylemini döndür.
+        Mevcut FSM moduna göre planner eylemini döndürür.
 
-        FSM Contract v1.1 FIX-3:
-          mission_active=false → trajectory ÜRETMEZ
+        Güvenlik:
+          - mission_active=false ise trajectory üretmez.
+          - FSM timeout olursa güvenli duruş döndürür.
+          - bilinmeyen mode gelirse LANE_FOLLOW değil, güvenli duruş döndürür.
         """
-        # mission_active=false → trajectory üretme
         if not self._mission_active:
-            return ModeAction(
-                produce_trajectory=False,
-                target_speed=0.0,
-                jerk_limit=2.0,
-                use_dubins=False,
-                use_sampling=False,
-                lateral_offset=0.0,
-                description='mission_active=false — bekleme'
-            )
+            return WAIT_ACTION
 
-        # FSM timeout kontrolü
         if self._is_fsm_timed_out():
-            return ModeAction(
-                produce_trajectory=True,
-                target_speed=0.0,
-                jerk_limit=2.0,
-                use_dubins=False,
-                use_sampling=False,
-                lateral_offset=0.0,
-                description='FSM timeout — STOP_APPROACH'
-            )
+            return SAFE_STOP_ACTION
 
-        action = MODE_ACTIONS.get(
-            self._current_mode,
-            MODE_ACTIONS[MODE_LANE_FOLLOW]
-        )
-
-        return action
+        return MODE_ACTIONS.get(self._current_mode, SAFE_STOP_ACTION)
 
     def should_produce_trajectory(self) -> bool:
-        """Trajectory üretilmeli mi?"""
         return self.get_action().produce_trajectory
 
     def is_stopping(self) -> bool:
-        """Araç durma modunda mı?"""
+        if self._is_fsm_timed_out():
+            return True
+
         return self._current_mode in (
             MODE_STOP_APPROACH,
-            MODE_MISSION_COMPLETE
+            MODE_MISSION_COMPLETE,
         )
 
     def is_parking(self) -> bool:
-        """Park modunda mı?"""
         return self._current_mode in (
             MODE_PARK_APPROACH,
-            MODE_PARK_MANEUVER
+            MODE_PARK_MANEUVER,
         )
 
     def is_pickup_dropoff(self) -> bool:
-        """Pickup/dropoff modunda mı?"""
         return self._current_mode in (
             MODE_PICKUP_APPROACH,
-            MODE_DROPOFF_APPROACH
+            MODE_DROPOFF_APPROACH,
         )
 
     def get_stop_reason_description(self) -> str:
-        """Stop reason açıklaması."""
         descriptions = {
-            STOP_NONE:              'Yok',
-            STOP_RED_LIGHT:         'Kırmızı ışık',
-            STOP_STOP_SIGN:         'STOP tabelası',
-            STOP_OBSTACLE_TTC:      'Engel TTC',
+            STOP_NONE: 'Yok',
+            STOP_RED_LIGHT: 'Kırmızı ışık',
+            STOP_STOP_SIGN: 'STOP tabelası',
+            STOP_OBSTACLE_TTC: 'Engel TTC',
             STOP_LOCALIZATION_LOST: 'Lokalizasyon kaybı',
-            STOP_STALE_SENSOR:      'Sensör timeout',
-            STOP_MISSION_ABORT:     'Görev iptali',
-            STOP_PEDESTRIAN:        'Yaya',
+            STOP_STALE_SENSOR: 'Sensör timeout',
+            STOP_MISSION_ABORT: 'Görev iptali',
+            STOP_PEDESTRIAN: 'Yaya',
         }
+
+        if self._is_fsm_timed_out():
+            return 'FSM timeout'
+
         return descriptions.get(self._stop_reason, 'Bilinmiyor')
 
     def build_fsm_request(
         self,
-        request_type:   int,
+        request_type: int,
         requested_mode: int = 0,
-        waypoint_id:    int = 0,
-        reason:         str = '',
+        waypoint_id: int = 0,
+        reason: str = '',
+        valid_until_ms: int = 500,
     ) -> dict:
         """
-        /planning/fsm_request mesajı için veri üret.
-        Planner → FSM mod isteği.
+        planning_msgs/FSMRequest.msg alanlarına uygun veri üretir.
+
+        FSMRequest.msg:
+          uint8 request_type
+          uint8 requested_mode
+          uint32 waypoint_id
+          string reason
+          uint32 age_ms
+          uint32 valid_until_ms
         """
         return {
-            'request_type':   request_type,
-            'requested_mode': requested_mode,
-            'waypoint_id':    waypoint_id,
-            'reason':         reason,
-            'age_ms':         0,
+            'request_type': int(request_type),
+            'requested_mode': int(requested_mode),
+            'waypoint_id': int(waypoint_id),
+            'reason': str(reason),
+            'age_ms': 0,
+            'valid_until_ms': int(valid_until_ms),
         }
-
-    # ───────────────────────────────────────────────────────────────────────
-    # PROPERTIES
-    # ───────────────────────────────────────────────────────────────────────
 
     @property
     def current_mode(self) -> int:
@@ -317,6 +303,8 @@ class ModeHandler:
 
     @property
     def stop_reason(self) -> int:
+        if self._is_fsm_timed_out():
+            return STOP_STALE_SENSOR
         return self._stop_reason
 
     @property
@@ -331,22 +319,14 @@ class ModeHandler:
     def waypoint_id(self) -> int:
         return self._waypoint_id
 
-    # ───────────────────────────────────────────────────────────────────────
-    # PRIVATE
-    # ───────────────────────────────────────────────────────────────────────
+    @property
+    def fsm_timed_out(self) -> bool:
+        return self._is_fsm_timed_out()
 
     def _is_fsm_timed_out(self) -> bool:
-        """
-        FSM timeout kontrolü.
-        Contract v1.1: valid_until_ms aşılırsa → STOP_APPROACH
-        """
+        """FSM mesajı 1000 ms'den eskiyse timeout kabul eder."""
         if self._last_fsm_update_ns is None:
-            return False   # Henüz hiç güncelleme yok
+            return False
 
-        import time
-        elapsed_ms = (
-            time.monotonic_ns() - self._last_fsm_update_ns
-        ) / 1e6
-
-        # 1000ms → STOP_APPROACH (STALE_SENSOR)
-        return elapsed_ms > 1000.0
+        elapsed_ms = (time.monotonic_ns() - self._last_fsm_update_ns) / 1e6
+        return elapsed_ms > self._fsm_timeout_ms
