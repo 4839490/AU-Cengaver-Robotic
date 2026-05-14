@@ -7,8 +7,6 @@ install(DIRECTORY
   urdf
   worlds
   launch
-  models
-  config
   DESTINATION share/${PROJECT_NAME}
 )
 
