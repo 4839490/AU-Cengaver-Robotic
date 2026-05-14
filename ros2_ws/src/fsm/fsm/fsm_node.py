@@ -102,6 +102,17 @@ class FSMNode(Node):
 
         self.get_logger().info("FSM başladı — mod: LANE_FOLLOW, görev bekleniyor")
 
+        self.declare_parameter('auto_start_mission', False)
+        self.declare_parameter('sim_total_waypoints', 3)
+
+        if bool(self.get_parameter('auto_start_mission').value):
+            total_wp = int(self.get_parameter('sim_total_waypoints').value)
+            self.mission_mgr.gorevi_baslat(total_wp)
+            self.mission_mgr.sonraki_waypoint_ayarla(1, 2)
+            self.get_logger().info(
+                f'SIM: görev otomatik başlatıldı — total_waypoints={total_wp}'
+            )
+
         # ─────────────────────────────────────────────
         # PUBLISHER'LAR
         # ─────────────────────────────────────────────
