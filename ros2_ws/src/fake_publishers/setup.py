@@ -27,6 +27,7 @@ setup(
             'fake_perception = fake_publishers.fake_perception:main',
             'fake_controller_feedback = fake_publishers.fake_controller_feedback:main',
             'trajectory_to_cmdvel = fake_publishers.trajectory_to_cmdvel:main',
+            'gazebo_odom_localization_bridge = fake_publishers.gazebo_odom_localization_bridge:main',
             'lane_follower = fake_publishers.lane_follower:main',
         ],
     },
